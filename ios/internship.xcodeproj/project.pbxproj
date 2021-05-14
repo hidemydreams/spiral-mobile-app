@@ -12,10 +12,11 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3D235CA543FC8BC2E2DBB710 /* libPods-internship-internshipTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A535C02983B3AFE176BB2AC7 /* libPods-internship-internshipTests.a */; };
-		80BCA193B84D40B7B13C6D2D /* GTWalsheimPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136EB2BAD24F4751AF899FBA /* GTWalsheimPro-Light.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8CE2DF01F2EE4725A2685F0C /* GTWalsheimPro-CondensedUltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27F601E5BC654760B2E9AEEF /* GTWalsheimPro-CondensedUltraLight.ttf */; };
 		C269532465F96A3B71DBB342 /* libPods-internship.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EACEA9154FD3005E0E3BF93E /* libPods-internship.a */; };
+		94EEC99D06A046228469610F /* SFProRounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9616F7756B6C4E00B967C4A6 /* SFProRounded-Bold.otf */; };
+		AB11456A996C489AB98209D5 /* SFProRounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 19DCF2CFBB224C9CA1F6CC14 /* SFProRounded-Light.otf */; };
+		73F61EAA85884A4894A68196 /* SFProRounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BE19B669022A4D33957D19DD /* SFProRounded-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +33,12 @@
 		00E356EE1AD99517003FC87E /* internshipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = internshipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* internshipTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = internshipTests.m; sourceTree = "<group>"; };
-		136EB2BAD24F4751AF899FBA /* GTWalsheimPro-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GTWalsheimPro-Light.ttf"; path = "../src/assets/fonts/GTWalsheimPro-Light.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* internship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = internship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = internship/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = internship/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = internship/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = internship/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = internship/main.m; sourceTree = "<group>"; };
-		27F601E5BC654760B2E9AEEF /* GTWalsheimPro-CondensedUltraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GTWalsheimPro-CondensedUltraLight.ttf"; path = "../src/assets/fonts/GTWalsheimPro-CondensedUltraLight.ttf"; sourceTree = "<group>"; };
 		748A1508B07E923E75CF04F7 /* Pods-internship.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-internship.release.xcconfig"; path = "Target Support Files/Pods-internship/Pods-internship.release.xcconfig"; sourceTree = "<group>"; };
 		7D6BD037474A3A02274382AE /* Pods-internship-internshipTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-internship-internshipTests.release.xcconfig"; path = "Target Support Files/Pods-internship-internshipTests/Pods-internship-internshipTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = internship/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -48,6 +47,9 @@
 		C126AAFC112CD7DA748C11A3 /* Pods-internship.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-internship.debug.xcconfig"; path = "Target Support Files/Pods-internship/Pods-internship.debug.xcconfig"; sourceTree = "<group>"; };
 		EACEA9154FD3005E0E3BF93E /* libPods-internship.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-internship.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		9616F7756B6C4E00B967C4A6 /* SFProRounded-Bold.otf */ = {isa = PBXFileReference; name = "SFProRounded-Bold.otf"; path = "../src/assets/fonts/SFProRounded-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		19DCF2CFBB224C9CA1F6CC14 /* SFProRounded-Light.otf */ = {isa = PBXFileReference; name = "SFProRounded-Light.otf"; path = "../src/assets/fonts/SFProRounded-Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BE19B669022A4D33957D19DD /* SFProRounded-Regular.otf */ = {isa = PBXFileReference; name = "SFProRounded-Regular.otf"; path = "../src/assets/fonts/SFProRounded-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +116,9 @@
 		2B14A7A8C0184A0593427D25 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27F601E5BC654760B2E9AEEF /* GTWalsheimPro-CondensedUltraLight.ttf */,
-				136EB2BAD24F4751AF899FBA /* GTWalsheimPro-Light.ttf */,
+				9616F7756B6C4E00B967C4A6 /* SFProRounded-Bold.otf */,
+				19DCF2CFBB224C9CA1F6CC14 /* SFProRounded-Light.otf */,
+				BE19B669022A4D33957D19DD /* SFProRounded-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -256,8 +259,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				8CE2DF01F2EE4725A2685F0C /* GTWalsheimPro-CondensedUltraLight.ttf in Resources */,
-				80BCA193B84D40B7B13C6D2D /* GTWalsheimPro-Light.ttf in Resources */,
+				94EEC99D06A046228469610F /* SFProRounded-Bold.otf in Resources */,
+				AB11456A996C489AB98209D5 /* SFProRounded-Light.otf in Resources */,
+				73F61EAA85884A4894A68196 /* SFProRounded-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3WM3WBYMSJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = internship/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,7 +480,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = new.project.iechart.trainee;
 				PRODUCT_NAME = internship;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -490,6 +495,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3WM3WBYMSJ;
 				INFOPLIST_FILE = internship/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -500,7 +506,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = new.project.iechart.trainee;
 				PRODUCT_NAME = internship;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
