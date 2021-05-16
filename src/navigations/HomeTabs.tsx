@@ -30,12 +30,15 @@ function HomeTabs() {
             case 'Cards':
               iconName = require('../assets/images/cards.png');
               break;
-
             default:
+              break;
           }
           return <Image source={iconName} />;
         },
-      })}>
+      })}
+      tabBarOptions={{
+        activeTintColor: 'rgb(215, 51, 116)',
+      }}>
       <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="Accounts" component={Accounts} />
       <Tab.Screen name="Giving" component={Giving} />
