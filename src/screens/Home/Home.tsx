@@ -2,7 +2,7 @@ import React from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-function HomeStackScreen({ navigation }) {
+function Home({ navigation }: { navigation: any }) {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -19,4 +19,4 @@ function HomeStackScreen({ navigation }) {
   );
 }
 
-export default HomeStackScreen;
+export default Home;

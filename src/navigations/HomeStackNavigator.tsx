@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Checking from '../screens/Checking/Checking';
 import Saving from '../screens/Saving/Saving';
-import HomeStackScreen from '../screens/Home/Home';
+import Home from '../screens/Home/Home';
+const HomeStack = createStackNavigator();
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
-function HomeTabs() {
-  const HomeStack = createStackNavigator();
+function HomeStackNavigator({ navigation, route }) {
+  // Hiding bottom TabBar on the screens that are not Home screen
+  const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
+  useEffect(() => {
+    navigation.setOptions({
+      tabBarVisible: routeName === 'Home',
+    });
+  }, [navigation, routeName]);
+
   return (
     <HomeStack.Navigator initialRouteName="Home">
       <HomeStack.Screen
         name="Home"
-        component={HomeStackScreen}
+        component={Home}
         options={{ title: 'Home' }}
       />
       <HomeStack.Screen
@@ -27,4 +36,4 @@ function HomeTabs() {
   );
 }
 
-export default HomeTabs;
+export default HomeStackNavigator;

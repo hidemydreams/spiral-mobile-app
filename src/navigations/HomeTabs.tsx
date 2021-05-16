@@ -6,7 +6,6 @@ import Payments from '../screens/Payments/Payments';
 import Cards from '../screens/Cards/Cards';
 import HomeStackNavigator from '../navigations/HomeStackNavigator';
 import { Image } from 'react-native';
-
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
   return (
