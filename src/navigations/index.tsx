@@ -4,10 +4,10 @@ import HomeTabs from './HomeTabs';
 import SignIn from '../screens/SignIn/SignIn';
 
 function AppNavigationContainer() {
+  const JWT_TOKEN = true;
   return (
     <NavigationContainer>
-      <HomeTabs />
-      {/* <SignIn /> */}
+      {JWT_TOKEN ? <HomeTabs /> : <SignIn />}
     </NavigationContainer>
   );
 }

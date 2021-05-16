@@ -5,16 +5,38 @@ import Giving from '../screens/Giving/Giving';
 import Payments from '../screens/Payments/Payments';
 import Cards from '../screens/Cards/Cards';
 import HomeStackNavigator from '../navigations/HomeStackNavigator';
+import { Image } from 'react-native';
 
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Home Screen"
-        component={HomeStackNavigator}
-        options={{ title: 'Home' }}
-      />
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: () => {
+          let iconName;
+          switch (route.name) {
+            case 'Home':
+              iconName = require('../assets/images/home.png');
+              break;
+            case 'Accounts':
+              iconName = require('../assets/images/accounts.png');
+              break;
+            case 'Giving':
+              iconName = require('../assets/images/giving.png');
+              break;
+            case 'Payments':
+              iconName = require('../assets/images/payment.png');
+              break;
+            case 'Cards':
+              iconName = require('../assets/images/cards.png');
+              break;
+
+            default:
+          }
+          return <Image source={iconName} />;
+        },
+      })}>
+      <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="Accounts" component={Accounts} />
       <Tab.Screen name="Giving" component={Giving} />
       <Tab.Screen name="Payments" component={Payments} />

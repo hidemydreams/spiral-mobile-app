@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Text, View, StatusBar } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function Accounts() {
   return (
