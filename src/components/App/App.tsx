@@ -7,21 +7,12 @@
  *
  * @format
  */
+import 'react-native-gesture-handler';
 import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
-import theme from '../../theme/Theme';
-import { StyleProvider } from 'native-base';
+import AppNavigationContainer from '../../navigations';
 
 const App = () => {
-  return (
-    <SafeAreaView>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Text>This is going to be cool app!</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+  return <AppNavigationContainer />;
 };
 
 export default App;
