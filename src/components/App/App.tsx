@@ -8,22 +8,19 @@
  * @format
  */
 import React from 'react';
-import {SafeAreaView, ScrollView, StatusBar, Text, View} from 'react-native';
-import {ThemeProvider} from 'react-native-elements';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import theme from '../../theme/Theme';
+import { StyleProvider } from 'native-base';
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <SafeAreaView>
-        <StatusBar />
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-          <View>
-            <Text>This is going to be a cool app!</Text>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </ThemeProvider>
+    <SafeAreaView>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <View>
+          <Text>This is going to be cool app!</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
