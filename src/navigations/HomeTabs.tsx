@@ -11,6 +11,7 @@ import HomeStackNavigator from '../navigations/HomeStackNavigator';
 import { Image, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import TapBar from '../components/TapBar/TapBar';
+import screens from '../constants/screens';
 
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
@@ -20,19 +21,19 @@ function HomeTabs() {
         tabBarIcon: () => {
           let iconName;
           switch (route.name) {
-            case 'Home':
+            case screens.HOME:
               iconName = require('../assets/images/home.png');
               break;
-            case 'Accounts':
+            case screens.ACCOUNTS:
               iconName = require('../assets/images/accounts.png');
               break;
-            case 'Giving':
+            case screens.GIVING:
               iconName = require('../assets/images/giving.png');
               break;
-            case 'Payments':
+            case screens.PAYMENTS:
               iconName = require('../assets/images/payment.png');
               break;
-            case 'Cards':
+            case screens.CARDS:
               iconName = require('../assets/images/cards.png');
               break;
             default:
@@ -84,11 +85,11 @@ function HomeTabs() {
           </BlurView>
         </>
       )}>
-      <Tab.Screen name="Home" component={HomeStackNavigator} />
-      <Tab.Screen name="Accounts" component={Accounts} />
-      <Tab.Screen name="Giving" component={Giving} />
-      <Tab.Screen name="Payments" component={Payments} />
-      <Tab.Screen name="Cards" component={Cards} />
+      <Tab.Screen name={screens.HOME} component={HomeStackNavigator} />
+      <Tab.Screen name={screens.ACCOUNTS} component={Accounts} />
+      <Tab.Screen name={screens.GIVING} component={Giving} />
+      <Tab.Screen name={screens.PAYMENTS} component={Payments} />
+      <Tab.Screen name={screens.CARDS} component={Cards} />
     </Tab.Navigator>
   );
 }
