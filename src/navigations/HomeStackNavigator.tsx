@@ -6,8 +6,12 @@ import Home from '../screens/Home/Home';
 const HomeStack = createStackNavigator();
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import screens from '../constants/screens';
+import BackButton from '../components/shared/BackButton';
+import Logo from '../components/shared/Logo';
+import UserIcon from '../components/shared/UserIcon';
 
 function HomeStackNavigator({ navigation, route }): ReactElement {
+  console.log(navigation.dangerouslyGetParent());
   // Hiding bottom TabBar on the screens that are not Home screen
   const routeName = getFocusedRouteNameFromRoute(route) ?? screens.HOME;
   useEffect(() => {
@@ -21,17 +25,29 @@ function HomeStackNavigator({ navigation, route }): ReactElement {
       <HomeStack.Screen
         name={screens.HOME}
         component={Home}
-        options={{ title: 'Home' }}
+        options={{
+          headerLeft: () => <BackButton />,
+          headerTitle: () => <Logo />,
+          headerRight: () => <UserIcon />,
+        }}
       />
       <HomeStack.Screen
         name={screens.CHECKING}
         component={Checking}
-        options={{ title: 'Checking' }}
+        options={{
+          headerLeft: () => <BackButton navigation={navigation} />,
+          headerTitle: () => <Logo routeName={route.name} />,
+          headerRight: () => <UserIcon />,
+        }}
       />
       <HomeStack.Screen
         name={screens.SAVING}
         component={Saving}
-        options={{ title: 'Saving' }}
+        options={{
+          headerLeft: () => <BackButton navigation={navigation} />,
+          headerTitle: () => <Logo routeName={route.name} />,
+          headerRight: () => <UserIcon />,
+        }}
       />
     </HomeStack.Navigator>
   );

@@ -1,5 +1,28 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import screens from '../../constants/screens';
+import BackButton from '../../components/shared/BackButton';
+import Logo from '../../components/shared/Logo';
+import UserIcon from '../../components/shared/UserIcon';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+function PaymentsStack({ navigation, route }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name={screens.PAYMENTS}
+        component={Payments}
+        options={{
+          headerLeft: () => <BackButton navigation={navigation} />,
+          headerTitle: () => <Logo />,
+          headerRight: () => <UserIcon />,
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 
 function Payments() {
   return (
@@ -13,4 +36,4 @@ function Payments() {
   );
 }
 
-export default Payments;
+export default PaymentsStack;
