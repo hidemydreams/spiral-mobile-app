@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import styled from 'styled-components/native';
+import { View, Text, Image } from 'react-native';
 
 function BackButton() {
   return (
     <View>
-      <Text>User Icon</Text>
+      <Image source={require('../../assets/images/oval.png')} />
     </View>
   );
 }

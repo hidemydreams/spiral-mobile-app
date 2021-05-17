@@ -16,7 +16,7 @@ const GivingStack = ({ navigation, route }) => {
         component={Giving}
         options={{
           headerLeft: () => <BackButton navigation={navigation} />,
-          headerTitle: () => <Logo />,
+          headerTitle: () => <Logo routeName={route.name} />,
           headerRight: () => <UserIcon />,
         }}
       />

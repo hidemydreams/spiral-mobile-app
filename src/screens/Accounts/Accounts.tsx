@@ -8,7 +8,7 @@ import UserIcon from '../../components/shared/UserIcon';
 
 const Stack = createStackNavigator();
 
-function AccountsStack({ navigation }) {
+function AccountsStack({ navigation, route }) {
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -16,7 +16,7 @@ function AccountsStack({ navigation }) {
         component={Accounts}
         options={{
           headerLeft: () => <BackButton navigation={navigation} />,
-          headerTitle: () => <Logo />,
+          headerTitle: () => <Logo routeName={route.name} />,
           headerRight: () => <UserIcon />,
         }}
       />

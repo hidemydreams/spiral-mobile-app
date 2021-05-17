@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
@@ -8,12 +8,21 @@ const HeaderView = styled.View`
   flex-direction: row;
 `;
 
-function BackButton({ navigation }) {
+function BackButton({ navigation, route }) {
+  console.log({ navigation });
   return (
     <HeaderView>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Text>Back</Text>
-      </TouchableOpacity>
+      {navigation ? (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          {/* <Image source={require('../../assets/images/back.png')} /> */}
+          <Text>Back</Text>
+        </TouchableOpacity>
+      ) : (
+        <View>
+          {/* <Image source={require('../../assets/images/burgerMenuIcon.png')} /> */}
+          <Text>Burger</Text>
+        </View>
+      )}
     </HeaderView>
   );
 }

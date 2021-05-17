@@ -3,20 +3,21 @@ import {
   BottomTabBar,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import Payments from '../screens/Payments/Payments';
-import Cards from '../screens/Cards/Cards';
 import HomeStackNavigator from '../navigations/HomeStackNavigator';
 import { Image, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import screens from '../constants/screens';
-import AccountsStack from '../screens/Accounts/Accounts';
+import Accounts from '../screens/Accounts/Accounts';
 import GivingStack from '../screens/Giving/Giving';
 import PaymentsStack from '../screens/Payments/Payments';
+import CardsStack from '../screens/Cards/Cards';
+import AccountsStack from '../screens/Accounts/Accounts';
 
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
   return (
     <Tab.Navigator
+      initialRouteName={screens.HOME}
       screenOptions={({ route }) => ({
         tabBarIcon: () => {
           let iconName;
@@ -89,7 +90,7 @@ function HomeTabs() {
       <Tab.Screen name={screens.ACCOUNTS} component={AccountsStack} />
       <Tab.Screen name={screens.GIVING} component={GivingStack} />
       <Tab.Screen name={screens.PAYMENTS} component={PaymentsStack} />
-      <Tab.Screen name={screens.CARDS} component={Cards} />
+      <Tab.Screen name={screens.CARDS} component={CardsStack} />
     </Tab.Navigator>
   );
 }
