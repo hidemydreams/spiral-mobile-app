@@ -1,11 +1,16 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  BottomTabBar,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import Accounts from '../screens/Accounts/Accounts';
 import Giving from '../screens/Giving/Giving';
 import Payments from '../screens/Payments/Payments';
 import Cards from '../screens/Cards/Cards';
 import HomeStackNavigator from '../navigations/HomeStackNavigator';
 import { Image } from 'react-native';
+import { BlurView } from '@react-native-community/blur';
+
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
   return (
@@ -37,7 +42,25 @@ function HomeTabs() {
       })}
       tabBarOptions={{
         activeTintColor: 'rgb(215, 51, 116)',
-      }}>
+        style: {
+          backgroundColor: 'transparent',
+        },
+      }}
+      tabBar={props => (
+        <BlurView
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
+          blurType="light"
+          blurAmount={100}
+          blurRadius={100}
+          overlayColor="rgb(215, 51, 116)">
+          <BottomTabBar {...props} />
+        </BlurView>
+      )}>
       <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="Accounts" component={Accounts} />
       <Tab.Screen name="Giving" component={Giving} />
