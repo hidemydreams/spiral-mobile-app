@@ -14,6 +14,79 @@ function Home({ navigation }: { navigation: any }) {
             <Text>Go to checking screen</Text>
           </TouchableOpacity>
         </View>
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <View
+          style={{
+            width: 500,
+            height: 100,
+            backgroundColor: 'pink',
+            marginBottom: 20,
+          }}
+        />
+        <Image source={require('../../assets/images/TOM.png')} />
       </ScrollView>
     </SafeAreaView>
   );

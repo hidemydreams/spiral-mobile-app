@@ -8,8 +8,9 @@ import Giving from '../screens/Giving/Giving';
 import Payments from '../screens/Payments/Payments';
 import Cards from '../screens/Cards/Cards';
 import HomeStackNavigator from '../navigations/HomeStackNavigator';
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
+import TapBar from '../components/TapBar/TapBar';
 
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
@@ -43,23 +44,45 @@ function HomeTabs() {
       tabBarOptions={{
         activeTintColor: 'rgb(215, 51, 116)',
         style: {
-          backgroundColor: 'transparent',
+          backgroundColor: 'rgba(255, 255, 255)',
         },
       }}
       tabBar={props => (
-        <BlurView
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-          }}
-          blurType="light"
-          blurAmount={100}
-          blurRadius={100}
-          overlayColor="rgb(215, 51, 116)">
-          <BottomTabBar {...props} />
-        </BlurView>
+        <>
+          <BlurView
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+            }}
+            blurType="light"
+            blurAmount={50}>
+            <View
+              style={{
+                position: 'absolute',
+                width: 400,
+                height: 100,
+                backgroundColor: 'white',
+                bottom: 0,
+                left: 0,
+                zIndex: -1,
+              }}
+            />
+            <BottomTabBar {...props} />
+            <View
+              style={{
+                position: 'absolute',
+                width: 200,
+                height: 40,
+                backgroundColor: 'pink',
+                bottom: 10,
+                left: 100,
+                zIndex: -1,
+              }}
+            />
+          </BlurView>
+        </>
       )}>
       <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="Accounts" component={Accounts} />
