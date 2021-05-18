@@ -4,11 +4,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 
-function BackButton({ location }) {
+const HeaderLeftView = styled.View`
+  padding-left: 7px;
+`;
+
+function HeaderLeft({ location }) {
   const navigation = useNavigation();
-  console.log(location);
   return (
-    <View>
+    <HeaderLeftView>
       {!location ? (
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={require('../../assets/images/back.png')} />
@@ -18,8 +21,8 @@ function BackButton({ location }) {
           <Image source={require('../../assets/images/burgerMenuIcon.png')} />
         </View>
       )}
-    </View>
+    </HeaderLeftView>
   );
 }
 
-export default BackButton;
+export default HeaderLeft;

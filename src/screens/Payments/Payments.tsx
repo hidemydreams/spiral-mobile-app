@@ -1,23 +1,25 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import screens from '../../constants/screens';
-import BackButton from '../../components/shared/BackButton';
-import Logo from '../../components/shared/Logo';
-import UserIcon from '../../components/shared/UserIcon';
+import HeaderLeft from '../../components/shared/HeaderLeft';
+import HeaderTitle from '../../components/shared/HeaderTitle';
+import HeaderRight from '../../components/shared/HeaderRight';
 import { createStackNavigator } from '@react-navigation/stack';
 
-const Stack = createStackNavigator();
-
 function PaymentsStack({ navigation, route }) {
+  const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
       <Stack.Screen
         name={screens.PAYMENTS}
         component={Payments}
         options={{
-          headerLeft: () => <BackButton navigation={navigation} />,
-          headerTitle: () => <Logo routeName={route.name} />,
-          headerRight: () => <UserIcon />,
+          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerTitle: () => <HeaderTitle routeName={route.name} />,
+          headerRight: () => <HeaderRight />,
+          headerStyle: {
+            backgroundColor: 'rgb(215, 51, 116)',
+          },
         }}
       />
     </Stack.Navigator>

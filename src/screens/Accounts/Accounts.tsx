@@ -2,9 +2,9 @@ import React from 'react';
 import { SafeAreaView, ScrollView, Text, View, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import screens from '../../constants/screens';
-import BackButton from '../../components/shared/BackButton';
-import Logo from '../../components/shared/Logo';
-import UserIcon from '../../components/shared/UserIcon';
+import HeaderLeft from '../../components/shared/HeaderLeft';
+import HeaderTitle from '../../components/shared/HeaderTitle';
+import HeaderRight from '../../components/shared/HeaderRight';
 
 const Stack = createStackNavigator();
 
@@ -15,9 +15,12 @@ function AccountsStack({ navigation, route }) {
         name={screens.ACCOUNTS}
         component={Accounts}
         options={{
-          headerLeft: () => <BackButton navigation={navigation} />,
-          headerTitle: () => <Logo routeName={route.name} />,
-          headerRight: () => <UserIcon />,
+          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerTitle: () => <HeaderTitle routeName={route.name} />,
+          headerRight: () => <HeaderRight />,
+          headerStyle: {
+            backgroundColor: 'rgb(215, 51, 116)',
+          },
         }}
       />
     </Stack.Navigator>
