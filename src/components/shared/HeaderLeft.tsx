@@ -8,7 +8,7 @@ const HeaderLeftView = styled.View`
   padding-left: 7px;
 `;
 
-function HeaderLeft({ location }) {
+function HeaderLeft({ location }: { location?: String }) {
   const navigation = useNavigation();
   return (
     <HeaderLeftView>

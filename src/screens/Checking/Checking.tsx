@@ -5,6 +5,7 @@ import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import HeaderRight from '../../components/shared/HeaderRight';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useTheme } from 'react-native-elements';
 
 function Checking() {
   return (
@@ -18,22 +19,23 @@ function Checking() {
   );
 }
 
-function CheckingStack({ navigation, route }) {
+function CheckingStack({ route }) {
   const { subtitle } = route.params;
   const Stack = createStackNavigator();
+  const { theme } = useTheme();
   return (
     <Stack.Navigator>
       <Stack.Screen
         name={screens.CHECKING}
         component={Checking}
         options={{
-          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerLeft: () => <HeaderLeft />,
           headerTitle: () => (
             <HeaderTitle routeName={route.name} subtitle={subtitle} />
           ),
           headerRight: () => <HeaderRight />,
           headerStyle: {
-            backgroundColor: 'rgb(215, 51, 116)',
+            backgroundColor: theme.colors.primary,
           },
         }}
       />

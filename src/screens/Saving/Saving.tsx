@@ -5,6 +5,7 @@ import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import HeaderRight from '../../components/shared/HeaderRight';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useTheme } from 'react-native-elements';
 
 function Saving() {
   return (
@@ -18,9 +19,10 @@ function Saving() {
   );
 }
 
-function SavingStack({ navigation, route }) {
+function SavingStack({ route }) {
   const { subtitle } = route.params;
   const Stack = createStackNavigator();
+  const { theme } = useTheme();
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -33,7 +35,7 @@ function SavingStack({ navigation, route }) {
           ),
           headerRight: () => <HeaderRight />,
           headerStyle: {
-            backgroundColor: 'rgb(215, 51, 116)',
+            backgroundColor: theme.colors.primary,
           },
         }}
       />

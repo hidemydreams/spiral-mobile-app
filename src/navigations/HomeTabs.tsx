@@ -69,7 +69,7 @@ function HomeTabs() {
       tabBarOptions={{
         activeTintColor: theme.colors.primary,
         style: {
-          backgroundColor: 'rgba(255, 255, 255)',
+          backgroundColor: theme.colors.light,
         },
       }}
       tabBar={props => (

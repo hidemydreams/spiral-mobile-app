@@ -5,21 +5,23 @@ import screens from '../../constants/screens';
 import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import HeaderRight from '../../components/shared/HeaderRight';
+import { useTheme } from 'react-native-elements';
 
-const Stack = createStackNavigator();
+function AccountsStack({ route }) {
+  const { theme } = useTheme();
+  const Stack = createStackNavigator();
 
-function AccountsStack({ navigation, route }) {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name={screens.ACCOUNTS}
         component={Accounts}
         options={{
-          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerLeft: () => <HeaderLeft />,
           headerTitle: () => <HeaderTitle routeName={route.name} />,
           headerRight: () => <HeaderRight />,
           headerStyle: {
-            backgroundColor: 'rgb(215, 51, 116)',
+            backgroundColor: theme.colors.primary,
           },
         }}
       />

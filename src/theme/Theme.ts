@@ -4,6 +4,7 @@ const theme = {
     black: 'rgb(41,41,41)',
     background: 'rgb(247,248,252)',
     accentGreen: '#91CCB2',
+    light: 'rgba(255, 255, 255)',
   },
   typography: {
     fontFamily: 'Sf Pro Rounded',

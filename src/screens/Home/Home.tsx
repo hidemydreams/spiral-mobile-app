@@ -1,35 +1,21 @@
 import React, { ReactElement } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import screens from '../../constants/screens';
 import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderRight from '../../components/shared/HeaderRight';
 import HeaderTitle from '../../components/shared/HeaderTitle';
-import styled from 'styled-components/native';
-import { StyledText } from './HomeStyles';
+import {
+  StyledText,
+  HomeScreen,
+  PaperBlock,
+  AccountsOverview,
+} from './HomeStyles';
+import { useNavigation } from '@react-navigation/native';
 
-const HomeScreen = styled.View`
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 7px;
-`;
-
-const PaperBlock = styled.View`
-  border-radius: 3px;
-  background-color: white;
-  border: 1px solid black;
-`;
-
-const AccountsOverview = styled.View`
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  padding: 5px;
-  text-align: center;
-`;
-
-function Home({ navigation }: { navigation?: any }) {
+function Home() {
+  const navigation = useNavigation();
   return (
     <HomeScreen>
       <StatusBar barStyle="light-content" />
@@ -43,12 +29,14 @@ function Home({ navigation }: { navigation?: any }) {
           <StyledText>Total Available Cash</StyledText>
         </AccountsOverview>
         <TouchableOpacity
-          onPress={() => navigation.push('Saving', { subtitle: 'Some text' })}>
+          onPress={() =>
+            navigation.navigate('Saving', { subtitle: 'Some text' })
+          }>
           <StyledText>Go to savings screen</StyledText>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
-            navigation.push('Checking', { subtitle: 'Some text' })
+            navigation.navigate('Checking', { subtitle: 'Some text' })
           }>
           <StyledText>Go to checking screen</StyledText>
         </TouchableOpacity>

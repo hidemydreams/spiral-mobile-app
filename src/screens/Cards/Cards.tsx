@@ -5,20 +5,23 @@ import screens from '../../constants/screens';
 import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import HeaderRight from '../../components/shared/HeaderRight';
+import { useTheme } from 'react-native-elements';
 
-function CardsStack({ navigation, route }) {
+function CardsStack({ route }) {
   const Stack = createStackNavigator();
+  const { theme } = useTheme();
+
   return (
     <Stack.Navigator>
       <Stack.Screen
         name={screens.CARDS}
         component={Cards}
         options={{
-          headerLeft: () => <HeaderLeft navigation={navigation} />,
+          headerLeft: () => <HeaderLeft />,
           headerTitle: () => <HeaderTitle routeName={route.name} />,
           headerRight: () => <HeaderRight />,
           headerStyle: {
-            backgroundColor: 'rgb(215, 51, 116)',
+            backgroundColor: theme.colors.primary,
           },
         }}
       />
