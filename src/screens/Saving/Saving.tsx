@@ -19,6 +19,7 @@ function Saving() {
 }
 
 function SavingStack({ navigation, route }) {
+  const { subtitle } = route.params;
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
@@ -26,8 +27,10 @@ function SavingStack({ navigation, route }) {
         name={screens.SAVING}
         component={Saving}
         options={{
-          headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle routeName={route.name} />,
+          headerLeft: () => <HeaderLeft />,
+          headerTitle: () => (
+            <HeaderTitle routeName={route.name} subtitle={subtitle} />
+          ),
           headerRight: () => <HeaderRight />,
           headerStyle: {
             backgroundColor: 'rgb(215, 51, 116)',

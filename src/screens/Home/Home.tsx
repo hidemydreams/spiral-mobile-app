@@ -43,10 +43,13 @@ function Home({ navigation }: { navigation?: any }) {
           <StyledText>Total Available Cash</StyledText>
         </AccountsOverview>
         <TouchableOpacity
-          onPress={() => navigation.push('Saving', { fromScreen: 'Home' })}>
+          onPress={() => navigation.push('Saving', { subtitle: 'Some text' })}>
           <StyledText>Go to savings screen</StyledText>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.push('Checking')}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.push('Checking', { subtitle: 'Some text' })
+          }>
           <StyledText>Go to checking screen</StyledText>
         </TouchableOpacity>
       </PaperBlock>

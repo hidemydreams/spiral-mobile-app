@@ -19,6 +19,7 @@ function Checking() {
 }
 
 function CheckingStack({ navigation, route }) {
+  const { subtitle } = route.params;
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
@@ -27,7 +28,9 @@ function CheckingStack({ navigation, route }) {
         component={Checking}
         options={{
           headerLeft: () => <HeaderLeft navigation={navigation} />,
-          headerTitle: () => <HeaderTitle routeName={route.name} />,
+          headerTitle: () => (
+            <HeaderTitle routeName={route.name} subtitle={subtitle} />
+          ),
           headerRight: () => <HeaderRight />,
           headerStyle: {
             backgroundColor: 'rgb(215, 51, 116)',

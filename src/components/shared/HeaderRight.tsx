@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
-  Image,
   Modal,
   TouchableWithoutFeedback,
   StyleSheet,
