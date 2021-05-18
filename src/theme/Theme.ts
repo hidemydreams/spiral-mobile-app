@@ -17,6 +17,12 @@ const theme = {
       paddingRight: 7,
       paddingTop: 7,
     },
+    absolutePos: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+    },
   },
 };
 

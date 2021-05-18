@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/Home/Home';
 import screens from '../constants/screens';
@@ -6,7 +6,7 @@ import HeaderLeft from '../components/shared/HeaderLeft';
 import HeaderTitle from '../components/shared/HeaderTitle';
 import HeaderRight from '../components/shared/HeaderRight';
 
-function HomeStackNavigator({ navigation, route }): ReactElement {
+function HomeStackNavigator(): ReactElement {
   const HomeStack = createStackNavigator();
 
   return (

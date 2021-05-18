@@ -4,16 +4,41 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import HomeStackNavigator from '../navigations/HomeStackNavigator';
-import { Image, View } from 'react-native';
+import { Image } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import screens from '../constants/screens';
 import GivingStack from '../screens/Giving/Giving';
 import PaymentsStack from '../screens/Payments/Payments';
 import CardsStack from '../screens/Cards/Cards';
 import AccountsStack from '../screens/Accounts/Accounts';
+import styled from 'styled-components/native';
+import { useTheme } from 'react-native-elements';
+
+const BluredView = styled.View`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+`;
+
+const BluredOverlay = styled.View`
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  background-color: pink;
+  bottom: 10px;
+  left: 25%;
+  z-index: -1;
+`;
 
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
+  const { theme } = useTheme();
+
   return (
     <Tab.Navigator
       initialRouteName={screens.HOME}
@@ -43,7 +68,7 @@ function HomeTabs() {
         },
       })}
       tabBarOptions={{
-        activeTintColor: 'rgb(215, 51, 116)',
+        activeTintColor: theme.colors.primary,
         style: {
           backgroundColor: 'rgba(255, 255, 255)',
         },
@@ -51,37 +76,12 @@ function HomeTabs() {
       tabBar={props => (
         <>
           <BlurView
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-            }}
+            style={theme.layout.absolutePos}
             blurType="light"
             blurAmount={50}>
-            <View
-              style={{
-                position: 'absolute',
-                width: 400,
-                height: 100,
-                backgroundColor: 'white',
-                bottom: 0,
-                left: 0,
-                zIndex: -1,
-              }}
-            />
+            <BluredView />
             <BottomTabBar {...props} />
-            <View
-              style={{
-                position: 'absolute',
-                width: 200,
-                height: 40,
-                backgroundColor: 'pink',
-                bottom: 10,
-                left: 100,
-                zIndex: -1,
-              }}
-            />
+            <BluredOverlay />
           </BlurView>
         </>
       )}>

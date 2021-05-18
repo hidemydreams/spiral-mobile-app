@@ -9,7 +9,7 @@ const SubtitleText = styled.Text`
   color: white;
 `;
 
-function HeaderTitle({ routeName }) {
+function HeaderTitle({ routeName }: { routeName?: string }) {
   return (
     <View>
       <Text>

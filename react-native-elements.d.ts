@@ -2,6 +2,7 @@ type RecursivePartial<T> = { [P in keyof T]?: RecursivePartial<T[P]> };
 
 declare module 'react-native-elements' {
   export interface Colors {
+    primary: string;
     background: string;
     border: string;
     text: string;
@@ -19,5 +20,6 @@ declare module 'react-native-elements' {
 
   export interface layout {
     container: object;
+    absolutePos: object;
   }
 }

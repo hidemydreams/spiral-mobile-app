@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-function Home({ navigation }: { navigation: any }) {
+function Home({ navigation }: { navigation?: any }) {
   return (
     <SafeAreaView>
       <ScrollView>
