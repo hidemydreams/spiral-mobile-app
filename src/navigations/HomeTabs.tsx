@@ -7,7 +7,6 @@ import HomeStackNavigator from '../navigations/HomeStackNavigator';
 import { Image, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import screens from '../constants/screens';
-import Accounts from '../screens/Accounts/Accounts';
 import GivingStack from '../screens/Giving/Giving';
 import PaymentsStack from '../screens/Payments/Payments';
 import CardsStack from '../screens/Cards/Cards';

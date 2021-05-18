@@ -7,12 +7,10 @@ function Home({ navigation }: { navigation: any }) {
       <ScrollView>
         <View>
           <TouchableOpacity
-            onPress={() =>
-              navigation.navigate('Saving', { fromScreen: 'Home' })
-            }>
+            onPress={() => navigation.push('Saving', { fromScreen: 'Home' })}>
             <Text>Go to savings screen</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Checking')}>
+          <TouchableOpacity onPress={() => navigation.push('Checking')}>
             <Text>Go to checking screen</Text>
           </TouchableOpacity>
         </View>
