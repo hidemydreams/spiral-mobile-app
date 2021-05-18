@@ -3,7 +3,6 @@ import {
   BottomTabBar,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import HomeStackNavigator from '../navigations/HomeStackNavigator';
 import { Image } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import screens from '../constants/screens';
@@ -13,7 +12,7 @@ import CardsStack from '../screens/Cards/Cards';
 import AccountsStack from '../screens/Accounts/Accounts';
 import styled from 'styled-components/native';
 import { useTheme } from 'react-native-elements';
-
+import HomeStackNavigator from '../screens/Home/Home';
 const BluredView = styled.View`
   position: absolute;
   width: 100%;

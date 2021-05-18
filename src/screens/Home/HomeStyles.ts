@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 
 export const StyledText = styled.Text`
-  color: green;
+  'rgb(41,41,41)';
+  font-family: 'Sf Pro Rounded';
 `;
