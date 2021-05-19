@@ -27,9 +27,9 @@ export const logout = () => {
 };
 
 export const signIn = (username: string, password: string) => {
-  return function (dispatch) {
-    dispatch(login());
+  return function (dispatch: any) {
     return new Promise(resolve => {
+      dispatch(login());
       setTimeout(() => {
         resolve();
       }, 1000);

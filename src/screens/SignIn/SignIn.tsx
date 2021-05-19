@@ -1,40 +1,160 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
-import { Input } from 'react-native-elements';
-import { Button } from 'react-native-elements';
+import {
+  ActivityIndicator,
+  Image,
+  KeyboardAvoidingView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+} from 'react-native';
+import { Input, Button } from 'react-native-elements';
 import { signIn } from '../../redux/actions/loginActions';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useTheme } from 'react-native-elements';
+import { DarkText, StyledTextPrimary } from '../../components/styledComponents';
+import styled from 'styled-components/native';
 
 function SignIn() {
-  const [login, setLogin] = useState('Hello');
-  const [password, setPassword] = useState('Password');
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(state => state.loginReducer?.loading);
-  console.log(isLoading);
+  const error = useAppSelector(state => state.loginReducer?.authError);
+  const { theme } = useTheme();
 
+  const LoginUnderline = styled.View`
+    width: 50px;
+    height: 3px;
+    background-color: 'rgb(215, 51, 116)';
+    margin-top: 3px;
+  `;
+
+  const LoginTitle = styled(DarkText)`
+    font-weight: 700;
+    margin-top: 50px;
+  `;
+
+  const StyledForgotPassword = styled(StyledTextPrimary)`
+    font-weight: 700;
+    text-align: right;
+    font-size: 16px;
+    margin-bottom: 10px;
+  `;
+
+  const Header = styled.View`
+    margin-top: 20px;
+    margin-bottom: 40px;
+  `;
   return (
-    <SafeAreaView>
+    <View style={theme.layout.container}>
+      <StatusBar barStyle="dark-content" />
       <ScrollView>
+        <Header>
+          <LoginTitle>Login</LoginTitle>
+          <LoginUnderline />
+        </Header>
         <View>
-          <Text>This login screen</Text>
+          <DarkText style={styles.inputLabel}>Email</DarkText>
           <Input
-            placeholder="Login"
+            containerStyle={styles.inputContainer}
+            placeholder="Your email address"
             value={login}
-            onChangeText={login => setLogin(login)}
-          />
-          <Input
-            placeholder="Password"
-            value={password}
-            onChangeText={password => setPassword(password)}
-          />
-          <Button
-            title={isLoading ? 'Loading' : 'Sign Up'}
-            onPress={() => dispatch(signIn(login, password))}
+            onChangeText={(text: string) => setLogin(text)}
           />
         </View>
+        <View>
+          <DarkText style={styles.inputLabel}>Password</DarkText>
+          <Input
+            containerStyle={styles.inputContainer}
+            placeholder="Password"
+            value={password}
+            onChangeText={(text: string) => setPassword(text)}
+          />
+        </View>
+        {error ? <Text>{error}</Text> : null}
+        <StyledForgotPassword>Forgot Password</StyledForgotPassword>
       </ScrollView>
-    </SafeAreaView>
+      <KeyboardAvoidingView behavior="position">
+        <Button
+          titleStyle={styles.buttonTitle}
+          buttonStyle={styles.button}
+          title={
+            isLoading ? (
+              <ActivityIndicator size="small" color="white" />
+            ) : (
+              'LOGIN'
+            )
+          }
+          onPress={() => dispatch(signIn(login, password))}
+        />
+      </KeyboardAvoidingView>
+
+      <View style={styles.bottomContainer}>
+        <DarkText style={styles.testText}>Lets test two ways of login</DarkText>
+        <View style={styles.buttonsContainer}>
+          <Button
+            buttonStyle={styles.bottomButton}
+            title={
+              <>
+                <Text>Touch ID</Text>
+              </>
+            }
+            type="outline"
+          />
+          <Button
+            buttonStyle={styles.bottomButton}
+            title={
+              <>
+                <Text>Face ID</Text>
+              </>
+            }
+            type="outline"
+          />
+        </View>
+      </View>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    borderRadius: 50,
+    paddingVertical: 10,
+    marginBottom: 20,
+  },
+  buttonTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 30,
+    alignContent: 'flex-end',
+  },
+  bottomContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'flex-end',
+  },
+  bottomButton: {
+    marginHorizontal: 10,
+    borderRadius: 50,
+    borderColor: 'rgb(41,41,41)',
+  },
+  testText: {
+    fontSize: 12,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  inputContainer: {
+    paddingHorizontal: 0,
+  },
+  inputLabel: {
+    marginBottom: 5,
+  },
+});
 
 export default SignIn;

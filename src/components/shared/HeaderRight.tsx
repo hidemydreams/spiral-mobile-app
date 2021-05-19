@@ -7,7 +7,6 @@ import {
   Platform,
 } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
-
 import styled from 'styled-components/native';
 import { logout } from '../../redux/actions/loginActions';
 import { useAppDispatch } from '../../redux/hooks';

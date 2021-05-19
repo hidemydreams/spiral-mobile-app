@@ -17,12 +17,24 @@ const theme = {
       paddingLeft: 7,
       paddingRight: 7,
       paddingTop: 7,
+      flex: 1,
+      flexDirection: 'column',
+      // backgroundColor: 'tomato',
     },
     absolutePos: {
       position: 'absolute',
       bottom: 0,
       left: 0,
       right: 0,
+    },
+    Button: {
+      titleStyle: {
+        fontFamily: 'Sf Pro Rounded',
+      },
+      Style: {
+        borderRadius: 10,
+        backgroundColor: 'black',
+      },
     },
   },
 };
