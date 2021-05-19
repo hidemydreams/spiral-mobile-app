@@ -8,3 +8,4 @@ const rootReducer = combineReducers({
 const configureStore = () => createStore(rootReducer);
 
 export default configureStore;
+export type RootState = ReturnType<typeof rootReducer>;

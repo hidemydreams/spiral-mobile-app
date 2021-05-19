@@ -4,6 +4,7 @@ const initialState = {
   JWT_TOKEN: null,
   authError: null,
   loading: false,
+  something: 'string to test',
 };
 
 interface IAction {

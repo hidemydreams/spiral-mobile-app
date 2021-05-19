@@ -11,12 +11,18 @@ import React from 'react';
 import AppNavigationContainer from '../../navigations';
 import { ThemeProvider } from 'react-native-elements';
 import theme from '../../theme/Theme';
+import { Provider } from 'react-redux';
+import configureStore from '../../redux/store';
+const store = configureStore();
+export type AppDispatch = typeof store.dispatch;
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <AppNavigationContainer />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <AppNavigationContainer />
+      </ThemeProvider>
+    </Provider>
   );
 };
 
