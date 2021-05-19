@@ -1,26 +1,43 @@
+import { AnyAction } from 'redux';
 import { auth } from '../actions/actionTypes';
 
-const initialState = {
-  JWT_TOKEN: null,
-  authError: null,
-  loading: false,
-  something: 'string to test',
-};
-
-interface IAction {
-  type: string;
-  payload: Object;
+interface IAuthInitialState {
+  JWT_TOKEN: null | string;
+  authError: string;
+  loading: boolean;
 }
 
-const loginReducer = (state = initialState, action: IAction) => {
+const authInitialState: IAuthInitialState = {
+  JWT_TOKEN: null,
+  authError: '',
+  loading: false,
+};
+
+const loginReducer = (state = authInitialState, action: AnyAction) => {
   switch (action.type) {
     case auth.LOGIN:
       return {
         ...state,
-        JWT_TOKEN: true,
+        loading: true,
+      };
+    case auth.LOGIN_SUCCESS:
+      return {
+        loading: false,
+        JWT_TOKEN: action.payload,
+        authError: '',
+      };
+    case auth.LOGIN_FAILURE:
+      return {
+        loading: false,
+        JWT_TOKEN: '',
+        authError: action.payload,
       };
     case auth.LOGOUT:
-      return state;
+      return {
+        loading: false,
+        JWT_TOKEN: '',
+        authError: action.payload,
+      };
 
     default:
       return state;

@@ -1,13 +1,44 @@
 import { auth } from '../actions/actionTypes';
 
-export const login = () => {
+const login = () => {
   return {
-    typs: auth.LOGIN,
+    type: auth.LOGIN,
+  };
+};
+
+const loginSuccess = () => {
+  return {
+    type: auth.LOGIN_SUCCESS,
+    payload: 'some jwt token',
+  };
+};
+
+const loginFailure = () => {
+  return {
+    type: auth.LOGIN_FAILURE,
+    payload: 'error message',
   };
 };
 
 export const logout = () => {
   return {
-    typs: auth.LOGOUT,
+    type: auth.LOGOUT,
+  };
+};
+
+export const signIn = (username: string, password: string) => {
+  return function (dispatch) {
+    dispatch(login());
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    })
+      .then(result => {
+        dispatch(loginSuccess());
+      })
+      .catch(err => {
+        dispatch(loginFailure());
+      });
   };
 };

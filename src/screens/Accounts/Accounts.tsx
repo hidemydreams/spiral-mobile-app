@@ -6,11 +6,13 @@ import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import HeaderRight from '../../components/shared/HeaderRight';
 import { useTheme } from 'react-native-elements';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { StyledText } from '../Home/HomeStyles';
+import { useNavigation } from '@react-navigation/native';
 
 function AccountsStack({ route }) {
   const { theme } = useTheme();
   const Stack = createStackNavigator();
-
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -30,12 +32,26 @@ function AccountsStack({ route }) {
 }
 
 function Accounts() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView>
       <ScrollView>
         <StatusBar />
         <View>
           <Text>Accounts screen</Text>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Saving', { subtitle: 'Some text' })
+            }>
+            <StyledText>Go to savings screen</StyledText>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate('Checking', { subtitle: 'Some text' })
+            }>
+            <StyledText>Go to checking screen</StyledText>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
