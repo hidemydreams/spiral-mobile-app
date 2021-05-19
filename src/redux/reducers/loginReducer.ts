@@ -18,8 +18,7 @@ const loginReducer = (state = initialState, action: IAction) => {
         ...state,
         JWT_TOKEN: true,
       };
-
-    case auth.LOGIN:
+    case auth.LOGOUT:
       return state;
 
     default:
