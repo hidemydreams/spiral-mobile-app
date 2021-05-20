@@ -6,8 +6,16 @@ export const DarkText = styled.Text`
   font-size: 20px;
 `;
 
-export const StyledTextLight = styled(DarkText)`
-  color: 'rgba(255, 255, 255)';
+export const LightText = styled(DarkText)`
+  color: 'rgb(255, 255, 255)';
+  font-family: 'Sf Pro Rounded';
+  font-size: 20px;
+`;
+
+export const GreyText = styled(DarkText)`
+  color: 'rgb(183, 188, 193);
+  font-family: 'Sf Pro Rounded';
+  font-size: 20px;
 `;
 
 export const StyledTextAccent = styled(DarkText)`
@@ -16,4 +24,9 @@ export const StyledTextAccent = styled(DarkText)`
 
 export const StyledTextPrimary = styled(DarkText)`
   color: 'rgb(215, 51, 116)';
+`;
+
+export const Card = styled.View`
+  border-radius: 15px;
+  background-color: white;
 `;

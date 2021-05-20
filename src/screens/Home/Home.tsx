@@ -1,49 +1,39 @@
 import React, { ReactElement } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
 import screens from '../../constants/screens';
 import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderRight from '../../components/shared/HeaderRight';
 import HeaderTitle from '../../components/shared/HeaderTitle';
-import {
-  StyledText,
-  HomeScreen,
-  PaperBlock,
-  AccountsOverview,
-} from './HomeStyles';
 import { useNavigation } from '@react-navigation/native';
+import VideoCard from '../../components/VideoCard';
+import { DarkText } from '../../components/styledComponents';
+import AccountsOverview from '../../components/AccountsOverview';
+import { useTheme } from 'react-native-elements';
 
 function Home() {
   const navigation = useNavigation();
+  const { theme } = useTheme();
   return (
-    <HomeScreen>
-      <StatusBar barStyle="light-content" />
-      <StyledText>Hello User | Jul 12, 2020</StyledText>
-      <PaperBlock>
-        <AccountsOverview>
-          <StyledText>Accounts Overview</StyledText>
-          <StyledText>
-            $7,000<StyledText>.80</StyledText>
-          </StyledText>
-          <StyledText>Total Available Cash</StyledText>
-        </AccountsOverview>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Saving', { subtitle: 'Some text' })
-          }>
-          <StyledText>Go to savings screen</StyledText>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Checking', { subtitle: 'Some text' })
-          }>
-          <StyledText>Go to checking screen</StyledText>
-        </TouchableOpacity>
-      </PaperBlock>
-    </HomeScreen>
+    <ScrollView>
+      <View style={theme.layout.container}>
+        <StatusBar barStyle="light-content" />
+        <DarkText style={styles.welcomeText}>
+          Hello User | Jul 12, 2020
+        </DarkText>
+        <AccountsOverview />
+        <VideoCard />
+      </View>
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  welcomeText: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
+});
 
 function HomeStackNavigator(): ReactElement {
   const HomeStack = createStackNavigator();

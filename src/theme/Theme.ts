@@ -14,12 +14,12 @@ const theme = {
   },
   layout: {
     container: {
-      paddingLeft: 7,
-      paddingRight: 7,
-      paddingTop: 7,
+      paddingLeft: 15,
+      paddingRight: 15,
+      paddingTop: 15,
+      paddingBottom: 15,
       flex: 1,
       flexDirection: 'column',
-      // backgroundColor: 'tomato',
     },
     absolutePos: {
       position: 'absolute',

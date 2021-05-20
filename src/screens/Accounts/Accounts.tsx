@@ -7,8 +7,8 @@ import HeaderTitle from '../../components/shared/HeaderTitle';
 import HeaderRight from '../../components/shared/HeaderRight';
 import { useTheme } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { StyledText } from '../Home/HomeStyles';
 import { useNavigation } from '@react-navigation/native';
+import { DarkText } from '../../components/styledComponents';
 
 function AccountsStack({ route }) {
   const { theme } = useTheme();
@@ -44,13 +44,13 @@ function Accounts() {
             onPress={() =>
               navigation.navigate('Saving', { subtitle: 'Some text' })
             }>
-            <StyledText>Go to savings screen</StyledText>
+            <DarkText>Go to savings screen</DarkText>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
               navigation.navigate('Checking', { subtitle: 'Some text' })
             }>
-            <StyledText>Go to checking screen</StyledText>
+            <DarkText>Go to checking screen</DarkText>
           </TouchableOpacity>
         </View>
       </ScrollView>

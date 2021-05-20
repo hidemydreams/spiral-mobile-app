@@ -5,7 +5,7 @@ import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import HeaderRight from '../../components/shared/HeaderRight';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useTheme } from 'react-native-elements';
+import { useTheme } from '@react-navigation/native';
 
 function PaymentsStack({ route }) {
   const Stack = createStackNavigator();
