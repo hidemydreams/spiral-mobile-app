@@ -13,22 +13,24 @@ function AppNavigationContainer() {
   const Stack = createStackNavigator();
   const JWT_TOKEN = useAppSelector(state => state.loginReducer?.JWT_TOKEN);
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={() => ({
-          headerShown: false,
-        })}>
-        {JWT_TOKEN ? (
-          <>
-            <Stack.Screen name={screens.HOME} component={HomeTabs} />
-            <Stack.Screen name={screens.CHECKING} component={CheckingStack} />
-            <Stack.Screen name={screens.SAVING} component={SavingStack} />
-          </>
-        ) : (
-          <Stack.Screen name={screens.SIGN_IN} component={SignIn} />
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      {JWT_TOKEN ? (
+        <>
+          <NavigationContainer>
+            <Stack.Navigator
+              screenOptions={() => ({
+                headerShown: false,
+              })}>
+              <Stack.Screen name={screens.HOME} component={HomeTabs} />
+              <Stack.Screen name={screens.CHECKING} component={CheckingStack} />
+              <Stack.Screen name={screens.SAVING} component={SavingStack} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </>
+      ) : (
+        <SignIn />
+      )}
+    </>
   );
 }
 
