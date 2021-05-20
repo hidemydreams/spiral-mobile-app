@@ -47,10 +47,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     textAlign: 'center',
     overflow: 'hidden',
+    width: '100%',
   },
   touchableOpacity: {
-    flexDirection: 'row',
-    alignSelf: 'stretch',
+    width: '100%',
+    flex: 1,
   },
   cardAmount: {
     fontSize: 34,

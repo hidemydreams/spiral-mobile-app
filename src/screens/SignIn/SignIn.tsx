@@ -17,6 +17,7 @@ import { useTheme } from 'react-native-elements';
 import { DarkText, StyledTextPrimary } from '../../components/styledComponents';
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 function SignIn() {
   const [login, setLogin] = useState('');
@@ -96,7 +97,12 @@ function SignIn() {
             buttonStyle={styles.bottomButton}
             title={
               <>
-                <Text>Touch ID</Text>
+                <Text style={{ marginHorizontal: 5 }}>Touch ID</Text>
+                <MaterialIcons
+                  name="fingerprint"
+                  color={theme.colors.dark}
+                  size={30}
+                />
               </>
             }
             type="outline"
@@ -105,7 +111,12 @@ function SignIn() {
             buttonStyle={styles.bottomButton}
             title={
               <>
-                <Text>Face ID</Text>
+                <Text style={{ marginHorizontal: 5 }}>Face ID</Text>
+                <MaterialIcons
+                  name="face"
+                  color={theme.colors.dark}
+                  size={30}
+                />
               </>
             }
             type="outline"
