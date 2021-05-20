@@ -3,7 +3,7 @@ import {
   BottomTabBar,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
-import { Image } from 'react-native';
+import { Image, Platform } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import screens from '../constants/screens';
 import GivingStack from '../screens/Giving/Giving';
@@ -68,20 +68,27 @@ function HomeTabs() {
       })}
       tabBarOptions={{
         activeTintColor: theme.colors.primary,
-        style: {
-          backgroundColor: theme.colors.light,
-        },
+        style:
+          Platform.OS === 'ios'
+            ? {
+                backgroundColor: theme.colors.light,
+              }
+            : null,
       }}
       tabBar={props => (
         <>
-          <BlurView
-            style={theme.layout.absolutePos}
-            blurType="light"
-            blurAmount={50}>
-            <BluredView />
+          {Platform.OS === 'ios' ? (
+            <BlurView
+              style={theme.layout.absolutePos}
+              blurType="light"
+              blurAmount={50}>
+              <BluredView />
+              <BottomTabBar {...props} />
+              <BluredOverlay />
+            </BlurView>
+          ) : (
             <BottomTabBar {...props} />
-            <BluredOverlay />
-          </BlurView>
+          )}
         </>
       )}>
       <Tab.Screen name={screens.HOME} component={HomeStackNavigator} />

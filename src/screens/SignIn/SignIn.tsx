@@ -8,6 +8,7 @@ import {
   Text,
   View,
   ScrollView,
+  Platform,
 } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { signIn } from '../../redux/actions/loginActions';
@@ -49,7 +50,7 @@ function SignIn() {
   `;
   return (
     <View style={theme.layout.container}>
-      <StatusBar barStyle="dark-content" />
+      <StatusBar barStyle="dark-content" backgroundColor="transparent" />
       <ScrollView>
         <Header>
           <LoginTitle>Login</LoginTitle>
@@ -76,7 +77,8 @@ function SignIn() {
         {error ? <Text>{error}</Text> : null}
         <StyledForgotPassword>Forgot Password</StyledForgotPassword>
       </ScrollView>
-      <KeyboardAvoidingView behavior="position">
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
         <Button
           titleStyle={styles.buttonTitle}
           buttonStyle={styles.button}
@@ -90,7 +92,6 @@ function SignIn() {
           onPress={() => dispatch(signIn(login, password))}
         />
       </KeyboardAvoidingView>
-
       <View style={styles.bottomContainer}>
         <DarkText style={styles.testText}>Lets test two ways of login</DarkText>
         <View style={styles.buttonsContainer}>
@@ -138,6 +139,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignContent: 'flex-end',
+    position: 'relative',
   },
   bottomButton: {
     marginHorizontal: 10,
