@@ -97,7 +97,7 @@ function SignIn() {
             buttonStyle={styles.bottomButton}
             title={
               <>
-                <Text style={{ marginHorizontal: 5 }}>Touch ID</Text>
+                <Text style={styles.bottomButtonText}>Touch ID</Text>
                 <MaterialIcons
                   name="fingerprint"
                   color={theme.colors.dark}
@@ -111,7 +111,7 @@ function SignIn() {
             buttonStyle={styles.bottomButton}
             title={
               <>
-                <Text style={{ marginHorizontal: 5 }}>Face ID</Text>
+                <Text style={styles.bottomButtonText}>Face ID</Text>
                 <MaterialIcons
                   name="face"
                   color={theme.colors.dark}
@@ -153,6 +153,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderRadius: 50,
     borderColor: 'rgb(41,41,41)',
+  },
+  bottomButtonText: {
+    marginHorizontal: 10,
   },
   testText: {
     fontSize: 12,

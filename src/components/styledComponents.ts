@@ -13,7 +13,7 @@ export const LightText = styled(DarkText)`
 `;
 
 export const GreyText = styled(DarkText)`
-  color: 'rgb(183, 188, 193);
+  color: 'rgb(183, 188, 193)';
   font-family: 'Sf Pro Rounded';
   font-size: 20px;
 `;

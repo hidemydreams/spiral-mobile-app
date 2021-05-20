@@ -23,6 +23,8 @@ function Home() {
         </DarkText>
         <AccountsOverview />
         <VideoCard />
+        <VideoCard />
+        <VideoCard />
       </View>
     </ScrollView>
   );

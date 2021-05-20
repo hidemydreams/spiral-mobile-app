@@ -1,39 +1,22 @@
 import React, { ReactElement } from 'react';
-import { Image, View, StyleSheet } from 'react-native';
-import { Button } from 'react-native-elements';
-import { DarkText, GreyText, Card } from './styledComponents';
+import { StyleSheet } from 'react-native';
+import { DarkText, Card } from './styledComponents';
 import { useTheme } from 'react-native-elements';
-import styled from 'styled-components/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import AccountsListItem from './AccountsListItem';
-import { useNavigation } from '@react-navigation/native';
 
 function AccountsOverview(): ReactElement {
   const { theme } = useTheme();
-  const navigation = useNavigation();
 
   return (
     <Card style={styles.card}>
       <DarkText style={styles.cardTitle}>Accounts Overview</DarkText>
       <DarkText style={styles.cardAmount}>
-        $7,000<DarkText style={styles.cardAmountSmall}>.80</DarkText>
+        $7,000<DarkText>.80</DarkText>
       </DarkText>
       <DarkText style={styles.cardTotal}>Total Available Cash</DarkText>
       <AccountsListItem />
-      <TouchableOpacity
-        style={styles.touchableOpacity}
-        onPress={() =>
-          navigation.navigate('Saving', { subtitle: 'Some text' })
-        }>
-        <AccountsListItem />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.touchableOpacity}
-        onPress={() =>
-          navigation.navigate('Checking', { subtitle: 'Some text' })
-        }>
-        <AccountsListItem />
-      </TouchableOpacity>
+      <AccountsListItem />
+      <AccountsListItem />
     </Card>
   );
 }
@@ -44,14 +27,15 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'column',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: 20,
     textAlign: 'center',
     overflow: 'hidden',
     width: '100%',
+    borderColor: 'rgba(183, 188, 193, 0.5)',
+    borderWidth: 1,
   },
   touchableOpacity: {
     width: '100%',
-    flex: 1,
   },
   cardAmount: {
     fontSize: 34,

@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginTop: 20,
     overflow: 'hidden',
+    borderColor: 'rgba(183, 188, 193, 0.5)',
+    borderWidth: 1,
   },
   cardTitleContainer: {
     flexDirection: 'row',
