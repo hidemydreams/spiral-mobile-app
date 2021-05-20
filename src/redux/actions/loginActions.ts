@@ -16,7 +16,7 @@ const loginSuccess = () => {
 const loginFailure = () => {
   return {
     type: auth.LOGIN_FAILURE,
-    payload: 'error message',
+    payload: 'Please enter correct email and password',
   };
 };
 
@@ -28,10 +28,12 @@ export const logout = () => {
 
 export const signIn = (username: string, password: string) => {
   return function (dispatch: any) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       dispatch(login());
+      const re = /^[\w.+\-]+@itechart-group\.com$/;
+      const isValid = re.test(username) && password === 'admin';
       setTimeout(() => {
-        resolve();
+        isValid ? resolve('Successfull Login') : reject();
       }, 1000);
     })
       .then(result => {

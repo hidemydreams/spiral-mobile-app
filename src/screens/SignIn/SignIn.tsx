@@ -42,6 +42,7 @@ function SignIn() {
     text-align: right;
     font-size: 16px;
     margin-bottom: 10px;
+    margin-top: 10px;
   `;
 
   const Header = styled.View`
@@ -74,7 +75,7 @@ function SignIn() {
             onChangeText={(text: string) => setPassword(text)}
           />
         </View>
-        {error ? <Text>{error}</Text> : null}
+        {error ? <Text style={styles.errorMessage}>{error}</Text> : null}
         <StyledForgotPassword>Forgot Password</StyledForgotPassword>
       </ScrollView>
       <KeyboardAvoidingView
@@ -156,6 +157,11 @@ const styles = StyleSheet.create({
   },
   inputLabel: {
     marginBottom: 5,
+  },
+  errorMessage: {
+    textAlign: 'center',
+    color: '#fc4c4c',
+    fontWeight: '500',
   },
 });
 
