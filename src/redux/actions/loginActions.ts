@@ -6,10 +6,10 @@ const login = () => {
   };
 };
 
-const loginSuccess = () => {
+const loginSuccess = (username: string, password: string) => {
   return {
     type: auth.LOGIN_SUCCESS,
-    payload: 'some jwt token',
+    payload: 'ANYJWTTOKEN',
   };
 };
 
@@ -36,10 +36,10 @@ export const signIn = (username: string, password: string) => {
         isValid ? resolve('Successfull Login') : reject();
       }, 1000);
     })
-      .then(result => {
+      .then(() => {
         dispatch(loginSuccess());
       })
-      .catch(err => {
+      .catch(() => {
         dispatch(loginFailure());
       });
   };

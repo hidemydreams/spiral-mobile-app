@@ -13,17 +13,24 @@ import { ThemeProvider } from 'react-native-elements';
 import theme from '../../theme/Theme';
 import { Provider } from 'react-redux';
 import configureStore from '../../redux/store';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import { persistStore } from 'redux-persist';
+
 const store = configureStore();
-export type AppDispatch = typeof store.dispatch;
+const persistedStore = persistStore(store);
 
 const App = () => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <AppNavigationContainer />
-      </ThemeProvider>
+      <PersistGate persistor={persistedStore}>
+        <ThemeProvider theme={theme}>
+          <AppNavigationContainer />
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   );
 };
 
 export default App;
+
+export type AppDispatch = typeof store.dispatch;

@@ -16,6 +16,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { useTheme } from 'react-native-elements';
 import { DarkText, StyledTextPrimary } from '../../components/styledComponents';
 import styled from 'styled-components/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function SignIn() {
   const [login, setLogin] = useState('');
@@ -71,12 +72,15 @@ function SignIn() {
           <Input
             containerStyle={styles.inputContainer}
             placeholder="Password"
+            secureTextEntry={true}
             value={password}
             onChangeText={(text: string) => setPassword(text)}
           />
         </View>
         {error ? <Text style={styles.errorMessage}>{error}</Text> : null}
-        <StyledForgotPassword>Forgot Password</StyledForgotPassword>
+        <TouchableOpacity>
+          <StyledForgotPassword>Forgot Password</StyledForgotPassword>
+        </TouchableOpacity>
       </ScrollView>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'position' : 'height'}>
