@@ -38,14 +38,6 @@ function SignIn() {
     margin-top: 50px;
   `;
 
-  const StyledForgotPassword = styled(StyledTextPrimary)`
-    font-weight: 700;
-    text-align: right;
-    font-size: 16px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  `;
-
   const Header = styled.View`
     margin-top: 20px;
     margin-bottom: 40px;
@@ -79,7 +71,7 @@ function SignIn() {
         </View>
         {error ? <Text style={styles.errorMessage}>{error}</Text> : null}
         <TouchableOpacity>
-          <StyledForgotPassword>Forgot Password</StyledForgotPassword>
+          <Text style={styles.forgottenPassword}>Forgot Password</Text>
         </TouchableOpacity>
       </ScrollView>
       <KeyboardAvoidingView
@@ -166,6 +158,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fc4c4c',
     fontWeight: '500',
+  },
+  forgottenPassword: {
+    fontWeight: '700',
+    textAlign: 'right',
+    fontSize: 16,
+    marginBottom: 10,
+    marginTop: 10,
+    color: 'rgb(215, 51, 116)',
   },
 });
 
