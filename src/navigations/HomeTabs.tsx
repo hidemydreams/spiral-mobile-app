@@ -13,6 +13,11 @@ import CardsStack from './CardsNavigator';
 import GivingStack from './GivingNavigator';
 import HomeStackNavigator from './HomeNavigator';
 import PaymentsStack from './PaymentsNavigator';
+const HOME_ICON = require('../assets/images/home.png');
+const ACCOUNTS_ICON = require('../assets/images/accounts.png');
+const GIVING_ICON = require('../assets/images/giving.png');
+const PAYMENTS_ICON = require('../assets/images/payment.png');
+const CARD_ICON = require('../assets/images/cards.png');
 
 const BluredView = styled.View`
   position: absolute;
@@ -39,19 +44,19 @@ const getTabBarIcon = route => {
   let iconName;
   switch (route.name) {
     case screens.HOME:
-      iconName = require('../assets/images/home.png');
+      iconName = HOME_ICON;
       break;
     case screens.ACCOUNTS:
-      iconName = require('../assets/images/accounts.png');
+      iconName = ACCOUNTS_ICON;
       break;
     case screens.GIVING:
-      iconName = require('../assets/images/giving.png');
+      iconName = GIVING_ICON;
       break;
     case screens.PAYMENTS:
-      iconName = require('../assets/images/payment.png');
+      iconName = PAYMENTS_ICON;
       break;
     case screens.CARDS:
-      iconName = require('../assets/images/cards.png');
+      iconName = CARD_ICON;
       break;
     default:
       break;
