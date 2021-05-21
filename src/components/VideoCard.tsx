@@ -3,7 +3,12 @@ import { Image, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { DarkText, LightText } from './styledComponents';
 
-function VideoCard(): ReactElement {
+function VideoCard({
+  title,
+  place,
+  timestamp,
+  description,
+}: Props): ReactElement {
   return (
     <View style={styles.card}>
       <View style={styles.cardTitleContainer}>
@@ -12,11 +17,11 @@ function VideoCard(): ReactElement {
           source={require('../assets/images/avatar.png')}
         />
         <View>
-          <DarkText style={styles.cardTitle}>Your Giving Impact</DarkText>
+          <DarkText style={styles.cardTitle}>{title}</DarkText>
           <View style={styles.cardSubtitleContainer}>
-            <DarkText style={styles.cardSubtitle}>St Jude </DarkText>
+            <DarkText style={styles.cardSubtitle}>{place} </DarkText>
             <View style={styles.dot} />
-            <DarkText style={styles.cardSubtitle}> 4 hrs ago</DarkText>
+            <DarkText style={styles.cardSubtitle}> {timestamp}</DarkText>
           </View>
         </View>
       </View>
@@ -24,10 +29,7 @@ function VideoCard(): ReactElement {
         style={styles.cardBigImage}
         source={require('../assets/images/rectangle2.png')}
       />
-      <DarkText style={styles.description}>
-        Danny, Your donation helped 5 amazing kids get much needed cancer
-        surgery, thanks for being amazing
-      </DarkText>
+      <DarkText style={styles.description}>{description}</DarkText>
       <Button
         buttonStyle={styles.shareButton}
         title={

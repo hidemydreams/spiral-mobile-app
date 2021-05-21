@@ -1,6 +1,12 @@
 import React, { ReactElement } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { ScrollView, StatusBar, StyleSheet, View } from 'react-native';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  View,
+  FlatList,
+} from 'react-native';
 import screens from '../../constants/screens';
 import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderRight from '../../components/shared/HeaderRight';
@@ -10,7 +16,7 @@ import VideoCard from '../../components/VideoCard';
 import { DarkText } from '../../components/styledComponents';
 import AccountsOverview from '../../components/AccountsOverview';
 import { useTheme } from 'react-native-elements';
-
+import { GIVING_CARD_DATA } from '../../data/data';
 function Home() {
   const navigation = useNavigation();
   const { theme } = useTheme();
@@ -22,9 +28,18 @@ function Home() {
           Hello User | Jul 12, 2020
         </DarkText>
         <AccountsOverview />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
+        <FlatList
+          data={GIVING_CARD_DATA}
+          renderItem={({ item }) => (
+            <VideoCard
+              title={item.title}
+              place={item.place}
+              timestamp={item.timestamp}
+              description={item.description}
+            />
+          )}
+          keyExtractor={item => item.id}
+        />
       </View>
     </ScrollView>
   );
