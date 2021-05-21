@@ -10,8 +10,6 @@ function VideoCard({
   place,
   timestamp,
   description,
-  avatar,
-  image,
 }: Props): ReactElement {
   return (
     <View style={styles.card}>
