@@ -6,13 +6,13 @@ import {
 import { Image } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import screens from '../constants/screens';
-import GivingStack from '../screens/Giving/Giving';
-import PaymentsStack from '../screens/Payments/Payments';
-import CardsStack from '../screens/Cards/Cards';
-import AccountsStack from '../screens/Accounts/Accounts';
 import styled from 'styled-components/native';
 import { useTheme } from 'react-native-elements';
-import HomeStackNavigator from '../screens/Home/Home';
+import AccountsStack from './AccountsNavigator';
+import CardsStack from './CardsNavigator';
+import GivingStack from './GivingNavigator';
+import HomeStackNavigator from './HomeNavigator';
+import PaymentsStack from './PaymentsNavigator';
 const BluredView = styled.View`
   position: absolute;
   width: 100%;

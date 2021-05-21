@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeTabs from './HomeTabs';
 import screens from '../constants/screens';
-import SavingStack from '../screens/Saving/Saving';
-import CheckingStack from '../screens/Checking/Checking';
+import CheckingStack from './CheckingNavigator';
+import SavingStack from './SavingsNavigator';
 
 function AppNavigationContainer() {
   const Stack = createStackNavigator();
