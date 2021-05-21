@@ -34,6 +34,30 @@ const BluredOverlay = styled.View`
   z-index: -1;
 `;
 
+const getTabBarIcon = route => {
+  let iconName;
+  switch (route.name) {
+    case screens.HOME:
+      iconName = require('../assets/images/home.png');
+      break;
+    case screens.ACCOUNTS:
+      iconName = require('../assets/images/accounts.png');
+      break;
+    case screens.GIVING:
+      iconName = require('../assets/images/giving.png');
+      break;
+    case screens.PAYMENTS:
+      iconName = require('../assets/images/payment.png');
+      break;
+    case screens.CARDS:
+      iconName = require('../assets/images/cards.png');
+      break;
+    default:
+      break;
+  }
+  return <Image source={iconName} />;
+};
+
 function HomeTabs() {
   const Tab = createBottomTabNavigator();
   const { theme } = useTheme();
@@ -42,29 +66,7 @@ function HomeTabs() {
     <Tab.Navigator
       initialRouteName={screens.HOME}
       screenOptions={({ route }) => ({
-        tabBarIcon: () => {
-          let iconName;
-          switch (route.name) {
-            case screens.HOME:
-              iconName = require('../assets/images/home.png');
-              break;
-            case screens.ACCOUNTS:
-              iconName = require('../assets/images/accounts.png');
-              break;
-            case screens.GIVING:
-              iconName = require('../assets/images/giving.png');
-              break;
-            case screens.PAYMENTS:
-              iconName = require('../assets/images/payment.png');
-              break;
-            case screens.CARDS:
-              iconName = require('../assets/images/cards.png');
-              break;
-            default:
-              break;
-          }
-          return <Image source={iconName} />;
-        },
+        tabBarIcon: () => getTabBarIcon(route),
       })}
       tabBarOptions={{
         activeTintColor: theme.colors.primary,
