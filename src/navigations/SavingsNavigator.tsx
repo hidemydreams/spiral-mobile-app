@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { useTheme } from 'react-native-elements';
 import HeaderLeft from '../components/shared/HeaderLeft';
 import HeaderTitle from '../components/shared/HeaderTitle';
-import HeaderRight from '../components/shared/HeaderRight';
+import HeaderRight from '../components/shared/HeaderRight/HeaderRight';
 import screens from '../constants/screens';
 import Saving from '../screens/Saving/Saving';
 

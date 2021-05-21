@@ -13,6 +13,7 @@ import CardsStack from './CardsNavigator';
 import GivingStack from './GivingNavigator';
 import HomeStackNavigator from './HomeNavigator';
 import PaymentsStack from './PaymentsNavigator';
+
 const BluredView = styled.View`
   position: absolute;
   width: 100%;

@@ -2,16 +2,7 @@ import React, { ReactElement } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import screens from '../../constants/screens';
-import HeaderLeft from '../../components/shared/HeaderLeft';
-import HeaderRight from '../../components/shared/HeaderRight';
-import HeaderTitle from '../../components/shared/HeaderTitle';
-import {
-  StyledText,
-  HomeScreen,
-  PaperBlock,
-  AccountsOverview,
-} from './HomeStyles';
+import { StyledText, HomeScreen, PaperBlock, AccountsOverview } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
 function Home() {
