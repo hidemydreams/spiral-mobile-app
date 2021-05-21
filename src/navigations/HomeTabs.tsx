@@ -40,6 +40,14 @@ const BluredOverlay = styled.View`
   z-index: -1;
 `;
 
+const tabScreens = [
+  { screenName: screens.HOME, component: HomeStackNavigator },
+  { screenName: screens.ACCOUNTS, component: AccountsStack },
+  { screenName: screens.GIVING, component: GivingStack },
+  { screenName: screens.PAYMENTS, component: PaymentsStack },
+  { screenName: screens.CARDS, component: CardsStack },
+];
+
 const getTabBarIcon = route => {
   let iconName;
   switch (route.name) {
@@ -65,8 +73,8 @@ const getTabBarIcon = route => {
 };
 
 function HomeTabs() {
-  const Tab = createBottomTabNavigator();
   const { theme } = useTheme();
+  const Tab = createBottomTabNavigator();
 
   return (
     <Tab.Navigator
@@ -92,11 +100,11 @@ function HomeTabs() {
           </BlurView>
         </>
       )}>
-      <Tab.Screen name={screens.HOME} component={HomeStackNavigator} />
-      <Tab.Screen name={screens.ACCOUNTS} component={AccountsStack} />
-      <Tab.Screen name={screens.GIVING} component={GivingStack} />
-      <Tab.Screen name={screens.PAYMENTS} component={PaymentsStack} />
-      <Tab.Screen name={screens.CARDS} component={CardsStack} />
+      {tabScreens.map(screen => {
+        return (
+          <Tab.Screen name={screen.screenName} component={screen.component} />
+        );
+      })}
     </Tab.Navigator>
   );
 }
