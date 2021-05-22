@@ -14,6 +14,7 @@ import theme from '../../theme/Theme';
 import { Provider } from 'react-redux';
 import { persistedStore, store } from '../../redux/store';
 import { PersistGate } from 'redux-persist/lib/integration/react';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const App = () => {
   return (

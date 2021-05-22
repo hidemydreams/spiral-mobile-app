@@ -16,7 +16,6 @@ function VideoCard({
   currentIndex,
   index,
 }: Props): ReactElement {
-  console.log('current visible index', currentVisibleIndex);
   return (
     <View style={styles.card}>
       <View style={styles.cardTitleContainer}>
@@ -25,9 +24,7 @@ function VideoCard({
           source={require('../../assets/images/avatar.png')}
         />
         <View>
-          <DarkText style={styles.cardTitle}>
-            {title} {index}
-          </DarkText>
+          <DarkText style={styles.cardTitle}>{title}</DarkText>
           <View style={styles.cardSubtitleContainer}>
             <DarkText style={styles.cardSubtitle}>{place} </DarkText>
             <View style={styles.dot} />

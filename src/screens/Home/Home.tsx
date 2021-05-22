@@ -33,34 +33,34 @@ function Home() {
   ]);
 
   return (
-    <View style={theme.layout.container}>
-      <StatusBar barStyle="light-content" />
-      <Greeting />
-      <AccountsOverview />
-      <View>
-        <FlatList
-          data={GIVING_CARD_DATA}
-          renderItem={({ item, index }) => (
-            <VideoCard
-              title={item.title}
-              place={item.place}
-              timestamp={item.timestamp}
-              description={item.description}
-              currentIndex={index}
-              currentVisibleIndex={currentVisibleIndex?.currentVisibleIndex}
-              index={index}
-            />
-          )}
-          keyExtractor={item => item.id}
-          viewabilityConfig={{
-            minimumViewTime: 100,
-            viewAreaCoveragePercentThreshold: 100,
-          }}
-          viewabilityConfigCallbackPairs={
-            viewabilityConfigCallbackPairs.current
-          }
-        />
-      </View>
+    <View style={{ flex: 1 }}>
+      <FlatList
+        style={theme.layout.container}
+        data={GIVING_CARD_DATA}
+        ListHeaderComponent={
+          <>
+            <StatusBar barStyle="light-content" />
+            <Greeting />
+            <AccountsOverview />
+          </>
+        }
+        renderItem={({ item, index }) => (
+          <VideoCard
+            title={item.title}
+            place={item.place}
+            timestamp={item.timestamp}
+            description={item.description}
+            currentIndex={index}
+            currentVisibleIndex={currentVisibleIndex?.currentVisibleIndex}
+          />
+        )}
+        keyExtractor={item => item.id}
+        viewabilityConfig={{
+          minimumViewTime: 100,
+          viewAreaCoveragePercentThreshold: 100,
+        }}
+        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+      />
     </View>
   );
 }
