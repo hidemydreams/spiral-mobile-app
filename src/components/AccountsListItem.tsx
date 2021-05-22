@@ -7,22 +7,35 @@ import { useTheme } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-function AccountsListItem(): ReactElement {
+function AccountsListItem({
+  title,
+  subtitle,
+  banknotes,
+  cents,
+  icon,
+  navigateTo,
+  additionalInfo,
+}): ReactElement {
   const { theme } = useTheme();
   const navigation = useNavigation();
   return (
     <>
       <View style={styles.itemWrapper}>
-        <TouchableOpacity style={styles.item}>
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() =>
+            navigation.navigate(navigateTo, { subtitle: additionalInfo })
+          }>
           <View>
-            <DarkText style={styles.itemTitle}>Checking</DarkText>
-            <GreyText style={styles.itemSubTitle}>
-              Main account (...0353)
-            </GreyText>
+            <DarkText style={styles.itemTitle}>
+              {title} <Image source={icon} />
+            </DarkText>
+            <GreyText style={styles.itemSubTitle}>{subtitle}</GreyText>
           </View>
           <View style={styles.itemRight}>
             <DarkText style={styles.amountBig}>
-              $1.500<DarkText style={styles.amountSmall}>.20</DarkText>
+              ${banknotes}
+              <DarkText style={styles.amountSmall}>.{cents}</DarkText>
             </DarkText>
             <MaterialIcons
               name="chevron-right"
@@ -50,7 +63,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 15,
     marginTop: 15,
-    width: '100%',
   },
   itemRight: {
     flexDirection: 'row',
@@ -69,11 +81,6 @@ const styles = StyleSheet.create({
   },
   itemSubTitle: {
     fontSize: 16,
-  },
-  divider: {
-    width: '100%',
-    height: 1,
-    backgroundColor: 'rgba(183, 188, 193, 0.5)',
   },
 });
 

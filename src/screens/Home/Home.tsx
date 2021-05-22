@@ -10,6 +10,7 @@ import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderRight from '../../components/shared/HeaderRight';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import screens from '../../constants/screens';
+import { styles } from './styles';
 
 function Home() {
   const { theme } = useTheme();
@@ -47,7 +48,7 @@ function Home() {
   ]);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <FlatList
         style={theme.layout.container}
         data={GIVING_CARD_DATA}
@@ -70,7 +71,7 @@ function Home() {
   );
 }
 
-function HomeStack({ route }) {
+function HomeStack({ route }: { route: any }) {
   const Stack = createStackNavigator();
   const { theme } = useTheme();
 

@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
-import { Image, View, Text } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Image, View } from 'react-native';
+import Button from 'react-native-elements/dist/buttons/Button';
 import { DarkText, LightText } from '../styledComponents';
 import { styles } from './styles';
 import Video from 'react-native-video';
@@ -9,11 +9,12 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native-gesture-handler';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import { NavigationEvents } from '@react-navigation/compat';
 import { useNavigation } from '@react-navigation/core';
 import screens from '../../constants/screens';
 const SHARE_ICON = require('../../assets/images/shareArrow.png');
 const VIDEO = require('../../assets/videos/video.mp4');
+const AVATAR_ICON = require('../../assets/images/avatar.png');
+const BASE_IMAGE = require('../../assets/images/rectangle2.png');
 
 function VideoCard({
   title,
@@ -22,17 +23,14 @@ function VideoCard({
   description,
   currentVisibleIndex,
   currentIndex,
-  index,
 }: Props): ReactElement {
   const [isVolumeOn, setIsVolumeOn] = useState(true);
   const navigation = useNavigation();
+
   return (
     <View style={styles.card}>
       <View style={styles.cardTitleContainer}>
-        <Image
-          style={styles.cardTitleImage}
-          source={require('../../assets/images/avatar.png')}
-        />
+        <Image style={styles.cardTitleImage} source={AVATAR_ICON} />
         <View>
           <DarkText style={styles.cardTitle}>{title}</DarkText>
           <View style={styles.cardSubtitleContainer}>
@@ -44,10 +42,7 @@ function VideoCard({
       </View>
       <View>
         {currentIndex !== currentVisibleIndex ? (
-          <Image
-            style={styles.cardBigImage}
-            source={require('../../assets/images/rectangle2.png')}
-          />
+          <Image style={styles.cardBigImage} source={BASE_IMAGE} />
         ) : (
           <TouchableWithoutFeedback
             onPress={() =>
