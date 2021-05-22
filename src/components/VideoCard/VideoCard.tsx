@@ -52,6 +52,7 @@ function VideoCard({
             }>
             <View style={styles.videoContainer}>
               <Video
+                repeat
                 source={VIDEO}
                 style={styles.backgroundVideo}
                 muted={isVolumeOn}
