@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { ScrollView, StatusBar, View, FlatList } from 'react-native';
+import { StatusBar, View, FlatList } from 'react-native';
 import VideoCard from '../../components/VideoCard/VideoCard';
-import AccountsOverview from '../../components/AccountsOverview';
+import AccountsOverview from '../../components/AccountsOverview/AccountsOverview';
 import { useTheme } from 'react-native-elements';
 import { GIVING_CARD_DATA } from '../../data/data';
 import Greeting from '../../components/shared/Greeting/Greeting';
@@ -22,17 +22,17 @@ function Home() {
       timestamp={item.timestamp}
       description={item.description}
       currentIndex={index}
-      currentVisibleIndex={currentVisibleIndex?.currentVisibleIndex}
+      currentVisibleIndex={currentVisibleIndex}
     />
   );
 
   const handleItemsInViewPort = ({
     viewableItems,
   }: {
-    viewableItems: Array<T>;
+    viewableItems: Array;
   }) => {
     if (viewableItems && viewableItems.length > 0) {
-      setCurrentVisibleIndex({ currentVisibleIndex: viewableItems[0].index });
+      setCurrentVisibleIndex(viewableItems[0].index);
     }
   };
 

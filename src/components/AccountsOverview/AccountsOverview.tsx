@@ -1,12 +1,9 @@
 import React, { ReactElement } from 'react';
 import { StyleSheet } from 'react-native';
-import { DarkText, Card } from './styledComponents';
-import { useTheme } from 'react-native-elements';
-import AccountsListItem from './AccountsListItem';
+import { DarkText, Card } from '../styledComponents';
+import AccountsListItem from '../AccountsListItem';
 
 function AccountsOverview(): ReactElement {
-  const { theme } = useTheme();
-
   return (
     <Card style={styles.card}>
       <DarkText style={styles.cardTitle}>Accounts Overview</DarkText>
