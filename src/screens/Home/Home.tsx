@@ -27,13 +27,13 @@ function Home() {
     />
   );
 
-  const handleItemsInViewPort = ({
-    viewableItems,
-  }: {
-    viewableItems: Array;
-  }) => {
+  const handleItemsInViewPort = ({ viewableItems, changed }) => {
+    console.log('viewableItems', viewableItems);
+    console.log('changed', changed);
     if (viewableItems && viewableItems.length > 0) {
       setCurrentVisibleIndex(viewableItems[0].index);
+    } else if (viewableItems.length === 0) {
+      setCurrentVisibleIndex('pause');
     }
   };
 
