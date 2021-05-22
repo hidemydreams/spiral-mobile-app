@@ -1,9 +1,11 @@
-import React, { ReactElement } from 'react';
-import { Image, View } from 'react-native';
+import React, { ReactElement, useState } from 'react';
+import { Image, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import { DarkText, LightText } from '../styledComponents';
 import { styles } from './styles';
 import Video from 'react-native-video';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const SHARE_ICON = require('../../assets/images/shareArrow.png');
 const VIDEO = require('../../assets/videos/video.mp4');
 
@@ -16,6 +18,8 @@ function VideoCard({
   currentIndex,
   index,
 }: Props): ReactElement {
+  const [isVolumeOn, setIsVolumeOn] = useState(true);
+  console.log(isVolumeOn);
   return (
     <View style={styles.card}>
       <View style={styles.cardTitleContainer}>
@@ -32,20 +36,31 @@ function VideoCard({
           </View>
         </View>
       </View>
-      <View style={styles.videoContainer}>
+      <View>
         {currentIndex !== currentVisibleIndex ? (
           <Image
             style={styles.cardBigImage}
             source={require('../../assets/images/rectangle2.png')}
           />
         ) : (
-          <Video
-            source={VIDEO}
-            style={styles.backgroundVideo}
-            muted={true}
-            resizeMode="cover"
-            paused={currentIndex !== currentVisibleIndex}
-          />
+          <View style={styles.videoContainer}>
+            <Video
+              source={VIDEO}
+              style={styles.backgroundVideo}
+              muted={isVolumeOn}
+              resizeMode="cover"
+              paused={currentIndex !== currentVisibleIndex}
+            />
+            <View style={styles.volumeIcon}>
+              <TouchableOpacity onPress={() => setIsVolumeOn(!isVolumeOn)}>
+                {isVolumeOn ? (
+                  <MaterialIcons name="volume-off" color="white" size={30} />
+                ) : (
+                  <MaterialIcons name="volume-up" color="white" size={30} />
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
         )}
       </View>
       <DarkText style={styles.description}>{description}</DarkText>

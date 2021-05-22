@@ -15,8 +15,22 @@ function Home() {
   const { theme } = useTheme();
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(null);
 
-  const handleItemsInViewPort = ({ viewableItems }) => {
-    console.log('Visible items are', viewableItems);
+  const renderVideoCards = ({ item, index }) => (
+    <VideoCard
+      title={item.title}
+      place={item.place}
+      timestamp={item.timestamp}
+      description={item.description}
+      currentIndex={index}
+      currentVisibleIndex={currentVisibleIndex?.currentVisibleIndex}
+    />
+  );
+
+  const handleItemsInViewPort = ({
+    viewableItems,
+  }: {
+    viewableItems: Array<T>;
+  }) => {
     if (viewableItems && viewableItems.length > 0) {
       setCurrentVisibleIndex({ currentVisibleIndex: viewableItems[0].index });
     }
@@ -44,16 +58,7 @@ function Home() {
             <AccountsOverview />
           </>
         }
-        renderItem={({ item, index }) => (
-          <VideoCard
-            title={item.title}
-            place={item.place}
-            timestamp={item.timestamp}
-            description={item.description}
-            currentIndex={index}
-            currentVisibleIndex={currentVisibleIndex?.currentVisibleIndex}
-          />
-        )}
+        renderItem={renderVideoCards}
         keyExtractor={item => item.id}
         viewabilityConfig={{
           minimumViewTime: 100,

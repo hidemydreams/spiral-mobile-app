@@ -67,4 +67,14 @@ export const styles = StyleSheet.create({
   shareButtonTitle: {
     fontSize: 16,
   },
+  volumeIcon: {
+    position: 'relative',
+    left: 300,
+    top: 20,
+    zIndex: 3,
+    backgroundColor: 'rgba(255,255,255, 0.3)',
+    borderRadius: 4,
+    width: 38,
+    padding: 5,
+  },
 });
