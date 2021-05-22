@@ -10,6 +10,9 @@ import { Avatar, ListItem } from 'react-native-elements';
 import styled from 'styled-components/native';
 import { logout } from '../../redux/actions/loginActions';
 import { useAppDispatch } from '../../redux/hooks';
+import { useNavigation } from '@react-navigation/core';
+import screens from '../../constants/screens';
+
 const HeaderRight = styled.View`
   padding-right: 7px;
 `;
@@ -17,6 +20,7 @@ const HeaderRight = styled.View`
 function HeaderLeft() {
   const [userMenuVisible, setUserMenuVisible] = useState(false);
   const dispatch = useAppDispatch();
+  const navigation = useNavigation();
 
   const hideUserMenu = () => {
     setUserMenuVisible(false);
@@ -39,7 +43,13 @@ function HeaderLeft() {
             <ListItem.Title onPress={() => dispatch(logout())}>
               Log out
             </ListItem.Title>
-            <ListItem.Title>Profile</ListItem.Title>
+            <ListItem.Title
+              onPress={() => {
+                navigation.navigate(screens.PROFILE);
+                hideUserMenu();
+              }}>
+              Profile
+            </ListItem.Title>
           </ListItem.Content>
         </ListItem>
       </Modal>

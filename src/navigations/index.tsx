@@ -9,6 +9,7 @@ import CheckingStack from '../screens/Checking/Checking';
 import { useAppSelector } from '../redux/hooks';
 import SignIn from '../screens/SignIn/SignIn';
 import VideoPlayer from '../screens/VideoPlayer/VideoPlayer';
+import ProfileStack from './ProfileStack/ProfileStack';
 
 function AppNavigationContainer() {
   const Stack = createStackNavigator();
@@ -29,6 +30,7 @@ function AppNavigationContainer() {
                 name={screens.VIDEO_PLAYER}
                 component={VideoPlayer}
               />
+              <Stack.Screen name={screens.PROFILE} component={ProfileStack} />
             </Stack.Navigator>
           </NavigationContainer>
         </>
