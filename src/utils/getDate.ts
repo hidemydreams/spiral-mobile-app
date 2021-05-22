@@ -40,8 +40,8 @@ export const getMonth = () => {
 };
 
 export const getDay = () => {
-  const d = new Date();
-  return d.getDay();
+  const today = new Date();
+  return String(today.getDate()).padStart(2, '0');
 };
 
 export const getYear = () => {

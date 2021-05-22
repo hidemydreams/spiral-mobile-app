@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Platform, View } from 'react-native';
 import { DarkText, Card } from '../styledComponents';
-import AccountsListItem from '../AccountsListItem';
+import AccountsListItem from '../AccountsListItem/AccountsListItem';
 import { FlatList } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import screens from '../../constants/screens';
