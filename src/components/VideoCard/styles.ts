@@ -9,6 +9,17 @@ export const styles = StyleSheet.create({
     borderColor: 'rgba(183, 188, 193, 0.5)',
     borderWidth: 1,
   },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+  },
+  videoContainer: {
+    position: 'relative',
+    height: 185,
+  },
   cardTitleContainer: {
     flexDirection: 'row',
     paddingVertical: 10,

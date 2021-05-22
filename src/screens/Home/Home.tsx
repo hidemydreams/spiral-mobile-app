@@ -1,68 +1,90 @@
-import React, { ReactElement } from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  View,
-  FlatList,
-} from 'react-native';
-import screens from '../../constants/screens';
-import HeaderLeft from '../../components/shared/HeaderLeft';
-import HeaderRight from '../../components/shared/HeaderRight';
-import HeaderTitle from '../../components/shared/HeaderTitle';
-import { useNavigation } from '@react-navigation/native';
+import React, { useRef, useState } from 'react';
+import { ScrollView, StatusBar, View, FlatList } from 'react-native';
 import VideoCard from '../../components/VideoCard/VideoCard';
 import AccountsOverview from '../../components/AccountsOverview';
 import { useTheme } from 'react-native-elements';
 import { GIVING_CARD_DATA } from '../../data/data';
 import Greeting from '../../components/shared/Greeting/Greeting';
+import { createStackNavigator } from '@react-navigation/stack';
+import HeaderLeft from '../../components/shared/HeaderLeft';
+import HeaderRight from '../../components/shared/HeaderRight';
+import HeaderTitle from '../../components/shared/HeaderTitle';
+import screens from '../../constants/screens';
 
 function Home() {
   const { theme } = useTheme();
+  const [currentVisibleIndex, setCurrentVisibleIndex] = useState(null);
+
+  const handleItemsInViewPort = ({ viewableItems }) => {
+    console.log('Visible items are', viewableItems);
+    if (viewableItems && viewableItems.length > 0) {
+      setCurrentVisibleIndex({ currentVisibleIndex: viewableItems[0].index });
+    }
+  };
+
+  const viewabilityConfigCallbackPairs = useRef([
+    {
+      viewabilityConfig: {
+        minimumViewTime: 500,
+        itemVisiblePercentThreshold: 100,
+      },
+      onViewableItemsChanged: handleItemsInViewPort,
+    },
+  ]);
+
   return (
-    <ScrollView>
-      <View style={theme.layout.container}>
-        <StatusBar barStyle="light-content" />
-        <Greeting />
+    <View style={theme.layout.container}>
+      <StatusBar barStyle="light-content" />
+      <Greeting />
+      <AccountsOverview />
+      <View>
         <FlatList
           data={GIVING_CARD_DATA}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <VideoCard
               title={item.title}
               place={item.place}
               timestamp={item.timestamp}
               description={item.description}
-              avatar={item.avatar}
+              currentIndex={index}
+              currentVisibleIndex={currentVisibleIndex?.currentVisibleIndex}
+              index={index}
             />
           )}
           keyExtractor={item => item.id}
-          ListHeaderComponent={AccountsOverview}
-          ListFooterComponent={null}
+          viewabilityConfig={{
+            minimumViewTime: 100,
+            viewAreaCoveragePercentThreshold: 100,
+          }}
+          viewabilityConfigCallbackPairs={
+            viewabilityConfigCallbackPairs.current
+          }
         />
       </View>
-    </ScrollView>
+    </View>
   );
 }
 
-function HomeStackNavigator(): ReactElement {
-  const HomeStack = createStackNavigator();
+function HomeStack({ route }) {
+  const Stack = createStackNavigator();
+  const { theme } = useTheme();
+
   return (
-    <HomeStack.Navigator initialRouteName={screens.HOME}>
-      <HomeStack.Screen
+    <Stack.Navigator>
+      <Stack.Screen
         name={screens.HOME}
         component={Home}
         options={{
           headerLeft: () => <HeaderLeft location={screens.HOME} />,
-          headerTitle: () => <HeaderTitle />,
+          headerTitle: () => <HeaderTitle routeName={route.name} />,
           headerRight: () => <HeaderRight />,
           headerStyle: {
-            backgroundColor: 'rgb(215, 51, 116)',
+            backgroundColor: theme.colors.primary,
           },
         }}
       />
-    </HomeStack.Navigator>
+    </Stack.Navigator>
   );
 }
 
-export default HomeStackNavigator;
+export default HomeStack;
