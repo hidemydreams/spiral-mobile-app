@@ -1,9 +1,12 @@
 import { profile } from '../actions/actionTypes';
 
-export const applyChanges = data => {
+export const applyChanges = (profileName: string, profileDate: string) => {
   return {
     type: profile.APPLY_CHANGES,
-    payload: data,
+    payload: {
+      profileName,
+      profileDate,
+    },
   };
 };
 

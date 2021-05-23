@@ -14,12 +14,14 @@ const profileData = {
 };
 
 function Profile() {
-  const [isEditableMode, setIsEditableMode] = useState(false);
-  const [newProfileData, setNewProfileData] = useState(profileData);
   const dispatch = useAppDispatch();
   const { fullName, dateOfBirth, photo } = useAppSelector(
     state => state.profileReducer,
   );
+  const [isEditableMode, setIsEditableMode] = useState(false);
+  const [profileName, setProfileName] = useState(fullName);
+  const [profileDate, setProfileDate] = useState(dateOfBirth);
+
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
@@ -41,19 +43,30 @@ function Profile() {
             />
           </View>
         ) : null}
-
         {isEditableMode ? (
           <View style={styles.input}>
             <DarkText style={styles.inputLabel}>Full Name</DarkText>
             <Input
+              onChangeText={(text: string) => setProfileName(text)}
               containerStyle={styles.inputContainer}
               placeholder="Full Name"
             />
           </View>
         ) : (
-          <DarkText style={styles.profileName}>{fullName}</DarkText>
+          <DarkText style={styles.profileName}>{profileName}</DarkText>
         )}
-        <DarkText style={styles.profileDate}>{dateOfBirth}</DarkText>
+        {isEditableMode ? (
+          <View style={styles.input}>
+            <DarkText style={styles.inputLabel}>Date Of Birth</DarkText>
+            <Input
+              onChangeText={(text: string) => setProfileDate(text)}
+              containerStyle={styles.inputContainer}
+              placeholder="Date Of Birth"
+            />
+          </View>
+        ) : (
+          <DarkText style={styles.profileDate}>{profileDate}</DarkText>
+        )}
       </View>
       <View style={styles.buttonContainer}>
         {isEditableMode ? (
@@ -61,7 +74,7 @@ function Profile() {
             <Button
               onPress={() => {
                 setIsEditableMode(false);
-                dispatch(applyChanges(newProfileData));
+                dispatch(applyChanges(profileName, profileDate));
               }}
               buttonStyle={styles.button}
               title={
