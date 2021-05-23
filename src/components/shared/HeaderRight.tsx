@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
 import styled from 'styled-components/native';
-import { logout } from '../../redux/actions/loginActions';
+import { signOut } from '../../redux/actions/loginActions';
 import { useAppDispatch } from '../../redux/hooks';
 import { useNavigation } from '@react-navigation/core';
 import screens from '../../constants/screens';
@@ -40,7 +40,7 @@ function HeaderLeft() {
         </TouchableWithoutFeedback>
         <ListItem style={styles.userMenuContent}>
           <ListItem.Content>
-            <ListItem.Title onPress={() => dispatch(logout())}>
+            <ListItem.Title onPress={() => dispatch(signOut())}>
               Log out
             </ListItem.Title>
             <ListItem.Title

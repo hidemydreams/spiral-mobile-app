@@ -1,6 +1,7 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import loginReducer from './reducers/loginReducer';
+import profileReducer from './reducers/profileReducer';
 import { persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import { persistStore } from 'redux-persist';
@@ -8,11 +9,12 @@ import { persistStore } from 'redux-persist';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['loginReducer'],
+  whitelist: ['loginReducer', 'profileReducer'],
 };
 
 const rootReducer = combineReducers({
   loginReducer,
+  profileReducer,
 });
 
 const persitedReducer = persistReducer(persistConfig, rootReducer);

@@ -35,4 +35,13 @@ export const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 16,
   },
+  inputContainer: {
+    paddingHorizontal: 0,
+  },
+  inputLabel: {
+    marginBottom: 5,
+  },
+  input: {
+    width: 200,
+  },
 });

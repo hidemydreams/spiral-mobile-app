@@ -1,4 +1,5 @@
 import { auth } from '../actions/actionTypes';
+import { deleteProfileData } from './profileActions';
 
 const login = () => {
   return {
@@ -6,7 +7,7 @@ const login = () => {
   };
 };
 
-const loginSuccess = (username: string, password: string) => {
+const loginSuccess = () => {
   return {
     type: auth.LOGIN_SUCCESS,
     payload: 'ANYJWTTOKEN',
@@ -23,6 +24,13 @@ const loginFailure = () => {
 export const logout = () => {
   return {
     type: auth.LOGOUT,
+  };
+};
+
+export const signOut = () => {
+  return function (dispatch: any) {
+    dispatch(logout());
+    dispatch(deleteProfileData());
   };
 };
 

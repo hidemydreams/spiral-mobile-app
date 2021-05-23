@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { DarkText, LightText } from '../../components/styledComponents';
 import { styles } from './styles';
+import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch } from '../../redux/hooks';
+import { applyChanges } from '../../redux/actions/profileActions';
+
+const profileData = {
+  fullName: '',
+  dateOfBirth: '',
+  photo: '',
+};
 
 function Profile() {
   const [isEditableMode, setIsEditableMode] = useState(false);
+  const [newProfileData, setNewProfileData] = useState(profileData);
+  const dispatch = useAppDispatch();
+  const { fullName, dateOfBirth, photo } = useAppSelector(
+    state => state.profileReducer,
+  );
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
@@ -28,15 +42,27 @@ function Profile() {
           </View>
         ) : null}
 
-        <DarkText style={styles.profileName}>Full Name</DarkText>
-        <DarkText style={styles.profileDate}>05.15.1999</DarkText>
+        {isEditableMode ? (
+          <View style={styles.input}>
+            <DarkText style={styles.inputLabel}>Full Name</DarkText>
+            <Input
+              containerStyle={styles.inputContainer}
+              placeholder="Full Name"
+            />
+          </View>
+        ) : (
+          <DarkText style={styles.profileName}>{fullName}</DarkText>
+        )}
+        <DarkText style={styles.profileDate}>{dateOfBirth}</DarkText>
       </View>
-
       <View style={styles.buttonContainer}>
         {isEditableMode ? (
           <>
             <Button
-              onPress={() => setIsEditableMode(false)}
+              onPress={() => {
+                setIsEditableMode(false);
+                dispatch(applyChanges(newProfileData));
+              }}
               buttonStyle={styles.button}
               title={
                 <LightText style={styles.buttonText}>Apply Changes</LightText>
