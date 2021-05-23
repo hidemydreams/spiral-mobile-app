@@ -7,17 +7,13 @@ import { useAppSelector } from '../../redux/hooks';
 import { useAppDispatch } from '../../redux/hooks';
 import { applyChanges } from '../../redux/actions/profileActions';
 
-const profileData = {
-  fullName: '',
-  dateOfBirth: '',
-  photo: '',
-};
-
 function Profile() {
   const dispatch = useAppDispatch();
-  const { fullName, dateOfBirth, photo } = useAppSelector(
-    state => state.profileReducer,
+  const fullName = useAppSelector(state => state.profileReducer?.fullName);
+  const dateOfBirth = useAppSelector(
+    state => state.profileReducer?.dateOfBirth,
   );
+  console.log(fullName, dateOfBirth);
   const [isEditableMode, setIsEditableMode] = useState(false);
   const [profileName, setProfileName] = useState(fullName);
   const [profileDate, setProfileDate] = useState(dateOfBirth);
