@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { DarkText, LightText } from '../../components/styledComponents';
+import { styles } from './styles';
 
 function Profile() {
+  const [isEditableMode, setIsEditableMode] = useState(false);
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
@@ -11,43 +13,53 @@ function Profile() {
           style={styles.avatar}
           source={require('../../assets/images/avatar_image.webp')}
         />
+        {isEditableMode ? (
+          <View style={styles.buttonContainer}>
+            <Button
+              buttonStyle={styles.button}
+              title={<LightText style={styles.buttonText}>Camera</LightText>}
+            />
+            <Button
+              buttonStyle={styles.button}
+              title={
+                <LightText style={styles.buttonText}>From Device</LightText>
+              }
+            />
+          </View>
+        ) : null}
+
         <DarkText style={styles.profileName}>Full Name</DarkText>
         <DarkText style={styles.profileDate}>05.15.1999</DarkText>
       </View>
-      <Button title={<LightText>Edit profile</LightText>} />
+
       <View style={styles.buttonContainer}>
-        <Button title={<LightText>Apply Changes</LightText>} />
-        <Button title={<LightText>Cancel</LightText>} />
+        {isEditableMode ? (
+          <>
+            <Button
+              onPress={() => setIsEditableMode(false)}
+              buttonStyle={styles.button}
+              title={
+                <LightText style={styles.buttonText}>Apply Changes</LightText>
+              }
+            />
+            <Button
+              onPress={() => setIsEditableMode(false)}
+              buttonStyle={styles.button}
+              title={<LightText style={styles.buttonText}>Cancel</LightText>}
+            />
+          </>
+        ) : (
+          <Button
+            onPress={() => setIsEditableMode(true)}
+            buttonStyle={styles.button}
+            title={
+              <LightText style={styles.buttonText}>Edit profile</LightText>
+            }
+          />
+        )}
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  profileInfo: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  avatar: {
-    width: 150,
-    height: 150,
-    marginBottom: 60,
-  },
-  profileName: {
-    marginBottom: 20,
-    fontWeight: '500',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    marginBottom: 50,
-  },
-  profileDate: {},
-});
 
 export default Profile;

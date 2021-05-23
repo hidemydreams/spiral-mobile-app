@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import {
   ActivityIndicator,
-  Image,
   KeyboardAvoidingView,
   StatusBar,
-  StyleSheet,
   Text,
   View,
   ScrollView,
@@ -18,6 +16,7 @@ import { DarkText, StyledTextPrimary } from '../../components/styledComponents';
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { styles } from './styles';
 
 function SignIn() {
   const [login, setLogin] = useState('');
@@ -126,61 +125,5 @@ function SignIn() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    borderRadius: 50,
-    paddingVertical: 10,
-    marginBottom: 20,
-  },
-  buttonTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 30,
-    alignContent: 'flex-end',
-  },
-  bottomContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignContent: 'flex-end',
-    position: 'relative',
-  },
-  bottomButton: {
-    marginHorizontal: 10,
-    borderRadius: 50,
-    borderColor: 'rgb(41,41,41)',
-  },
-  bottomButtonText: {
-    marginHorizontal: 10,
-  },
-  testText: {
-    fontSize: 12,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  inputContainer: {
-    paddingHorizontal: 0,
-  },
-  inputLabel: {
-    marginBottom: 5,
-  },
-  errorMessage: {
-    textAlign: 'center',
-    color: '#fc4c4c',
-    fontWeight: '500',
-  },
-  forgottenPassword: {
-    fontWeight: '700',
-    textAlign: 'right',
-    fontSize: 16,
-    marginBottom: 10,
-    marginTop: 10,
-    color: 'rgb(215, 51, 116)',
-  },
-});
 
 export default SignIn;
