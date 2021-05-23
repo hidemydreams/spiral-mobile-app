@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, Platform } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { DarkText, LightText } from '../../components/styledComponents';
 import { styles } from './styles';
 import { useAppSelector } from '../../redux/hooks';
 import { useAppDispatch } from '../../redux/hooks';
 import { applyChanges } from '../../redux/actions/profileActions';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { parseProfileDate } from '../../utils/getDate';
 
 function Profile() {
   const dispatch = useAppDispatch();
@@ -13,11 +15,22 @@ function Profile() {
   const dateOfBirth = useAppSelector(
     state => state.profileReducer?.dateOfBirth,
   );
-  console.log(fullName, dateOfBirth);
   const [isEditableMode, setIsEditableMode] = useState(false);
   const [profileName, setProfileName] = useState(fullName);
   const [profileDate, setProfileDate] = useState(dateOfBirth);
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(true);
 
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    const parsedProfileDate = parseProfileDate(currentDate);
+    setDate(currentDate);
+    setProfileDate(parsedProfileDate);
+  };
+
+  // march 21, 1996
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
@@ -52,14 +65,15 @@ function Profile() {
           <DarkText style={styles.profileName}>{profileName}</DarkText>
         )}
         {isEditableMode ? (
-          <View style={styles.input}>
-            <DarkText style={styles.inputLabel}>Date Of Birth</DarkText>
-            <Input
-              onChangeText={(text: string) => setProfileDate(text)}
-              containerStyle={styles.inputContainer}
-              placeholder="Date Of Birth"
-            />
-          </View>
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+            style={{ width: 200, marginHorizontal: 'auto' }}
+          />
         ) : (
           <DarkText style={styles.profileDate}>{profileDate}</DarkText>
         )}

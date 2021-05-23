@@ -37,7 +37,6 @@ const profileReducer = (state = profileInitialState, action: AnyAction) => {
         photo: 'base 64 photo',
       };
     case profile.APPLY_CHANGES:
-      console.log('from reducer', action.payload);
       return {
         fullName: action.payload.profileName,
         dateOfBirth: action.payload.profileDate,

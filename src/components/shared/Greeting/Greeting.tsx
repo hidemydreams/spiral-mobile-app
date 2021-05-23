@@ -5,10 +5,9 @@ import { styles } from './styles';
 
 function Greeting() {
   return (
-    <DarkText
-      style={
-        styles.welcomeText
-      }>{`${getDayTime()} User | ${getMonth()} ${getDay()}, ${getYear()}`}</DarkText>
+    <DarkText style={styles.welcomeText}>{`${getDayTime()} User | ${getMonth(
+      new Date().getMonth(),
+    )} ${getDay()}, ${getYear()}`}</DarkText>
   );
 }
 
