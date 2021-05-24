@@ -5,6 +5,7 @@ import AccountsListItem from '../AccountsListItem/AccountsListItem';
 import { FlatList } from 'react-native-gesture-handler';
 import { styles } from './styles';
 import screens from '../../constants/screens';
+import AvailableCash from '../AvailableCash/AvailableCash';
 
 interface IAccountsListItem {
   id: number;
@@ -71,10 +72,7 @@ function AccountsOverview(): ReactElement {
   return (
     <Card style={styles.card}>
       <DarkText style={styles.cardTitle}>Accounts Overview</DarkText>
-      <DarkText style={styles.cardAmount}>
-        $7,000<DarkText>.80</DarkText>
-      </DarkText>
-      <DarkText style={styles.cardTotal}>Total Available Cash</DarkText>
+      <AvailableCash />
       <FlatList
         style={styles.flatList}
         renderItem={renderAccountsListItem}
