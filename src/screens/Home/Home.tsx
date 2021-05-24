@@ -40,7 +40,7 @@ function Home() {
   const viewabilityConfigCallbackPairs = useRef([
     {
       viewabilityConfig: {
-        minimumViewTime: 500,
+        minimumViewTime: 1500,
         itemVisiblePercentThreshold: 100,
       },
       onViewableItemsChanged: handleItemsInViewPort,
@@ -61,10 +61,7 @@ function Home() {
         }
         renderItem={renderVideoCards}
         keyExtractor={item => item.id}
-        viewabilityConfig={{
-          minimumViewTime: 100,
-          viewAreaCoveragePercentThreshold: 100,
-        }}
+        viewabilityConfig={viewabilityConfigCallbackPairs.current}
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
       />
     </View>
