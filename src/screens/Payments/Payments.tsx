@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+<<<<<<< HEAD
 import screens from '../../constants/screens';
 import HeaderLeft from '../../components/shared/HeaderLeft';
 import HeaderTitle from '../../components/shared/HeaderTitle';
@@ -28,6 +29,8 @@ function PaymentsStack({ route }) {
     </Stack.Navigator>
   );
 }
+=======
+>>>>>>> a9c3f746b729fe5ba617aef1ff3b0cab072444ab
 
 function Payments() {
   return (
@@ -41,4 +44,4 @@ function Payments() {
   );
 }
 
-export default PaymentsStack;
+export default Payments;

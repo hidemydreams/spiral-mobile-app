@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import styled from 'styled-components/native';
+const LOGO_ICON = require('../../assets/images/logo.png');
 
 const RouteText = styled.Text`
   font-size: 16px;
@@ -8,7 +9,6 @@ const RouteText = styled.Text`
   font-family: Sf Pro Rounded;
   color: white;
 `;
-
 const SubtitleText = styled.Text`
   font-size: 10px;
   font-weight: 500;
@@ -34,7 +34,7 @@ function HeaderTitle({
         <RouteText>{routeName}</RouteText>
       ) : (
         <View>
-          <Image source={require('../../assets/images/logo.png')} />
+          <Image source={LOGO_ICON} />
         </View>
       )}
       {subtitle ? <SubtitleText>{subtitle}</SubtitleText> : null}
