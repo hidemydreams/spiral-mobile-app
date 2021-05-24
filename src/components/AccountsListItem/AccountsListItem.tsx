@@ -6,6 +6,7 @@ import { useTheme } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from './styles';
+const HEART_ICON = require('../../assets/images/heart.png');
 
 function AccountsListItem({
   title,
@@ -15,6 +16,14 @@ function AccountsListItem({
   icon,
   navigateTo,
   additionalInfo,
+}: {
+  title: string;
+  subtitle: string;
+  banknotes: string;
+  cents: string;
+  icon: boolean | undefined;
+  navigateTo: string | undefined;
+  additionalInfo: string | undefined;
 }): ReactElement {
   const { theme } = useTheme();
   const navigation = useNavigation();
@@ -28,7 +37,8 @@ function AccountsListItem({
         }>
         <View>
           <DarkText style={styles.itemTitle}>
-            {title} <Image source={icon} />
+            {title}{' '}
+            {icon ? <Image style={styles.icon} source={HEART_ICON} /> : null}
           </DarkText>
           <GreyText style={styles.itemSubTitle}>{subtitle}</GreyText>
         </View>

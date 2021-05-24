@@ -1,9 +1,11 @@
-import { Image, View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   itemWrapper: {
     flex: 1,
     alignSelf: 'stretch',
+    backgroundColor: 'white',
+    borderRadius: 15,
   },
   item: {
     flexDirection: 'row',
@@ -32,4 +34,5 @@ export const styles = StyleSheet.create({
   itemSubTitle: {
     fontSize: 16,
   },
+  icon: { width: 15, height: 15 },
 });
