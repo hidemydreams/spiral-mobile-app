@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTheme } from 'react-native-elements';
 import HeaderLeft from '../../components/shared/HeaderLeft';
-import HeaderRight from '../../components/shared/HeaderRight';
+import HeaderRight from '../../components/shared/HeaderRight/HeaderRight';
 import HeaderTitle from '../../components/shared/HeaderTitle';
 import screens from '../../constants/screens';
 import Profile from '../../screens/Profile/Profile';

@@ -40,7 +40,7 @@ const profileReducer = (state = profileInitialState, action: AnyAction) => {
       return {
         fullName: action.payload.profileName,
         dateOfBirth: action.payload.profileDate,
-        photo: action.payload.photo,
+        photo: action.payload.profileImage,
       };
 
     default:

@@ -109,7 +109,11 @@ function HomeTabs() {
       )}>
       {tabScreens.map(screen => {
         return (
-          <Tab.Screen name={screen.screenName} component={screen.component} />
+          <Tab.Screen
+            key={screen.screenName}
+            name={screen.screenName}
+            component={screen.component}
+          />
         );
       })}
     </Tab.Navigator>

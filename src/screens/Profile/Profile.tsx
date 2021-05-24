@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../redux/hooks';
 import { applyChanges } from '../../redux/actions/profileActions';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { parseProfileDate } from '../../utils/getDate';
+import ImagePicker from 'react-native-image-crop-picker';
 
 function Profile() {
   const dispatch = useAppDispatch();
@@ -15,9 +16,11 @@ function Profile() {
   const dateOfBirth = useAppSelector(
     state => state.profileReducer?.dateOfBirth,
   );
+  const photo = useAppSelector(state => state.profileReducer?.photo);
   const [isEditableMode, setIsEditableMode] = useState(false);
   const [profileName, setProfileName] = useState(fullName);
   const [profileDate, setProfileDate] = useState(dateOfBirth);
+  const [profileImage, setProfileImage] = useState(photo);
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(true);
@@ -29,22 +32,50 @@ function Profile() {
     setDate(currentDate);
     setProfileDate(parsedProfileDate);
   };
-
-  // march 21, 1996
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
         <Image
           style={styles.avatar}
-          source={require('../../assets/images/avatar_image.webp')}
+          source={{
+            uri: `data:${profileImage?.mime};base64,${profileImage?.data}`,
+          }}
         />
         {isEditableMode ? (
           <View style={styles.buttonContainer}>
             <Button
+              onPress={() => {
+                ImagePicker.openCamera({
+                  width: 300,
+                  height: 300,
+                  multiple: false,
+                  includeBase64: true,
+                })
+                  .then(image => {
+                    setProfileImage(image);
+                  })
+                  .catch(err => {
+                    console.log('error', err);
+                  });
+              }}
               buttonStyle={styles.button}
               title={<LightText style={styles.buttonText}>Camera</LightText>}
             />
             <Button
+              onPress={() => {
+                ImagePicker.openPicker({
+                  width: 300,
+                  height: 300,
+                  multiple: false,
+                  includeBase64: true,
+                })
+                  .then(image => {
+                    setProfileImage(image);
+                  })
+                  .catch(err => {
+                    console.log('error', err);
+                  });
+              }}
               buttonStyle={styles.button}
               title={
                 <LightText style={styles.buttonText}>From Device</LightText>
@@ -84,7 +115,7 @@ function Profile() {
             <Button
               onPress={() => {
                 setIsEditableMode(false);
-                dispatch(applyChanges(profileName, profileDate));
+                dispatch(applyChanges(profileName, profileDate, profileImage));
               }}
               buttonStyle={styles.button}
               title={
