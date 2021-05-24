@@ -3,7 +3,7 @@ const theme = {
     primary: 'rgb(215, 51, 116)',
     black: 'rgb(41,41,41)',
     background: 'rgb(247,248,252)',
-    accentGreen: '#91CCB2',
+    accentGreen: 'rgb(86,180,129)',
     light: 'rgba(255, 255, 255)',
     grey: 'rgb(183, 188, 193)',
   },

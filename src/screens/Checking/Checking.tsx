@@ -28,7 +28,7 @@ const CheckingData = {
         banknotes: '63',
         cents: '95',
       },
-      isDeposit: false,
+      isDeposit: true,
     },
     {
       id: 3,
@@ -122,37 +122,44 @@ function Checking() {
 
   return (
     <SafeAreaView style={theme.layout.container}>
-      <AvailableCash style={availableFundsStyles} />
-      <View style={styles.filterRowContainer}>
-        <TextInput style={styles.filterInput} />
-        <Button
-          title={<GreyText style={styles.buttonText}>Filter By</GreyText>}
-          buttonStyle={styles.filterButton}
-        />
-      </View>
-      <View style={styles.transactionBlock}>
-        <DarkText style={styles.transactionDate}>July 11</DarkText>
-        <FlatList
-          renderItem={renderCheckingItem}
-          keyExtractor={item => item.id}
-          data={CheckingData.july11}
-          ItemSeparatorComponent={
-            Platform.OS !== 'android' &&
-            (() => <View style={styles.separator} />)
-          }
-        />
-      </View>
-      <View style={styles.transactionBlock}>
-        <DarkText style={styles.transactionDate}>July 12</DarkText>
-        <FlatList
-          renderItem={renderCheckingItem}
-          keyExtractor={item => item.id}
-          data={CheckingData.july12}
-          ItemSeparatorComponent={
-            Platform.OS !== 'android' &&
-            (() => <View style={styles.separator} />)
-          }
-        />
+      <View style={theme.layout.container}>
+        <AvailableCash style={availableFundsStyles} />
+        <View style={styles.filterRowContainer}>
+          <TextInput
+            style={styles.filterInput}
+            placeholder="Search Transactions"
+          />
+          <Button
+            title={<GreyText style={styles.buttonText}>Filter By</GreyText>}
+            buttonStyle={styles.filterButton}
+          />
+        </View>
+        <View style={styles.transactionBlock}>
+          <DarkText style={styles.transactionDate}>July 11</DarkText>
+          <FlatList
+            style={styles.flatList}
+            renderItem={renderCheckingItem}
+            keyExtractor={item => item.id}
+            data={CheckingData.july11}
+            ItemSeparatorComponent={
+              Platform.OS !== 'android' &&
+              (() => <View style={styles.separator} />)
+            }
+          />
+        </View>
+        <View style={styles.transactionBlock}>
+          <DarkText style={styles.transactionDate}>July 12</DarkText>
+          <FlatList
+            style={styles.flatList}
+            renderItem={renderCheckingItem}
+            keyExtractor={item => item.id}
+            data={CheckingData.july12}
+            ItemSeparatorComponent={
+              Platform.OS !== 'android' &&
+              (() => <View style={styles.separator} />)
+            }
+          />
+        </View>
       </View>
     </SafeAreaView>
   );

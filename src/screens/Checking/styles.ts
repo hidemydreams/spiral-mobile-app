@@ -15,12 +15,13 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
   },
   filterInput: {
-    width: 200,
-    height: 25,
+    width: 250,
+    height: 30,
     borderWidth: 1,
     borderColor: theme.colors.grey,
     borderRadius: 20,
     paddingLeft: 10,
+    backgroundColor: 'white',
   },
   transactionDate: {
     marginBottom: 5,
@@ -33,6 +34,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginBottom: 40,
   },
   buttonText: { fontSize: 14 },
+  flatList: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+  },
 });

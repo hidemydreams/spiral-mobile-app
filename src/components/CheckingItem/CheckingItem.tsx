@@ -1,12 +1,9 @@
 import React, { ReactElement } from 'react';
 import { Image, View } from 'react-native';
 import { DarkText, GreyText, StyledTextAccent } from '../styledComponents';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from './styles';
-const HEART_ICON = require('../../assets/images/heart.png');
+const CONFETTI_ICON = require('../../assets/images/confetti2.png');
 
 function CheckingItem({
   title,
@@ -22,27 +19,44 @@ function CheckingItem({
   isDeposit: boolean;
 }): ReactElement {
   const { theme } = useTheme();
-  const navigation = useNavigation();
-
   return (
     <View style={styles.itemWrapper}>
-      <View>
-        <DarkText style={styles.itemTitle}>
-          {isDeposit ? <Image style={styles.icon} source={HEART_ICON} /> : null}
-          {title}
-        </DarkText>
-        <GreyText style={styles.itemSubTitle}>{subtitle}</GreyText>
+      <View style={styles.itemTitleWrapper}>
+        {isDeposit ? (
+          <Image style={styles.icon} source={CONFETTI_ICON} />
+        ) : null}
+        <View>
+          <DarkText
+            style={[
+              styles.itemTitle,
+              isDeposit ? { color: theme.colors.accentGreen } : null,
+            ]}>
+            {title}
+          </DarkText>
+          <GreyText
+            style={[
+              styles.itemSubTitle,
+              isDeposit ? { color: theme.colors.accentGreen } : null,
+            ]}>
+            {subtitle}
+          </GreyText>
+        </View>
       </View>
       <View style={styles.itemRight}>
-        <DarkText style={styles.amountBig}>
+        <DarkText
+          style={[
+            styles.amountBig,
+            isDeposit ? { color: theme.colors.accentGreen } : null,
+          ]}>
           ${banknotes}
-          <DarkText style={styles.amountSmall}>.{cents}</DarkText>
+          <DarkText
+            style={[
+              styles.amountSmall,
+              isDeposit ? { color: theme.colors.accentGreen } : null,
+            ]}>
+            .{cents}
+          </DarkText>
         </DarkText>
-        <MaterialIcons
-          name="chevron-right"
-          color={theme.colors.primary}
-          size={30}
-        />
       </View>
     </View>
   );

@@ -6,10 +6,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignSelf: 'stretch',
     alignItems: 'center',
-    paddingHorizontal: 10,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    paddingVertical: 10,
+    paddingHorizontal: 13,
+    paddingVertical: 15,
   },
   itemRight: {
     flexDirection: 'row',
@@ -28,5 +26,15 @@ export const styles = StyleSheet.create({
   },
   itemSubTitle: {
     fontSize: 16,
+  },
+  depositAccentGreen: {
+    color: '#91CCB2',
+  },
+  itemTitleWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    marginRight: 5,
   },
 });
