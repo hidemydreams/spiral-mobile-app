@@ -6,13 +6,19 @@ import {
 import { Image, Platform } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import screens from '../constants/screens';
-import GivingStack from '../screens/Giving/Giving';
-import PaymentsStack from '../screens/Payments/Payments';
-import CardsStack from '../screens/Cards/Cards';
-import AccountsStack from '../screens/Accounts/Accounts';
 import styled from 'styled-components/native';
 import { useTheme } from 'react-native-elements';
-import HomeStackNavigator from '../screens/Home/Home';
+import AccountsStack from './AccountsNavigator';
+import CardsStack from './CardsNavigator';
+import GivingStack from './GivingNavigator';
+import HomeStackNavigator from './HomeNavigator';
+import PaymentsStack from './PaymentsNavigator';
+const HOME_ICON = require('../assets/images/home.png');
+const ACCOUNTS_ICON = require('../assets/images/accounts.png');
+const GIVING_ICON = require('../assets/images/giving.png');
+const PAYMENTS_ICON = require('../assets/images/payment.png');
+const CARD_ICON = require('../assets/images/cards.png');
+
 const BluredView = styled.View`
   position: absolute;
   width: 100%;
@@ -34,37 +40,47 @@ const BluredOverlay = styled.View`
   z-index: -1;
 `;
 
+const tabScreens = [
+  { screenName: screens.HOME, component: HomeStackNavigator },
+  { screenName: screens.ACCOUNTS, component: AccountsStack },
+  { screenName: screens.GIVING, component: GivingStack },
+  { screenName: screens.PAYMENTS, component: PaymentsStack },
+  { screenName: screens.CARDS, component: CardsStack },
+];
+
+const getTabBarIcon = route => {
+  let iconName;
+  switch (route.name) {
+    case screens.HOME:
+      iconName = HOME_ICON;
+      break;
+    case screens.ACCOUNTS:
+      iconName = ACCOUNTS_ICON;
+      break;
+    case screens.GIVING:
+      iconName = GIVING_ICON;
+      break;
+    case screens.PAYMENTS:
+      iconName = PAYMENTS_ICON;
+      break;
+    case screens.CARDS:
+      iconName = CARD_ICON;
+      break;
+    default:
+      break;
+  }
+  return <Image source={iconName} />;
+};
+
 function HomeTabs() {
-  const Tab = createBottomTabNavigator();
   const { theme } = useTheme();
+  const Tab = createBottomTabNavigator();
 
   return (
     <Tab.Navigator
       initialRouteName={screens.HOME}
       screenOptions={({ route }) => ({
-        tabBarIcon: () => {
-          let iconName;
-          switch (route.name) {
-            case screens.HOME:
-              iconName = require('../assets/images/home.png');
-              break;
-            case screens.ACCOUNTS:
-              iconName = require('../assets/images/accounts.png');
-              break;
-            case screens.GIVING:
-              iconName = require('../assets/images/giving.png');
-              break;
-            case screens.PAYMENTS:
-              iconName = require('../assets/images/payment.png');
-              break;
-            case screens.CARDS:
-              iconName = require('../assets/images/cards.png');
-              break;
-            default:
-              break;
-          }
-          return <Image source={iconName} />;
-        },
+        tabBarIcon: () => getTabBarIcon(route),
       })}
       tabBarOptions={{
         activeTintColor: theme.colors.primary,
@@ -91,11 +107,11 @@ function HomeTabs() {
           )}
         </>
       )}>
-      <Tab.Screen name={screens.HOME} component={HomeStackNavigator} />
-      <Tab.Screen name={screens.ACCOUNTS} component={AccountsStack} />
-      <Tab.Screen name={screens.GIVING} component={GivingStack} />
-      <Tab.Screen name={screens.PAYMENTS} component={PaymentsStack} />
-      <Tab.Screen name={screens.CARDS} component={CardsStack} />
+      {tabScreens.map(screen => {
+        return (
+          <Tab.Screen name={screen.screenName} component={screen.component} />
+        );
+      })}
     </Tab.Navigator>
   );
 }
