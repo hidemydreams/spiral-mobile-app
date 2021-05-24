@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   View,
   StatusBar,
   Image,
@@ -31,6 +30,7 @@ function Accounts() {
         icon={item.icon}
         navigateTo={item.navigateTo}
         additionalInfo={item.additionalInfo}
+        achievement={item.achievement}
       />
     );
   };

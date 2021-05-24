@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Image, View } from 'react-native';
-import { DarkText, GreyText } from '../styledComponents';
+import { DarkText, GreyText, StyledTextAccent } from '../styledComponents';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
@@ -16,6 +16,7 @@ function AccountsListItem({
   icon,
   navigateTo,
   additionalInfo,
+  achievement,
 }: {
   title: string;
   subtitle: string;
@@ -24,6 +25,7 @@ function AccountsListItem({
   icon: boolean | undefined;
   navigateTo: string | undefined;
   additionalInfo: string | undefined;
+  achievement: string;
 }): ReactElement {
   const { theme } = useTheme();
   const navigation = useNavigation();
@@ -54,6 +56,11 @@ function AccountsListItem({
           />
         </View>
       </TouchableOpacity>
+      {achievement ? (
+        <StyledTextAccent style={styles.achievement}>
+          {achievement}
+        </StyledTextAccent>
+      ) : null}
     </View>
   );
 }

@@ -64,6 +64,7 @@ export interface IAccountsListItem {
   icon?: boolean;
   navigateTo?: string;
   additionalInfo?: string;
+  achievement?: string;
 }
 
 export const AccountsListItemData: IAccountsListItem = [
@@ -88,6 +89,7 @@ export const AccountsListItemData: IAccountsListItem = [
     },
     navigateTo: screens.SAVING,
     additionalInfo: 'Some text for another page',
+    achievement: 'Savings is up 3% from last month',
   },
   {
     id: 3,

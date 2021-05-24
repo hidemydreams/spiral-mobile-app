@@ -35,4 +35,5 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   icon: { width: 15, height: 15 },
+  achievement: { textAlign: 'center', fontSize: 16, marginTop: 5 },
 });
