@@ -9,14 +9,13 @@ import { applyChanges } from '../../redux/actions/profileActions';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { parseProfileDate } from '../../utils/getDate';
 import ImagePicker from 'react-native-image-crop-picker';
+const USER_PROFILE_ICON = require('../../assets/images/blank_avatar.jpeg');
 
 function Profile() {
   const dispatch = useAppDispatch();
-  const fullName = useAppSelector(state => state.profileReducer?.fullName);
-  const dateOfBirth = useAppSelector(
-    state => state.profileReducer?.dateOfBirth,
+  const { fullName, dateOfBirth, photo } = useAppSelector(
+    state => state.profileReducer,
   );
-  const photo = useAppSelector(state => state.profileReducer?.photo);
   const [isEditableMode, setIsEditableMode] = useState(false);
   const [profileName, setProfileName] = useState(fullName);
   const [profileDate, setProfileDate] = useState(dateOfBirth);
@@ -62,15 +61,20 @@ function Profile() {
         console.log('error', err);
       });
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
-        <Image
-          style={styles.avatar}
-          source={{
-            uri: `data:${profileImage?.mime};base64,${profileImage?.data}`,
-          }}
-        />
+        {photo ? (
+          <Image
+            style={styles.avatar}
+            source={{
+              uri: `data:${profileImage?.mime};base64,${profileImage?.data}`,
+            }}
+          />
+        ) : (
+          <Image style={styles.avatar} source={USER_PROFILE_ICON} />
+        )}
         {isEditableMode ? (
           <View style={styles.buttonContainer}>
             <Button

@@ -4,13 +4,13 @@ import { profile } from '../actions/actionTypes';
 interface IProfileInitialState {
   fullName: string;
   dateOfBirth: string;
-  photo: string;
+  photo: object | null;
 }
 
 const profileInitialState: IProfileInitialState = {
-  fullName: 'Initial Name',
+  fullName: 'Name Surname',
   dateOfBirth: 'Please select your date of birth',
-  photo: 'base 64 photo',
+  photo: null,
 };
 
 const profileReducer = (state = profileInitialState, action: AnyAction) => {
@@ -32,9 +32,9 @@ const profileReducer = (state = profileInitialState, action: AnyAction) => {
       };
     case profile.DELETE_PROFILE_DATA:
       return {
-        fullName: 'Initial Name',
+        fullName: 'Name Surname',
         dateOfBirth: 'Please select your date of birth',
-        photo: 'base 64 photo',
+        photo: null,
       };
     case profile.APPLY_CHANGES:
       return {
