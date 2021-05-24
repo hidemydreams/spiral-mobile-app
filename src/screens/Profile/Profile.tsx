@@ -32,6 +32,36 @@ function Profile() {
     setDate(currentDate);
     setProfileDate(parsedProfileDate);
   };
+
+  const openCameraPicker = () => {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 300,
+      multiple: false,
+      includeBase64: true,
+    })
+      .then(image => {
+        setProfileImage(image);
+      })
+      .catch(err => {
+        console.log('error', err);
+      });
+  };
+
+  const openGalleryPicker = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 300,
+      multiple: false,
+      includeBase64: true,
+    })
+      .then(image => {
+        setProfileImage(image);
+      })
+      .catch(err => {
+        console.log('error', err);
+      });
+  };
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
@@ -44,38 +74,12 @@ function Profile() {
         {isEditableMode ? (
           <View style={styles.buttonContainer}>
             <Button
-              onPress={() => {
-                ImagePicker.openCamera({
-                  width: 300,
-                  height: 300,
-                  multiple: false,
-                  includeBase64: true,
-                })
-                  .then(image => {
-                    setProfileImage(image);
-                  })
-                  .catch(err => {
-                    console.log('error', err);
-                  });
-              }}
+              onPress={openCameraPicker}
               buttonStyle={styles.button}
               title={<LightText style={styles.buttonText}>Camera</LightText>}
             />
             <Button
-              onPress={() => {
-                ImagePicker.openPicker({
-                  width: 300,
-                  height: 300,
-                  multiple: false,
-                  includeBase64: true,
-                })
-                  .then(image => {
-                    setProfileImage(image);
-                  })
-                  .catch(err => {
-                    console.log('error', err);
-                  });
-              }}
+              onPress={openGalleryPicker}
               buttonStyle={styles.button}
               title={
                 <LightText style={styles.buttonText}>From Device</LightText>

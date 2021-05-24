@@ -3,7 +3,7 @@ import { profile } from '../actions/actionTypes';
 export const applyChanges = (
   profileName: string,
   profileDate: string,
-  profileImage,
+  profileImage: object,
 ) => {
   return {
     type: profile.APPLY_CHANGES,
