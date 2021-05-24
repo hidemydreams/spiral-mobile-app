@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'stretch',
     backgroundColor: 'white',
     borderRadius: 15,
+    paddingVertical: 15,
   },
   item: {
     flexDirection: 'row',
@@ -13,8 +14,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
     paddingHorizontal: 10,
-    marginBottom: 15,
-    marginTop: 15,
   },
   itemRight: {
     flexDirection: 'row',
