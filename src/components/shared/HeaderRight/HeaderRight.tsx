@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import { View, Modal, TouchableWithoutFeedback } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
-<<<<<<< HEAD:src/components/shared/HeaderRight.tsx
-import styled from 'styled-components/native';
-import { logout } from '../../redux/actions/loginActions';
-import { useAppDispatch } from '../../redux/hooks';
-const HeaderRight = styled.View`
-  padding-right: 7px;
-`;
+import { logout } from '../../../redux/actions/loginActions';
+import { useAppDispatch } from '../../../redux/hooks';
 
-=======
 const USER_PROFILE_ICON = require('../../../assets/images/oval.png');
 import styles from './styles';
->>>>>>> a9c3f746b729fe5ba617aef1ff3b0cab072444ab:src/components/shared/HeaderRight/HeaderRight.tsx
 function HeaderLeft() {
   const [userMenuVisible, setUserMenuVisible] = useState(false);
   const dispatch = useAppDispatch();

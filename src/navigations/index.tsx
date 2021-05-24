@@ -7,6 +7,7 @@ import screens from '../constants/screens';
 import CheckingStack from './CheckingNavigator';
 import SavingStack from './SavingsNavigator';
 import { useAppSelector } from '../redux/hooks';
+import SignIn from '../screens/SignIn/SignIn';
 
 function AppNavigationContainer() {
   const Stack = createStackNavigator();
