@@ -33,7 +33,7 @@ export const signIn = (username: string, password: string) => {
       const reg = /^[\w.+\-]+@itechart-group\.com$/;
       const isValid = reg.test(username) && password === 'admin';
       setTimeout(() => {
-        isValid ? resolve('Successfull Login') : reject();
+        isValid ? resolve() : reject();
       }, 1000);
     })
       .then(() => {
