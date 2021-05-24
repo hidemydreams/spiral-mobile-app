@@ -5,11 +5,11 @@ import { styles } from './styles';
 
 function AvailableCash({ style }: { style?: object }): ReactElement {
   return (
-    <View style={styles.cardContainer}>
+    <View style={[styles.cardContainer, style?.title]}>
       <DarkText style={styles.cardAmount}>
         $7,000<DarkText>.80</DarkText>
       </DarkText>
-      <DarkText style={[styles.cardTotal, style]}>
+      <DarkText style={[styles.cardTotal, style?.subtitle]}>
         Total Available Cash
       </DarkText>
     </View>
