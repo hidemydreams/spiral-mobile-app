@@ -5,12 +5,6 @@ import AccountsOverview from '../../components/AccountsOverview/AccountsOverview
 import { useTheme } from 'react-native-elements';
 import { GIVING_CARD_DATA } from '../../data/data';
 import Greeting from '../../components/shared/Greeting/Greeting';
-import { createStackNavigator } from '@react-navigation/stack';
-import HeaderLeft from '../../components/shared/HeaderLeft';
-import HeaderRight from '../../components/shared/HeaderRight';
-import HeaderTitle from '../../components/shared/HeaderTitle';
-import screens from '../../constants/screens';
-import { styles } from './styles';
 
 function Home() {
   const { theme } = useTheme();
@@ -48,7 +42,7 @@ function Home() {
   ]);
 
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1 }}>
       <FlatList
         style={theme.layout.container}
         data={GIVING_CARD_DATA}
@@ -68,26 +62,4 @@ function Home() {
   );
 }
 
-function HomeStack({ route }: { route: any }) {
-  const Stack = createStackNavigator();
-  const { theme } = useTheme();
-
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name={screens.HOME}
-        component={Home}
-        options={{
-          headerLeft: () => <HeaderLeft location={screens.HOME} />,
-          headerTitle: () => <HeaderTitle routeName={route.name} />,
-          headerRight: () => <HeaderRight />,
-          headerStyle: {
-            backgroundColor: theme.colors.primary,
-          },
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
-
-export default HomeStack;
+export default Home;
