@@ -1,12 +1,13 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import AvailableCash from '../../components/AvailableCash/AvailableCash';
 
 function Savings() {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View>
-          <Text>Savings stack from home</Text>
+        <View style={{ backgroundColor: 'white' }}>
+          <AvailableCash />
         </View>
       </ScrollView>
     </SafeAreaView>
