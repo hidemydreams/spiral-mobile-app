@@ -20,45 +20,48 @@ function CheckingItem({
 }): ReactElement {
   const { theme } = useTheme();
   return (
-    <View style={styles.itemWrapper}>
-      <View style={styles.itemTitleWrapper}>
-        {isSpecial ? (
-          <Image style={styles.icon} source={CONFETTI_ICON} />
-        ) : null}
-        <View>
+    <>
+      <View style={styles.itemWrapper}>
+        <View style={styles.itemTitleWrapper}>
+          {isSpecial ? (
+            <Image style={styles.icon} source={CONFETTI_ICON} />
+          ) : null}
+          <View>
+            <DarkText
+              style={[
+                styles.itemTitle,
+                isSpecial ? { color: theme.colors.accentGreen } : null,
+              ]}>
+              {title}
+            </DarkText>
+            <GreyText
+              style={[
+                styles.itemSubTitle,
+                isSpecial ? { color: theme.colors.accentGreen } : null,
+              ]}>
+              {subtitle}
+            </GreyText>
+          </View>
+        </View>
+        <View style={styles.itemRight}>
           <DarkText
             style={[
-              styles.itemTitle,
+              styles.amountBig,
               isSpecial ? { color: theme.colors.accentGreen } : null,
             ]}>
-            {title}
+            ${banknotes}
+            <DarkText
+              style={[
+                styles.amountSmall,
+                isSpecial ? { color: theme.colors.accentGreen } : null,
+              ]}>
+              .{cents}
+            </DarkText>
           </DarkText>
-          <GreyText
-            style={[
-              styles.itemSubTitle,
-              isSpecial ? { color: theme.colors.accentGreen } : null,
-            ]}>
-            {subtitle}
-          </GreyText>
         </View>
       </View>
-      <View style={styles.itemRight}>
-        <DarkText
-          style={[
-            styles.amountBig,
-            isSpecial ? { color: theme.colors.accentGreen } : null,
-          ]}>
-          ${banknotes}
-          <DarkText
-            style={[
-              styles.amountSmall,
-              isSpecial ? { color: theme.colors.accentGreen } : null,
-            ]}>
-            .{cents}
-          </DarkText>
-        </DarkText>
-      </View>
-    </View>
+      <View style={styles.separator} />
+    </>
   );
 }
 

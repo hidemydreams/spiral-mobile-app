@@ -20,6 +20,11 @@ const TRANSFER_ICON = require('../../assets/images/circleButtonSend.png');
 function Accounts() {
   const { theme } = useTheme();
 
+  const borderStyle = {
+    borderWidth: 1,
+    borderColor: 'rgba(183, 188, 193, 0.3)',
+  };
+
   const renderAccountsListItem = ({ item }: { item: IAccountsListItem }) => {
     return (
       <AccountsListItem
@@ -31,6 +36,7 @@ function Accounts() {
         navigateTo={item.navigateTo}
         additionalInfo={item.additionalInfo}
         achievement={item.achievement}
+        style={borderStyle}
       />
     );
   };

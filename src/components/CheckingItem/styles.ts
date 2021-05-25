@@ -37,4 +37,9 @@ export const styles = StyleSheet.create({
   icon: {
     marginRight: 5,
   },
+  separator: {
+    width: '100%',
+    height: 1,
+    backgroundColor: 'rgba(183, 188, 193, 0.3)',
+  },
 });

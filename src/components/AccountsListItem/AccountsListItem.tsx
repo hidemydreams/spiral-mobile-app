@@ -17,6 +17,7 @@ function AccountsListItem({
   navigateTo,
   additionalInfo,
   achievement,
+  style,
 }: {
   title: string;
   subtitle: string;
@@ -31,7 +32,7 @@ function AccountsListItem({
   const navigation = useNavigation();
 
   return (
-    <View style={styles.itemWrapper}>
+    <View style={[styles.itemWrapper, style]}>
       <TouchableOpacity
         style={styles.item}
         onPress={() => navigation.navigate(navigateTo, { subtitle: subtitle })}>

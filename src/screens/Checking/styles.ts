@@ -2,11 +2,6 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme/Theme';
 
 export const styles = StyleSheet.create({
-  separator: {
-    width: '100%',
-    height: 1,
-    backgroundColor: 'rgba(183, 188, 193, 0.5)',
-  },
   filterButton: {
     marginHorizontal: 10,
     borderRadius: 50,
@@ -41,5 +36,8 @@ export const styles = StyleSheet.create({
   transactions: {
     backgroundColor: 'white',
     borderRadius: 20,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(183, 188, 193, 0.5)',
   },
 });
