@@ -24,7 +24,7 @@ function Profile() {
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(true);
 
-  const onChange = (event, selectedDate) => {
+  const onDateChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     const parsedProfileDate = parseProfileDate(currentDate);
@@ -110,7 +110,7 @@ function Profile() {
             mode={mode}
             is24Hour={true}
             display="default"
-            onChange={onChange}
+            onChange={onDateChange}
             style={{ width: 200, marginHorizontal: 'auto' }}
           />
         ) : (

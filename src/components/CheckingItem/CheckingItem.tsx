@@ -10,33 +10,33 @@ function CheckingItem({
   subtitle,
   banknotes,
   cents,
-  isDeposit,
+  isSpecial,
 }: {
   title: string;
   subtitle: string;
   banknotes: string;
   cents: string;
-  isDeposit: boolean;
+  isSpecial: boolean;
 }): ReactElement {
   const { theme } = useTheme();
   return (
     <View style={styles.itemWrapper}>
       <View style={styles.itemTitleWrapper}>
-        {isDeposit ? (
+        {isSpecial ? (
           <Image style={styles.icon} source={CONFETTI_ICON} />
         ) : null}
         <View>
           <DarkText
             style={[
               styles.itemTitle,
-              isDeposit ? { color: theme.colors.accentGreen } : null,
+              isSpecial ? { color: theme.colors.accentGreen } : null,
             ]}>
             {title}
           </DarkText>
           <GreyText
             style={[
               styles.itemSubTitle,
-              isDeposit ? { color: theme.colors.accentGreen } : null,
+              isSpecial ? { color: theme.colors.accentGreen } : null,
             ]}>
             {subtitle}
           </GreyText>
@@ -46,13 +46,13 @@ function CheckingItem({
         <DarkText
           style={[
             styles.amountBig,
-            isDeposit ? { color: theme.colors.accentGreen } : null,
+            isSpecial ? { color: theme.colors.accentGreen } : null,
           ]}>
           ${banknotes}
           <DarkText
             style={[
               styles.amountSmall,
-              isDeposit ? { color: theme.colors.accentGreen } : null,
+              isSpecial ? { color: theme.colors.accentGreen } : null,
             ]}>
             .{cents}
           </DarkText>

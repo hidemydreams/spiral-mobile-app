@@ -102,3 +102,90 @@ export const AccountsListItemData: IAccountsListItem = [
     icon: true,
   },
 ];
+
+export const CheckingData = {
+  july11: [
+    {
+      id: 1,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 2,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: true,
+    },
+    {
+      id: 3,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 4,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+  ],
+  july12: [
+    {
+      id: 1,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 2,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 3,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 4,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+  ],
+};

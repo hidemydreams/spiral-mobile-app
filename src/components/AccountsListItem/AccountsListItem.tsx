@@ -34,9 +34,7 @@ function AccountsListItem({
     <View style={styles.itemWrapper}>
       <TouchableOpacity
         style={styles.item}
-        onPress={() =>
-          navigation.navigate(navigateTo, { subtitle: additionalInfo })
-        }>
+        onPress={() => navigation.navigate(navigateTo, { subtitle: subtitle })}>
         <View>
           <DarkText style={styles.itemTitle}>
             {title}{' '}
