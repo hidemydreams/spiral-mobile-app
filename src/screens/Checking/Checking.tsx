@@ -8,6 +8,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import CheckingItem from '../../components/CheckingItem/CheckingItem';
 import { styles } from './styles';
 import { CheckingData } from '../../data/data';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 function Checking() {
   const { theme } = useTheme();
@@ -28,16 +29,7 @@ function Checking() {
       <ScrollView>
         <View style={theme.layout.container}>
           <AvailableCash style={availableFundsStyles} />
-          <View style={styles.filterRowContainer}>
-            <TextInput
-              style={styles.filterInput}
-              placeholder="Search Transactions"
-            />
-            <Button
-              title={<GreyText style={styles.buttonText}>Filter By</GreyText>}
-              buttonStyle={styles.filterButton}
-            />
-          </View>
+          <SearchBar />
           <View style={styles.transactionBlock}>
             <DarkText style={styles.transactionDate}>July 11</DarkText>
             <View style={styles.transactions}>
