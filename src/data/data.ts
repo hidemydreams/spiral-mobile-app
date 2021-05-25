@@ -117,18 +117,18 @@ export const CheckingData = {
     },
     {
       id: 2,
-      title: 'Target',
-      subtitle: 'Closter NJ | Debit Card',
+      title: 'Facebook Inc',
+      subtitle: 'Pay Day ! Yay !',
       funds: {
-        banknotes: '63',
+        banknotes: '1.200',
         cents: '95',
       },
       isSpecial: true,
     },
     {
       id: 3,
-      title: 'Target',
-      subtitle: 'Closter NJ | Debit Card',
+      title: 'Lencrafters',
+      subtitle: 'Paramus NJ | Debit Card',
       funds: {
         banknotes: '63',
         cents: '95',
@@ -137,11 +137,11 @@ export const CheckingData = {
     },
     {
       id: 4,
-      title: 'Target',
-      subtitle: 'Closter NJ | Debit Card',
+      title: 'AplPay 7-Eleven',
+      subtitle: 'Cresskill NJ | iPhone',
       funds: {
-        banknotes: '63',
-        cents: '95',
+        banknotes: '17',
+        cents: '75',
       },
       isSpecial: false,
     },
@@ -149,8 +149,8 @@ export const CheckingData = {
   july12: [
     {
       id: 1,
-      title: 'Target',
-      subtitle: 'Closter NJ | Debit Card',
+      title: 'Transfer from Savings',
+      subtitle: 'Buy a house (...4044)',
       funds: {
         banknotes: '63',
         cents: '95',
@@ -159,7 +159,7 @@ export const CheckingData = {
     },
     {
       id: 2,
-      title: 'Target',
+      title: 'Starbucks',
       subtitle: 'Closter NJ | Debit Card',
       funds: {
         banknotes: '63',
