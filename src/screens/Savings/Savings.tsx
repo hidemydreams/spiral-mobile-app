@@ -6,6 +6,7 @@ import { DarkText, StyledTextAccent } from '../../components/styledComponents';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SavingsItem from '../../components/SavingsItem/SavingsItem';
 import { styles } from './styles';
+const GRAPH_IMAGE = require('../../assets/images/savingsGraphV2.png');
 
 function Savings() {
   const { theme } = useTheme();
@@ -22,65 +23,31 @@ function Savings() {
   };
 
   return (
-    <ScrollView style={{ backgroundColor: theme.colors.background }}>
-      <View
-        style={{
-          backgroundColor: 'white',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+    <ScrollView style={styles.container}>
+      <View style={styles.graphBg}>
         <View>
           <AvailableCash style={availableFundsStyles} />
-          <Image
-            style={{
-              maxWidth: '100%',
-            }}
-            source={require('../../assets/images/savingsGraphV2.png')}
-          />
+          <Image style={styles.graphImage} source={GRAPH_IMAGE} />
         </View>
       </View>
       <View style={theme.layout.container}>
-        <View style={{ marginTop: 20 }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginBottom: 10,
-            }}>
-            <DarkText style={{ fontSize: 18 }}>Total interest gained</DarkText>
+        <View style={styles.pointsBlock}>
+          <View style={styles.pointsRow}>
+            <DarkText style={styles.pointsText}>Total interest gained</DarkText>
             <StyledTextAccent>+ $50.00</StyledTextAccent>
           </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              marginBottom: 10,
-            }}>
-            <DarkText style={{ fontSize: 18 }}>Total interest gained</DarkText>
+          <View style={styles.pointsRow}>
+            <DarkText style={styles.pointsText}>Total interest gained</DarkText>
             <StyledTextAccent>+ $50.00</StyledTextAccent>
           </View>
         </View>
         <SearchBar />
-        <View
-          style={{
-            backgroundColor: 'white',
-            borderRadius: 15,
-            borderWidth: 1,
-            borderColor: 'rgba(183, 188, 193, 0.5)',
-          }}>
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderColor: 'rgba(183, 188, 193, 0.5)',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <DarkText style={{ fontSize: 15, padding: 11 }}>
+        <View style={styles.depositBlock}>
+          <View style={styles.depositBlockTitle}>
+            <DarkText style={styles.depositBlockText}>
               End Day Balance - July 11
             </DarkText>
-            <DarkText style={{ fontSize: 15, padding: 11, fontWeight: '500' }}>
-              $5.000
-            </DarkText>
+            <DarkText style={styles.depositBlockText}>$5.000</DarkText>
           </View>
           <SavingsItem />
           <SavingsItem />
