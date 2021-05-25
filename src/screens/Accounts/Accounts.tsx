@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  StatusBar,
-  Image,
-  FlatList,
-  Platform,
-} from 'react-native';
+import { View, StatusBar, Image, FlatList, Platform } from 'react-native';
 import AccountsListItem from '../../components/AccountsListItem/AccountsListItem';
 import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { GreyText } from '../../components/styledComponents';
@@ -53,7 +46,7 @@ function Accounts() {
   };
 
   return (
-    <SafeAreaView style={[theme.layout.container, styles.container]}>
+    <View>
       <StatusBar />
       <AvailableCash style={availableFundsStyles} />
       <View style={styles.iconsRow}>
@@ -79,7 +72,7 @@ function Accounts() {
         renderItem={renderAccountsListItem}
         keyExtractor={item => item.id}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 

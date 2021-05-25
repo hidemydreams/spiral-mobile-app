@@ -25,9 +25,9 @@ function Checking() {
   };
 
   return (
-    <SafeAreaView style={theme.layout.container}>
-      <ScrollView>
-        <View style={theme.layout.container}>
+    <>
+      <ScrollView style={theme.layout.container}>
+        <View>
           <AvailableCash style={availableFundsStyles} />
           <SearchBar />
           <View style={styles.transactionBlock}>
@@ -66,7 +66,7 @@ function Checking() {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 }
 
