@@ -4,7 +4,7 @@ import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { useTheme } from 'react-native-elements';
 import { Button } from 'react-native-elements';
 import { DarkText, GreyText } from '../../components/styledComponents';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import CheckingItem from '../../components/CheckingItem/CheckingItem';
 import { styles } from './styles';
 import { CheckingData } from '../../data/data';
