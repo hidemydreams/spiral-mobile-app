@@ -5,17 +5,17 @@ import HeaderLeft from '../components/shared/HeaderLeft/HeaderLeft';
 import HeaderTitle from '../components/shared/HeaderTitle/HeaderTitle';
 import HeaderRight from '../components/shared/HeaderRight/HeaderRight';
 import screens from '../constants/screens';
-import Saving from '../screens/Saving/Saving';
+import Savings from '../screens/Savings/Savings';
 
-function SavingStack({ route }) {
+function SavingsStack({ route }) {
   const { subtitle } = route.params;
   const Stack = createStackNavigator();
   const { theme } = useTheme();
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name={screens.SAVING}
-        component={Saving}
+        name={screens.SAVINGS}
+        component={Savings}
         options={{
           headerLeft: () => <HeaderLeft />,
           headerTitle: () => (
@@ -31,4 +31,4 @@ function SavingStack({ route }) {
   );
 }
 
-export default SavingStack;
+export default SavingsStack;

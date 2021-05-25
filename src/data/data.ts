@@ -87,7 +87,7 @@ export const AccountsListItemData: IAccountsListItem = [
       banknotes: '5,000',
       cents: '20',
     },
-    navigateTo: screens.SAVING,
+    navigateTo: screens.SAVINGS,
     additionalInfo: 'Some text for another page',
     achievement: 'Savings is up 3% from last month',
   },

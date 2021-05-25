@@ -10,17 +10,6 @@ import { styles } from './styles';
 import { CheckingData } from '../../data/data';
 
 function Checking() {
-  const renderCheckingItem = ({ item }) => {
-    return (
-      <CheckingItem
-        title={item.title}
-        subtitle={item.subtitle}
-        banknotes={item.funds.banknotes}
-        cents={item.funds.cents}
-        isSpecial={item.isSpecial}
-      />
-    );
-  };
   const { theme } = useTheme();
 
   const availableFundsStyles = {
@@ -60,6 +49,7 @@ function Checking() {
                     banknotes={item.funds.banknotes}
                     cents={item.funds.cents}
                     isSpecial={item.isSpecial}
+                    key={item.id}
                   />
                 );
               })}
@@ -76,6 +66,7 @@ function Checking() {
                     banknotes={item.funds.banknotes}
                     cents={item.funds.cents}
                     isSpecial={item.isSpecial}
+                    key={item.id}
                   />
                 );
               })}

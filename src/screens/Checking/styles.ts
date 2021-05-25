@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
   },
   filterInput: {
     width: 250,
-    height: 30,
+    height: 40,
     borderWidth: 1,
     borderColor: theme.colors.grey,
     borderRadius: 20,
@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
   transactionDate: {
     marginBottom: 5,
     fontSize: 16,
+    marginLeft: 15,
   },
   transactionBlock: {
     marginBottom: 30,

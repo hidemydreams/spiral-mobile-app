@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 
-function Saving() {
+function Savings() {
   return (
     <SafeAreaView>
       <ScrollView>
@@ -13,4 +13,4 @@ function Saving() {
   );
 }
 
-export default Saving;
+export default Savings;

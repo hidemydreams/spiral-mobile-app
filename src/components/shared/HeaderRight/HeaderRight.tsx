@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { useNavigation } from '@react-navigation/core';
 import screens from '../../../constants/screens';
 import styles from './styles';
+import { DarkText } from '../../styledComponents';
 const USER_PROFILE_ICON = require('../../../assets/images/blank_avatar.jpeg');
 
 function HeaderLeft() {
@@ -17,6 +18,7 @@ function HeaderLeft() {
   const hideUserMenu = () => {
     setUserMenuVisible(false);
   };
+
   const showUserMenu = () => {
     setUserMenuVisible(true);
   };
@@ -36,19 +38,19 @@ function HeaderLeft() {
       )}
       <Modal visible={userMenuVisible} transparent>
         <TouchableWithoutFeedback onPress={hideUserMenu}>
-          <View style={styles.userMenuOverlay} />
+          <View style={[styles.userMenuOverlay]} />
         </TouchableWithoutFeedback>
         <ListItem style={styles.userMenuContent}>
           <ListItem.Content>
             <ListItem.Title onPress={() => dispatch(signOut())}>
-              Log out
+              <DarkText>Logout</DarkText>
             </ListItem.Title>
             <ListItem.Title
               onPress={() => {
                 navigation.navigate(screens.PROFILE);
                 hideUserMenu();
               }}>
-              Profile
+              <DarkText>Profile</DarkText>
             </ListItem.Title>
           </ListItem.Content>
         </ListItem>
