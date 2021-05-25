@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     marginBottom: 40,
   },
   buttonText: { fontSize: 14 },
-  flatList: {
+  transactions: {
     backgroundColor: 'white',
     borderRadius: 20,
   },

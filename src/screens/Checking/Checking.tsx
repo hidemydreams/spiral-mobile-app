@@ -51,29 +51,35 @@ function Checking() {
           </View>
           <View style={styles.transactionBlock}>
             <DarkText style={styles.transactionDate}>July 11</DarkText>
-            <FlatList
-              style={styles.flatList}
-              renderItem={renderCheckingItem}
-              keyExtractor={item => item.id}
-              data={CheckingData.july11}
-              ItemSeparatorComponent={
-                Platform.OS !== 'android' &&
-                (() => <View style={styles.separator} />)
-              }
-            />
+            <View style={styles.transactions}>
+              {CheckingData.july11.map(item => {
+                return (
+                  <CheckingItem
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    banknotes={item.funds.banknotes}
+                    cents={item.funds.cents}
+                    isSpecial={item.isSpecial}
+                  />
+                );
+              })}
+            </View>
           </View>
           <View style={styles.transactionBlock}>
             <DarkText style={styles.transactionDate}>July 12</DarkText>
-            <FlatList
-              style={styles.flatList}
-              renderItem={renderCheckingItem}
-              keyExtractor={item => item.id}
-              data={CheckingData.july12}
-              ItemSeparatorComponent={
-                Platform.OS !== 'android' &&
-                (() => <View style={styles.separator} />)
-              }
-            />
+            <View style={styles.transactions}>
+              {CheckingData.july12.map(item => {
+                return (
+                  <CheckingItem
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    banknotes={item.funds.banknotes}
+                    cents={item.funds.cents}
+                    isSpecial={item.isSpecial}
+                  />
+                );
+              })}
+            </View>
           </View>
         </View>
       </ScrollView>
