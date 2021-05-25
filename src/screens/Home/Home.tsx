@@ -40,7 +40,7 @@ function Home() {
   ]);
 
   return (
-    <View style={styles.homeContainer}>
+    <>
       <FlatList
         style={theme.layout.container}
         data={GIVING_CARD_DATA}
@@ -59,7 +59,7 @@ function Home() {
         }}
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
       />
-    </View>
+    </>
   );
 }
 
