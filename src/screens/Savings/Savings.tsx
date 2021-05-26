@@ -24,10 +24,12 @@ function Savings() {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.graphBg}>
+      <View style={[styles.graphBg]}>
         <View>
           <AvailableCash style={availableFundsStyles} />
-          <Image style={styles.graphImage} source={GRAPH_IMAGE} />
+          <View style={styles.graphImageContainer}>
+            <Image style={styles.graphImage} source={GRAPH_IMAGE} />
+          </View>
         </View>
       </View>
       <View style={theme.layout.container}>

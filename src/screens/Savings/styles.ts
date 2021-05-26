@@ -5,16 +5,16 @@ export const styles = StyleSheet.create({
   container: { backgroundColor: theme.colors.background },
   graphBg: {
     backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  graphImage: {
-    maxWidth: '100%',
+    flex: 1,
   },
   pointsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
+  },
+  graphImage: {
+    resizeMode: 'contain',
+    maxWidth: '100%',
   },
   depositBlock: {
     backgroundColor: 'white',
@@ -32,4 +32,7 @@ export const styles = StyleSheet.create({
   depositBlockText: { fontSize: 15, padding: 11 },
   pointsText: { fontSize: 18 },
   pointsBlock: { marginTop: 20 },
+  imageContainer: {
+    backgroundColor: 'red',
+  },
 });
