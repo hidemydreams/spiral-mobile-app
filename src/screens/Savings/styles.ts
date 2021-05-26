@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(183, 188, 193, 0.5)',
     marginBottom: 40,
+    marginTop: -20,
   },
   depositBlockTitle: {
     borderBottomWidth: 1,
