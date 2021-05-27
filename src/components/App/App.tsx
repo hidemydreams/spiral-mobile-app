@@ -11,12 +11,19 @@ import React from 'react';
 import AppNavigationContainer from '../../navigations';
 import { ThemeProvider } from 'react-native-elements';
 import theme from '../../theme/Theme';
+import { Provider } from 'react-redux';
+import { persistedStore, store } from '../../redux/store';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <AppNavigationContainer />
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate persistor={persistedStore}>
+        <ThemeProvider theme={theme}>
+          <AppNavigationContainer />
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 

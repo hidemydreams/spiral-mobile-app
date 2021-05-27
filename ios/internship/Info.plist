@@ -36,9 +36,11 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
 		<string>SFProRounded-Bold.otf</string>
 		<string>SFProRounded-Light.otf</string>
 		<string>SFProRounded-Regular.otf</string>

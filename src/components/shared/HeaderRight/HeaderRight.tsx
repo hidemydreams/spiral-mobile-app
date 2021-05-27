@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { View, Modal, TouchableWithoutFeedback } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
+import { logout } from '../../../redux/actions/loginActions';
+import { useAppDispatch } from '../../../redux/hooks';
+
 const USER_PROFILE_ICON = require('../../../assets/images/oval.png');
 import styles from './styles';
 function HeaderLeft() {
   const [userMenuVisible, setUserMenuVisible] = useState(false);
+  const dispatch = useAppDispatch();
 
   const hideUserMenu = () => {
     setUserMenuVisible(false);
@@ -21,7 +25,9 @@ function HeaderLeft() {
         </TouchableWithoutFeedback>
         <ListItem style={styles.userMenuContent}>
           <ListItem.Content>
-            <ListItem.Title>Log out</ListItem.Title>
+            <ListItem.Title onPress={() => dispatch(logout())}>
+              Log out
+            </ListItem.Title>
             <ListItem.Title>Profile</ListItem.Title>
           </ListItem.Content>
         </ListItem>

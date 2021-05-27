@@ -6,20 +6,31 @@ import HomeTabs from './HomeTabs';
 import screens from '../constants/screens';
 import CheckingStack from './CheckingNavigator';
 import SavingStack from './SavingsNavigator';
+import { useAppSelector } from '../redux/hooks';
+import SignIn from '../screens/SignIn/SignIn';
 
 function AppNavigationContainer() {
   const Stack = createStackNavigator();
+  const JWT_TOKEN = useAppSelector(state => state.loginReducer?.JWT_TOKEN);
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={() => ({
-          headerShown: false,
-        })}>
-        <Stack.Screen name={screens.HOME} component={HomeTabs} />
-        <Stack.Screen name={screens.CHECKING} component={CheckingStack} />
-        <Stack.Screen name={screens.SAVING} component={SavingStack} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      {JWT_TOKEN ? (
+        <>
+          <NavigationContainer>
+            <Stack.Navigator
+              screenOptions={() => ({
+                headerShown: false,
+              })}>
+              <Stack.Screen name={screens.HOME} component={HomeTabs} />
+              <Stack.Screen name={screens.CHECKING} component={CheckingStack} />
+              <Stack.Screen name={screens.SAVING} component={SavingStack} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </>
+      ) : (
+        <SignIn />
+      )}
+    </>
   );
 }
 
