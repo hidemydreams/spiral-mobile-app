@@ -5,6 +5,7 @@ import AccountsOverview from '../../components/AccountsOverview/AccountsOverview
 import { useTheme } from 'react-native-elements';
 import { GIVING_CARD_DATA } from '../../data/data';
 import Greeting from '../../components/shared/Greeting/Greeting';
+import { styles } from './styles';
 
 function Home() {
   const { theme } = useTheme();
@@ -24,8 +25,6 @@ function Home() {
   };
 
   const handleItemsInViewPort = ({ viewableItems, changed }) => {
-    console.log('viewableItems', viewableItems);
-    console.log('changed', changed);
     if (viewableItems && viewableItems.length > 0) {
       setCurrentVisibleIndex(viewableItems[0].index);
     } else if (viewableItems.length === 0) {
@@ -44,7 +43,7 @@ function Home() {
   ]);
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.container}>
       <FlatList
         style={theme.layout.container}
         data={GIVING_CARD_DATA}

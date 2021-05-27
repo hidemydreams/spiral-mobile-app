@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { Image, SafeAreaView, ScrollView, View } from 'react-native';
 import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { useTheme } from 'react-native-elements';
 
