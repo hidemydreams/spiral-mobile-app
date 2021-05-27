@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import {
   ActivityIndicator,
-  Image,
   KeyboardAvoidingView,
   StatusBar,
-  StyleSheet,
   Text,
   View,
   ScrollView,
@@ -14,43 +12,26 @@ import { Input, Button } from 'react-native-elements';
 import { signIn } from '../../redux/actions/loginActions';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { useTheme } from 'react-native-elements';
-import { DarkText, StyledTextPrimary } from '../../components/styledComponents';
-import styled from 'styled-components/native';
+import { DarkText } from '../../components/styledComponents';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { styles } from './styles';
 
 function SignIn() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector(state => state.loginReducer?.loading);
-  const error = useAppSelector(state => state.loginReducer?.authError);
+  const { loading, authError } = useAppSelector(state => state.loginReducer);
   const { theme } = useTheme();
 
-  const LoginUnderline = styled.View`
-    width: 50px;
-    height: 3px;
-    background-color: 'rgb(215, 51, 116)';
-    margin-top: 3px;
-  `;
-
-  const LoginTitle = styled(DarkText)`
-    font-weight: 700;
-    margin-top: 50px;
-  `;
-
-  const Header = styled.View`
-    margin-top: 20px;
-    margin-bottom: 40px;
-  `;
   return (
     <View style={theme.layout.container}>
       <StatusBar barStyle="dark-content" backgroundColor="transparent" />
       <ScrollView>
-        <Header>
-          <LoginTitle>Login</LoginTitle>
-          <LoginUnderline />
-        </Header>
+        <View style={styles.header}>
+          <Text style={styles.loginTitle}>Login</Text>
+          <View style={styles.loginUnderline} />
+        </View>
         <View>
           <DarkText style={styles.inputLabel}>Email</DarkText>
           <Input
@@ -70,7 +51,9 @@ function SignIn() {
             onChangeText={(text: string) => setPassword(text)}
           />
         </View>
-        {error ? <Text style={styles.errorMessage}>{error}</Text> : null}
+        {authError ? (
+          <Text style={styles.errorMessage}>{authError}</Text>
+        ) : null}
         <TouchableOpacity>
           <Text style={styles.forgottenPassword}>Forgot Password</Text>
         </TouchableOpacity>
@@ -81,11 +64,7 @@ function SignIn() {
           titleStyle={styles.buttonTitle}
           buttonStyle={styles.button}
           title={
-            isLoading ? (
-              <ActivityIndicator size="small" color="white" />
-            ) : (
-              'LOGIN'
-            )
+            loading ? <ActivityIndicator size="small" color="white" /> : 'LOGIN'
           }
           onPress={() => dispatch(signIn(login, password))}
         />
@@ -126,61 +105,5 @@ function SignIn() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  button: {
-    borderRadius: 50,
-    paddingVertical: 10,
-    marginBottom: 20,
-  },
-  buttonTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 30,
-    alignContent: 'flex-end',
-  },
-  bottomContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignContent: 'flex-end',
-    position: 'relative',
-  },
-  bottomButton: {
-    marginHorizontal: 10,
-    borderRadius: 50,
-    borderColor: 'rgb(41,41,41)',
-  },
-  bottomButtonText: {
-    marginHorizontal: 10,
-  },
-  testText: {
-    fontSize: 12,
-    textAlign: 'center',
-    marginBottom: 20,
-  },
-  inputContainer: {
-    paddingHorizontal: 0,
-  },
-  inputLabel: {
-    marginBottom: 5,
-  },
-  errorMessage: {
-    textAlign: 'center',
-    color: '#fc4c4c',
-    fontWeight: '500',
-  },
-  forgottenPassword: {
-    fontWeight: '700',
-    textAlign: 'right',
-    fontSize: 16,
-    marginBottom: 10,
-    marginTop: 10,
-    color: 'rgb(215, 51, 116)',
-  },
-});
 
 export default SignIn;

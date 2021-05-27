@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { DarkText } from '../../components/styledComponents';
-
 function Accounts() {
   const navigation = useNavigation();
 

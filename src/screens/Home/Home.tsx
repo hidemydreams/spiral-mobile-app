@@ -10,16 +10,18 @@ function Home() {
   const { theme } = useTheme();
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(null);
 
-  const renderVideoCards = ({ item, index }) => (
-    <VideoCard
-      title={item.title}
-      place={item.place}
-      timestamp={item.timestamp}
-      description={item.description}
-      currentIndex={index}
-      currentVisibleIndex={currentVisibleIndex}
-    />
-  );
+  const renderVideoCards = ({ item, index }) => {
+    return (
+      <VideoCard
+        title={item.title}
+        place={item.place}
+        timestamp={item.timestamp}
+        description={item.description}
+        currentIndex={index}
+        currentVisibleIndex={currentVisibleIndex}
+      />
+    );
+  };
 
   const handleItemsInViewPort = ({ viewableItems, changed }) => {
     console.log('viewableItems', viewableItems);
