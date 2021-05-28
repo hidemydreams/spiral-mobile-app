@@ -5,7 +5,7 @@ import AccountsOverview from '../../components/AccountsOverview/AccountsOverview
 import { useTheme } from 'react-native-elements';
 import { GIVING_CARD_DATA } from '../../data/data';
 import Greeting from '../../components/shared/Greeting/Greeting';
-import { styles } from './styles';
+
 function Home() {
   const { theme } = useTheme();
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState(null);

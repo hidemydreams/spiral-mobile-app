@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { View, StatusBar, Image, FlatList, Platform } from 'react-native';
 import AccountsListItem from '../../components/AccountsListItem/AccountsListItem';
