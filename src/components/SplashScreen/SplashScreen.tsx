@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import theme from '../../theme/Theme';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { Animated, StyleSheet, View } from 'react-native';
+import { styles } from './styles';
 
 const initialState = {
   loadingProgress: new Animated.Value(0),
@@ -21,7 +22,7 @@ const SplashScreen = ({ children }) => {
   );
 
   const whiteLayer = animation.animationDone ? null : (
-    <View style={[StyleSheet.absoluteFill, { backgroundColor: 'white' }]} />
+    <View style={[StyleSheet.absoluteFill, styles.whiteBg]} />
   );
 
   const imageScale = {
@@ -58,34 +59,21 @@ const SplashScreen = ({ children }) => {
   });
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.fullWidth}>
       {colorLayer}
       <MaskedView
-        style={{ flex: 1 }}
+        style={styles.fullWidth}
         maskElement={
-          <View
-            style={[
-              {
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              },
-            ]}>
+          <View style={[styles.centered]}>
             <Animated.Image
               source={require('../../assets/images/logo_splash_screen.png')}
-              style={[{ width: 1000 }, imageScale]}
+              style={[styles.imageWidth, imageScale]}
               resizeMode="contain"
             />
           </View>
         }>
         {whiteLayer}
-        <Animated.View
-          style={[
-            {
-              flex: 1,
-            },
-            imageOpacity,
-          ]}>
+        <Animated.View style={[styles.fullWidth, imageOpacity]}>
           {children}
         </Animated.View>
       </MaskedView>
