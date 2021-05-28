@@ -3,6 +3,7 @@ import theme from '../../theme/Theme';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { Animated, StyleSheet, View } from 'react-native';
 import { styles } from './styles';
+import SplashScreens from 'react-native-splash-screen';
 
 const initialState = {
   loadingProgress: new Animated.Value(0),
@@ -44,8 +45,8 @@ const SplashScreen = ({ children }) => {
     }),
   };
 
-  useEffect(() => {
-    Animated.timing(animation.loadingProgress, {
+  const setAnimationProperties = async () => {
+    await Animated.timing(animation.loadingProgress, {
       toValue: 100,
       duration: 1000,
       useNativeDriver: true,
@@ -56,6 +57,11 @@ const SplashScreen = ({ children }) => {
         animationDone: true,
       });
     });
+  };
+
+  useEffect(() => {
+    SplashScreens.hide();
+    setAnimationProperties();
   });
 
   return (
