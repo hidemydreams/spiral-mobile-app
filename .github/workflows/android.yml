@@ -2,7 +2,7 @@ name: Distribute on firebase
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   distribute:
@@ -15,28 +15,6 @@ jobs:
         with:
           ruby-version: '2.6'
 
-      - name: Cache Ruby - Bundler
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - name: Cache Gradle
-        uses: actions/cache@v1
-        with:
-          path: ~/.gradle/caches/
-          key: cache-clean-gradle-${{ matrix.os }}-${{ matrix.jdk }}
-
-      - name: Cache Gradle Wrapper
-        uses: actions/cache@v1
-        with:
-          path: ~/.gradle/wrapper/
-          key: cache-clean-wrapper-${{ matrix.os }}-${{ matrix.jdk }}
-
-      - name: Grant Permission to Execute
-        run: chmod +x ../android/gradlew
-
       - name: Install bundle
         run: |
           bundle config path vendor/bundle
@@ -46,4 +24,3 @@ jobs:
         run: bundle exec fastlane distribute
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-
