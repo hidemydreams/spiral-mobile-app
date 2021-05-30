@@ -49,6 +49,13 @@ jobs:
       - name: Install packages
         run: npm ci
 
+      - name: Create Firebase Service Credentials file
+        run: |
+          echo "$FIREBASE_CREDENTIALS" > firebase_credentials.json.b64
+          base64 -d -i firebase_credentials.json.b64 > firebase_credentials.json
+        env:
+          FIREBASE_CREDENTIALS: ${{ secrets.FIREBASE_CREDENTIALS }}
+
       - name: Distribute App
         run: cd android && bundle exec fastlane distribute
         env:
