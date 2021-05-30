@@ -22,7 +22,7 @@ platform :android do
         gradle(task: "clean assembleRelease")
         # submit build to firebase app distribution
         firebase_app_distribution(
-            service_credentials_file: "./firebase_credentials.json",
+            service_credentials_file: "firebase_credentials.json",
             app: "1:362640777440:android:00b4c2b401e1c13099f085",
             testers: "example_tester@gmail.com",
             release_notes: "some changes",
