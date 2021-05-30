@@ -16,23 +16,17 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
-  end
 
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
-  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
-  end
-
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
+    desc "Lane for distributing app using Firebase App Distributions"
+    lane :distribute do
+        gradle(task: "clean assembleRelease")
+        # submit build to firebase app distribution
+        firebase_app_distribution(
+            app: "1:362640777440:android:5105d842aafe5e8f99f085",
+            testers: "example_tester@gmail.com",
+            release_notes: "some changes",
+            groups: "debug",
+            firebase_cli_path: "/usr/local/lib/node_modules/firebase-tools/lib/bin/firebase.js"
+        )
+    end
 end
