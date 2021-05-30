@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:362640777440:android:fb491d698f1e9a8f99f085",
+        "mobilesdk_app_id": "1:362640777440:android:00b4c2b401e1c13099f085",
         "android_client_info": {
-          "package_name": "com.intership"
+          "package_name": "com.internship"
         }
       },
       "oauth_client": [
