@@ -15,7 +15,12 @@ jobs:
         with:
           ruby-version: '2.6'
 
+      - name: Install bundle
+        run: |
+          cd android && bundle config path vendor/bundle
+          cd android && bundle install --jobs 4 --retry 3
+
       - name: Distribute App
-        run: cd android && fastlane distribute
+        run: cd android && bundle exec fastlane distribute
         env:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
