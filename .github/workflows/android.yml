@@ -17,8 +17,7 @@ jobs:
 
       - name: Install bundle
         run: |
-          cd android && gem install bundler:2.2.15
-          cd android && bundle update --bundler
+          cd android && gem install bundler:2.2.15 && bundle update --bundler
 
       - name: Distribute App
         run: cd android && bundle exec fastlane distribute
