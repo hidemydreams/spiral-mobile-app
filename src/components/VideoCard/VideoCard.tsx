@@ -31,6 +31,11 @@ function VideoCard({
     setIsVolumeOn(!isVolumeOn);
   };
 
+  const volumeIconSettings = {
+    color: 'white',
+    size: 30,
+  };
+
   return (
     <View style={styles.card}>
       <View style={styles.cardTitleContainer}>
@@ -66,9 +71,9 @@ function VideoCard({
               <View style={styles.volumeIcon}>
                 <TouchableOpacity onPress={setVolume}>
                   {isVolumeOn ? (
-                    <MaterialIcons name="volume-off" color="white" size={30} />
+                    <MaterialIcons name="volume-off" {...volumeIconSettings} />
                   ) : (
-                    <MaterialIcons name="volume-up" color="white" size={30} />
+                    <MaterialIcons name="volume-up" {...volumeIconSettings} />
                   )}
                 </TouchableOpacity>
               </View>
