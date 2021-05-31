@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Platform, View } from 'react-native';
+import { View } from 'react-native';
 import { DarkText, Card } from '../styledComponents';
 import AccountsListItem from '../AccountsListItem/AccountsListItem';
 import { FlatList } from 'react-native-gesture-handler';
@@ -80,9 +80,7 @@ function AccountsOverview(): ReactElement {
         renderItem={renderAccountsListItem}
         keyExtractor={item => item.id}
         data={DATA}
-        ItemSeparatorComponent={
-          Platform.OS !== 'android' && (() => <View style={styles.separator} />)
-        }
+        ItemSeparatorComponent={() => <View style={styles.separator} />}
       />
     </Card>
   );

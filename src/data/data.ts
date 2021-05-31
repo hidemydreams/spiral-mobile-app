@@ -1,3 +1,12 @@
+export interface IGivingCardData {
+  id: number;
+  avatar: string;
+  title: string;
+  place: string;
+  timestamp: string;
+  description: string;
+}
+
 export const GIVING_CARD_DATA = [
   {
     id: 1,
@@ -5,7 +14,6 @@ export const GIVING_CARD_DATA = [
     title: 'Your Giving Impact',
     place: 'St Jude',
     timestamp: '4 hrs ago',
-    image: require('../assets/images/rectangle2.png'),
     description:
       'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks for being amazing',
   },
@@ -15,7 +23,6 @@ export const GIVING_CARD_DATA = [
     title: 'Your Giving Impact',
     place: 'St Jude',
     timestamp: '4 hrs ago',
-    image: require('../assets/images/rectangle2.png'),
     description:
       'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks for being amazing',
   },
@@ -25,7 +32,6 @@ export const GIVING_CARD_DATA = [
     title: 'Your Giving Impact',
     place: 'St Jude',
     timestamp: '4 hrs ago',
-    image: require('../assets/images/rectangle2.png'),
     description:
       'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks for being amazing',
   },
@@ -35,7 +41,6 @@ export const GIVING_CARD_DATA = [
     title: 'Your Giving Impact',
     place: 'St Jude',
     timestamp: '4 hrs ago',
-    image: require('../assets/images/rectangle2.png'),
     description:
       'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks for being amazing',
   },
@@ -45,7 +50,6 @@ export const GIVING_CARD_DATA = [
     title: 'Your Giving Impact',
     place: 'St Jude',
     timestamp: '4 hrs ago',
-    image: require('../assets/images/rectangle2.png'),
     description:
       'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks for being amazing',
   },

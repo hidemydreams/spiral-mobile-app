@@ -16,6 +16,15 @@ const VIDEO = require('../../assets/videos/video.mp4');
 const AVATAR_ICON = require('../../assets/images/avatar.png');
 const BASE_IMAGE = require('../../assets/images/rectangle2.png');
 
+interface Props {
+  title: string;
+  place: string;
+  timestamp: string;
+  description: string;
+  currentVisibleIndex: number | string;
+  currentIndex: number;
+}
+
 function VideoCard({
   title,
   place,
