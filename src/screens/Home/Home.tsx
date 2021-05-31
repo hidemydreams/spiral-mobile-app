@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { StatusBar, View, FlatList, ViewabilityConfig } from 'react-native';
+import { StatusBar, View, FlatList, ViewToken } from 'react-native';
 import VideoCard from '../../components/VideoCard/VideoCard';
 import AccountsOverview from '../../components/AccountsOverview/AccountsOverview';
 import { GIVING_CARD_DATA, IGivingCardData } from '../../data/data';
@@ -7,7 +7,7 @@ import Greeting from '../../components/shared/Greeting/Greeting';
 import { styles } from './styles';
 import { useTheme } from 'react-native-elements';
 
-interface Props {
+interface IVideoCardProps {
   item: IGivingCardData;
   index: number;
 }
@@ -16,7 +16,7 @@ function Home() {
   const { theme } = useTheme();
   const [currentVisibleIndex, setCurrentVisibleIndex] = useState('');
 
-  const renderVideoCards: React.FC<Props> = ({ item, index }) => {
+  const renderVideoCards: React.FC<IVideoCardProps> = ({ item, index }) => {
     return (
       <VideoCard
         title={item.title}
@@ -29,15 +29,10 @@ function Home() {
     );
   };
 
-  interface IViewableItems {
-    length: string;
-    index: string;
-  }
-
   const handleItemsInViewPort = ({
     viewableItems,
   }: {
-    viewableItems: Array<IViewableItems>;
+    viewableItems: Array<ViewToken>;
   }): void => {
     console.log(viewableItems);
     if (viewableItems && viewableItems.length > 0) {
