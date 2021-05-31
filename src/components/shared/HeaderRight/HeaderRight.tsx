@@ -3,7 +3,6 @@ import { View, Modal, TouchableWithoutFeedback } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
 import { logout } from '../../../redux/actions/loginActions';
 import { useAppDispatch } from '../../../redux/hooks';
-
 const USER_PROFILE_ICON = require('../../../assets/images/oval.png');
 import styles from './styles';
 function HeaderLeft() {

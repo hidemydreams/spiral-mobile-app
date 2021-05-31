@@ -1,25 +1,75 @@
-import React, { ReactElement } from 'react';
-import { StatusBar, ScrollView, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import VideoCard from '../../components/VideoCard';
-import { DarkText } from '../../components/styledComponents';
-import AccountsOverview from '../../components/AccountsOverview';
+import React, { useRef, useState } from 'react';
+import { StatusBar, View, FlatList, ViewToken } from 'react-native';
+import VideoCard from '../../components/VideoCard/VideoCard';
+import AccountsOverview from '../../components/AccountsOverview/AccountsOverview';
+import { GIVING_CARD_DATA, IGivingCardData } from '../../data/data';
+import Greeting from '../../components/shared/Greeting/Greeting';
+import { styles } from './styles';
 import { useTheme } from 'react-native-elements';
 
+interface IVideoCardProps {
+  item: IGivingCardData;
+  index: number;
+}
+
 function Home() {
-  const navigation = useNavigation();
   const { theme } = useTheme();
+  const [currentVisibleIndex, setCurrentVisibleIndex] = useState('');
+
+  const renderVideoCards: React.FC<IVideoCardProps> = ({ item, index }) => {
+    return (
+      <VideoCard
+        title={item.title}
+        place={item.place}
+        timestamp={item.timestamp}
+        description={item.description}
+        currentIndex={index}
+        currentVisibleIndex={currentVisibleIndex}
+      />
+    );
+  };
+
+  const handleItemsInViewPort = ({
+    viewableItems,
+  }: {
+    viewableItems: Array<ViewToken>;
+  }): void => {
+    console.log(viewableItems);
+    if (viewableItems && viewableItems.length > 0) {
+      setCurrentVisibleIndex(viewableItems[0].index);
+    } else if (viewableItems.length === 0) {
+      setCurrentVisibleIndex('pause');
+    }
+  };
+
+  const viewabilityConfigCallbackPairs = useRef([
+    {
+      viewabilityConfig: {
+        minimumViewTime: 1500,
+        itemVisiblePercentThreshold: 100,
+      },
+      onViewableItemsChanged: handleItemsInViewPort,
+    },
+  ]);
+
   return (
-    <ScrollView>
-      <View style={theme.layout.container}>
-        <StatusBar barStyle="light-content" />
-        <DarkText>Hello User | Jul 12, 2020</DarkText>
-        <AccountsOverview />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <FlatList
+        style={theme.layout.container}
+        data={GIVING_CARD_DATA}
+        ListHeaderComponent={
+          <>
+            <StatusBar barStyle="light-content" />
+            <Greeting />
+            <AccountsOverview />
+          </>
+        }
+        renderItem={renderVideoCards}
+        keyExtractor={item => item.id}
+        viewabilityConfig={viewabilityConfigCallbackPairs.current}
+        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+      />
+    </View>
   );
 }
 
