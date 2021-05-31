@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { View } from 'react-native';
 import Video from 'react-native-video';
+import { styles } from './styles';
 
-function VideoPlayer({ route }) {
+function VideoPlayer({ route }): ReactElement {
   const { videoURL } = route.params;
   return (
-    <View style={{ flex: 1, backgroundColor: 'black' }}>
-      <Video source={videoURL} style={{ flex: 1 }} controls />
+    <View style={styles.videoContainer}>
+      <Video source={videoURL} style={styles.video} controls />
     </View>
   );
 }
