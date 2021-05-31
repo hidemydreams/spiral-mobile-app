@@ -27,6 +27,10 @@ function VideoCard({
   const [isVolumeOn, setIsVolumeOn] = useState(true);
   const navigation = useNavigation();
 
+  const setVolume = () => {
+    setIsVolumeOn(!isVolumeOn);
+  };
+
   return (
     <View style={styles.card}>
       <View style={styles.cardTitleContainer}>
@@ -60,7 +64,7 @@ function VideoCard({
                 paused={currentIndex !== currentVisibleIndex}
               />
               <View style={styles.volumeIcon}>
-                <TouchableOpacity onPress={() => setIsVolumeOn(!isVolumeOn)}>
+                <TouchableOpacity onPress={setVolume}>
                   {isVolumeOn ? (
                     <MaterialIcons name="volume-off" color="white" size={30} />
                   ) : (
