@@ -4,10 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeTabs from './HomeTabs';
 import screens from '../constants/screens';
-import CheckingStack from './CheckingNavigator';
-import SavingStack from './SavingsNavigator';
 import { useAppSelector } from '../redux/hooks';
 import SignIn from '../screens/SignIn/SignIn';
+import VideoPlayer from '../screens/VideoPlayer/VideoPlayer';
+import ProfileStack from './ProfileStack/ProfileStack';
+import CheckingStack from './CheckingNavigator';
+import SavingStack from './SavingsNavigator';
 
 function AppNavigationContainer() {
   const Stack = createStackNavigator();
@@ -24,6 +26,11 @@ function AppNavigationContainer() {
               <Stack.Screen name={screens.HOME} component={HomeTabs} />
               <Stack.Screen name={screens.CHECKING} component={CheckingStack} />
               <Stack.Screen name={screens.SAVING} component={SavingStack} />
+              <Stack.Screen
+                name={screens.VIDEO_PLAYER}
+                component={VideoPlayer}
+              />
+              <Stack.Screen name={screens.PROFILE} component={ProfileStack} />
             </Stack.Navigator>
           </NavigationContainer>
         </>

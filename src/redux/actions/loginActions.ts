@@ -1,4 +1,5 @@
 import { auth } from '../actions/actionTypes';
+import { deleteProfileData } from './profileActions';
 
 const login = () => {
   return {
@@ -23,6 +24,13 @@ const loginFailure = () => {
 export const logout = () => {
   return {
     type: auth.LOGOUT,
+  };
+};
+
+export const signOut = () => {
+  return function (dispatch: any) {
+    dispatch(logout());
+    dispatch(deleteProfileData());
   };
 };
 
