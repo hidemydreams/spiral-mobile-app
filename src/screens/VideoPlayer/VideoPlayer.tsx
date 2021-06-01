@@ -16,7 +16,6 @@ type Props = {
 
 function VideoPlayer({ route }: Props): ReactElement {
   const { videoURL } = route.params;
-  console.log(route.params);
   return (
     <View style={styles.videoContainer}>
       <Video source={videoURL} style={styles.video} controls />

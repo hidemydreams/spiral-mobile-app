@@ -34,7 +34,6 @@ function Home() {
   }: {
     viewableItems: Array<ViewToken>;
   }): void => {
-    console.log(viewableItems);
     if (viewableItems && viewableItems.length > 0) {
       setCurrentVisibleIndex(viewableItems[0].index);
     } else if (viewableItems.length === 0) {
