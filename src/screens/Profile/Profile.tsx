@@ -62,6 +62,11 @@ function Profile() {
       });
   };
 
+  const applyProfileChanges = () => {
+    setIsEditableMode(false);
+    dispatch(applyChanges(profileName, profileDate, profileImage));
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
@@ -121,10 +126,7 @@ function Profile() {
         {isEditableMode ? (
           <>
             <Button
-              onPress={() => {
-                setIsEditableMode(false);
-                dispatch(applyChanges(profileName, profileDate, profileImage));
-              }}
+              onPress={applyProfileChanges}
               buttonStyle={styles.button}
               title={
                 <LightText style={styles.buttonText}>Apply Changes</LightText>
