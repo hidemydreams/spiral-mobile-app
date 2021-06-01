@@ -16,6 +16,15 @@ const VIDEO = require('../../assets/videos/video.mp4');
 const AVATAR_ICON = require('../../assets/images/avatar.png');
 const BASE_IMAGE = require('../../assets/images/rectangle2.png');
 
+interface Props {
+  title: string;
+  place: string;
+  timestamp: string;
+  description: string;
+  currentVisibleIndex: number | string;
+  currentIndex: number;
+}
+
 function VideoCard({
   title,
   place,
@@ -26,6 +35,15 @@ function VideoCard({
 }: Props): ReactElement {
   const [isVolumeOn, setIsVolumeOn] = useState(true);
   const navigation = useNavigation();
+
+  const setVolume = () => {
+    setIsVolumeOn(!isVolumeOn);
+  };
+
+  const volumeIconSettings = {
+    color: 'white',
+    size: 30,
+  };
 
   return (
     <View style={styles.card}>
@@ -60,11 +78,11 @@ function VideoCard({
                 paused={currentIndex !== currentVisibleIndex}
               />
               <View style={styles.volumeIcon}>
-                <TouchableOpacity onPress={() => setIsVolumeOn(!isVolumeOn)}>
+                <TouchableOpacity onPress={setVolume}>
                   {isVolumeOn ? (
-                    <MaterialIcons name="volume-off" color="white" size={30} />
+                    <MaterialIcons name="volume-off" {...volumeIconSettings} />
                   ) : (
-                    <MaterialIcons name="volume-up" color="white" size={30} />
+                    <MaterialIcons name="volume-up" {...volumeIconSettings} />
                   )}
                 </TouchableOpacity>
               </View>
