@@ -1,9 +1,11 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, FC } from 'react';
 import { View } from 'react-native';
 import { DarkText } from '../styledComponents';
 import { styles } from './styles';
 
-function AvailableCash({ style }: { style?: object }): ReactElement {
+type AvailableCashProps = typeof styles;
+
+const AvailableCash: FC<AvailableCashProps> = ({ style }): ReactElement => {
   return (
     <View style={[styles.cardContainer, style?.title]}>
       <DarkText style={styles.cardAmount}>
@@ -14,6 +16,6 @@ function AvailableCash({ style }: { style?: object }): ReactElement {
       </DarkText>
     </View>
   );
-}
+};
 
 export default AvailableCash;
