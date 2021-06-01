@@ -116,7 +116,7 @@ function Profile() {
             is24Hour={true}
             display="default"
             onChange={onChange}
-            style={{ width: 200, marginHorizontal: 'auto' }}
+            style={styles.dateTimePicker}
           />
         ) : (
           <DarkText style={styles.profileDate}>{profileDate}</DarkText>

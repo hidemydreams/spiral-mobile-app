@@ -21,6 +21,11 @@ function HeaderLeft() {
     setUserMenuVisible(true);
   };
 
+  const navigateToScreen = () => {
+    navigation.navigate(screens.PROFILE);
+    hideUserMenu();
+  };
+
   return (
     <View style={styles.headerRight}>
       {photo ? (
@@ -43,13 +48,7 @@ function HeaderLeft() {
             <ListItem.Title onPress={() => dispatch(signOut())}>
               Log out
             </ListItem.Title>
-            <ListItem.Title
-              onPress={() => {
-                navigation.navigate(screens.PROFILE);
-                hideUserMenu();
-              }}>
-              Profile
-            </ListItem.Title>
+            <ListItem.Title onPress={navigateToScreen}>Profile</ListItem.Title>
           </ListItem.Content>
         </ListItem>
       </Modal>

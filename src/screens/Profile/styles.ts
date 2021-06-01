@@ -45,4 +45,5 @@ export const styles = StyleSheet.create({
   input: {
     width: 200,
   },
+  dateTimePicker: { width: 200, marginHorizontal: 'auto' },
 });
