@@ -34,7 +34,6 @@ function Home() {
   }: {
     viewableItems: Array<ViewToken>;
   }): void => {
-    console.log(viewableItems);
     if (viewableItems && viewableItems.length > 0) {
       setCurrentVisibleIndex(viewableItems[0].index);
     } else if (viewableItems.length === 0) {
@@ -53,7 +52,7 @@ function Home() {
   ]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.homeContainer}>
       <FlatList
         style={theme.layout.container}
         data={GIVING_CARD_DATA}

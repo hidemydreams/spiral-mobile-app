@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   headerRight: {
     paddingRight: 7,
   },
+  avatar: {},
 });
 
 export default styles;
