@@ -7,9 +7,10 @@ import { styles } from './styles';
 function Greeting() {
   const fullName = useAppSelector(state => state.profileReducer?.fullName);
 
-  const getFirstName = name => {
+  const getFirstName = (name: string) => {
     return name.split(' ').slice(0, 1).join();
   };
+
   return (
     <DarkText style={styles.welcomeText}>{`${getDayTime()} ${getFirstName(
       fullName,

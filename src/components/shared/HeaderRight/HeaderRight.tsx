@@ -14,14 +14,14 @@ function HeaderLeft() {
   const navigation = useNavigation();
   const { photo } = useAppSelector(state => state.profileReducer);
 
-  const hideUserMenu = () => {
+  const hideUserMenu = (): void => {
     setUserMenuVisible(false);
   };
-  const showUserMenu = () => {
+  const showUserMenu = (): void => {
     setUserMenuVisible(true);
   };
 
-  const navigateToScreen = () => {
+  const navigateToScreen = (): void => {
     navigation.navigate(screens.PROFILE);
     hideUserMenu();
   };
