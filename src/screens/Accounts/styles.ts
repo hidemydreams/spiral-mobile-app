@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import theme from '../../theme/Theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -21,4 +22,12 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
   },
   flatList: { paddingHorizontal: 10 },
+  title: {
+    marginTop: 50,
+  },
+  subtitle: {
+    fontSize: 16,
+    marginTop: 5,
+    color: theme.colors.grey,
+  },
 });
