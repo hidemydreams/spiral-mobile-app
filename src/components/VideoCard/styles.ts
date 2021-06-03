@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
   },
+  mediaContainer: { position: 'relative', height: 185 },
   cardTitleImage: {
     marginRight: 5,
   },
@@ -47,6 +48,8 @@ export const styles = StyleSheet.create({
   },
   cardBigImage: {
     maxWidth: 500,
+    position: 'absolute',
+    zIndex: -1,
   },
   description: {
     fontSize: 16,

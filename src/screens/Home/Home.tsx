@@ -12,11 +12,19 @@ interface IVideoCardProps {
   index: number;
 }
 
+interface IVisibleIndexState {
+  currentVisibleIndex: string | number;
+}
+
 function Home() {
   const { theme } = useTheme();
-  const [currentVisibleIndex, setCurrentVisibleIndex] = useState('');
+  const [currentVisibleIndex, setCurrentVisibleIndex] =
+    useState<IVisibleIndexState['currentVisibleIndex']>('');
 
-  const renderVideoCards: React.FC<IVideoCardProps> = ({ item, index }) => {
+  const renderVideoCards: React.FC<IVideoCardProps> = ({
+    item,
+    index,
+  }): JSX.Element => {
     return (
       <VideoCard
         title={item.title}

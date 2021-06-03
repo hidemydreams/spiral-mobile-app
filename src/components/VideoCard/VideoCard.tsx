@@ -58,10 +58,8 @@ const VideoCard: FC<VideoCardProps> = ({
           </View>
         </View>
       </View>
-      <View>
-        {currentIndex !== currentVisibleIndex ? (
-          <Image style={styles.cardBigImage} source={BASE_IMAGE} />
-        ) : (
+      <View style={styles.mediaContainer}>
+        {currentIndex === currentVisibleIndex && (
           <TouchableWithoutFeedback
             onPress={() =>
               navigation.navigate(screens.VIDEO_PLAYER, {
@@ -89,6 +87,7 @@ const VideoCard: FC<VideoCardProps> = ({
             </View>
           </TouchableWithoutFeedback>
         )}
+        <Image style={styles.cardBigImage} source={BASE_IMAGE} />
       </View>
       <DarkText style={styles.description}>{description}</DarkText>
       <Button

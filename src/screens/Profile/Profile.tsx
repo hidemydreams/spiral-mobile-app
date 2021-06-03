@@ -30,10 +30,7 @@ const Profile: FC = () => {
   const [date, setDate] = useState<object>(new Date());
   const [show, setShow] = useState(true);
 
-  const onChange = (
-    event: React.ChangeEventHandler,
-    selectedDate: object,
-  ): void => {
+  const onChange = (event: Event, selectedDate?: Date | undefined): void => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     const parsedProfileDate = parseProfileDate(currentDate);
