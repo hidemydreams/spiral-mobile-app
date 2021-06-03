@@ -20,11 +20,10 @@ function Profile() {
   const [profileName, setProfileName] = useState(fullName);
   const [profileDate, setProfileDate] = useState(dateOfBirth);
   const [profileImage, setProfileImage] = useState(photo);
-  const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState('date');
+  const [date, setDate] = useState<object>(new Date());
   const [show, setShow] = useState(true);
 
-  const onChange = (event, selectedDate) => {
+  const onChange = (selectedDate: object): void => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     const parsedProfileDate = parseProfileDate(currentDate);
@@ -32,7 +31,7 @@ function Profile() {
     setProfileDate(parsedProfileDate);
   };
 
-  const openCameraPicker = () => {
+  const openCameraPicker = (): void => {
     ImagePicker.openCamera({
       width: 300,
       height: 300,
@@ -47,7 +46,7 @@ function Profile() {
       });
   };
 
-  const openGalleryPicker = () => {
+  const openGalleryPicker = (): void => {
     ImagePicker.openPicker({
       width: 300,
       height: 300,
@@ -62,7 +61,7 @@ function Profile() {
       });
   };
 
-  const applyProfileChanges = () => {
+  const applyProfileChanges = (): void => {
     setIsEditableMode(false);
     dispatch(applyChanges(profileName, profileDate, profileImage));
   };
@@ -112,7 +111,7 @@ function Profile() {
           <DateTimePicker
             testID="dateTimePicker"
             value={date}
-            mode={mode}
+            mode="date"
             is24Hour={true}
             display="default"
             onChange={onChange}
