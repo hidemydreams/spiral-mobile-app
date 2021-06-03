@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { View, Image, Platform } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { DarkText, LightText } from '../../components/styledComponents';
@@ -11,7 +11,14 @@ import { parseProfileDate } from '../../utils/getDate';
 import ImagePicker from 'react-native-image-crop-picker';
 const USER_PROFILE_ICON = require('../../assets/images/blank_avatar.jpeg');
 
-function Profile() {
+const imagePickerOptions = {
+  width: 300,
+  height: 300,
+  multiple: false,
+  includeBase64: true,
+};
+
+const Profile: FC = () => {
   const dispatch = useAppDispatch();
   const { fullName, dateOfBirth, photo } = useAppSelector(
     state => state.profileReducer,
@@ -23,7 +30,10 @@ function Profile() {
   const [date, setDate] = useState<object>(new Date());
   const [show, setShow] = useState(true);
 
-  const onChange = (selectedDate: object): void => {
+  const onChange = (
+    event: React.ChangeEventHandler,
+    selectedDate: object,
+  ): void => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     const parsedProfileDate = parseProfileDate(currentDate);
@@ -32,12 +42,7 @@ function Profile() {
   };
 
   const openCameraPicker = (): void => {
-    ImagePicker.openCamera({
-      width: 300,
-      height: 300,
-      multiple: false,
-      includeBase64: true,
-    })
+    ImagePicker.openCamera(imagePickerOptions)
       .then(image => {
         setProfileImage(image);
       })
@@ -47,12 +52,7 @@ function Profile() {
   };
 
   const openGalleryPicker = (): void => {
-    ImagePicker.openPicker({
-      width: 300,
-      height: 300,
-      multiple: false,
-      includeBase64: true,
-    })
+    ImagePicker.openPicker(imagePickerOptions)
       .then(image => {
         setProfileImage(image);
       })
@@ -149,6 +149,6 @@ function Profile() {
       </View>
     </View>
   );
-}
+};
 
 export default Profile;
