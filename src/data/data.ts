@@ -58,7 +58,7 @@ export const GIVING_CARD_DATA = [
 ];
 
 export interface IAccountsListItem {
-  id: number;
+  id?: number;
   title: string;
   subtitle: string;
   cash: {

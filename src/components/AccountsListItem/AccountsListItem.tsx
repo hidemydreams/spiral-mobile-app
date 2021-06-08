@@ -16,7 +16,7 @@ interface AccountsListItemProps {
   icon: boolean | undefined;
   navigateTo: string | undefined;
   additionalInfo: string | undefined;
-  achievement: string;
+  achievement: string | undefined;
 }
 
 const AccountsListItem: FC<AccountsListItemProps> = ({
@@ -26,7 +26,6 @@ const AccountsListItem: FC<AccountsListItemProps> = ({
   cents,
   icon,
   navigateTo,
-  additionalInfo,
   achievement,
 }): ReactElement => {
   const { theme } = useTheme();

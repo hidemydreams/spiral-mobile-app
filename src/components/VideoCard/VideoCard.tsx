@@ -11,6 +11,7 @@ import {
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/core';
 import screens from '../../constants/screens';
+
 const SHARE_ICON = require('../../assets/images/shareArrow.png');
 const VIDEO = require('../../assets/videos/video.mp4');
 const AVATAR_ICON = require('../../assets/images/avatar.png');

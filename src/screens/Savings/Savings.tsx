@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, SafeAreaView, ScrollView, View } from 'react-native';
 import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { useTheme } from 'react-native-elements';
+import { styles } from './styles';
 
 function Savings() {
   const { theme } = useTheme();

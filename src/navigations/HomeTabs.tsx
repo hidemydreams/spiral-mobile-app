@@ -13,6 +13,7 @@ import CardsStack from './CardsNavigator';
 import GivingStack from './GivingNavigator';
 import HomeStackNavigator from './HomeNavigator';
 import PaymentsStack from './PaymentsNavigator';
+import { RouteProp } from '@react-navigation/core';
 const HOME_ICON = require('../assets/images/home.png');
 const ACCOUNTS_ICON = require('../assets/images/accounts.png');
 const GIVING_ICON = require('../assets/images/giving.png');

@@ -1,13 +1,19 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from '@react-navigation/stack';
 import { useTheme } from 'react-native-elements';
 import HeaderLeft from '../components/shared/HeaderLeft/HeaderLeft';
 import HeaderTitle from '../components/shared/HeaderTitle/HeaderTitle';
 import HeaderRight from '../components/shared/HeaderRight/HeaderRight';
 import screens from '../constants/screens';
 import Savings from '../screens/Savings/Savings';
+import { RootStackParamList } from '../types/types';
 
-function SavingsStack({ route }) {
+type savingsProps = StackScreenProps<RootStackParamList, 'Savings'>;
+
+function SavingsStack({ route }: savingsProps) {
   const { subtitle } = route.params;
   const Stack = createStackNavigator();
   const { theme } = useTheme();

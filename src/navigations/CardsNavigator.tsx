@@ -1,13 +1,19 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from '@react-navigation/stack';
 import { useTheme } from 'react-native-elements';
 import HeaderLeft from '../components/shared/HeaderLeft/HeaderLeft';
 import HeaderTitle from '../components/shared/HeaderTitle/HeaderTitle';
 import HeaderRight from '../components/shared/HeaderRight/HeaderRight';
 import screens from '../constants/screens';
 import Cards from '../screens/Cards/Cards';
+import { RootStackParamList } from '../types/types';
 
-function CardsStack({ route }) {
+type cardsProps = StackScreenProps<RootStackParamList, 'Cards'>;
+
+function CardsStack({ route }: cardsProps) {
   const Stack = createStackNavigator();
   const { theme } = useTheme();
 

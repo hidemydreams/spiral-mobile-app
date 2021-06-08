@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Image, View } from 'react-native';
-import { DarkText, GreyText, StyledTextAccent } from '../styledComponents';
+import { DarkText, GreyText } from '../styledComponents';
 import { useTheme } from 'react-native-elements';
 import { styles } from './styles';
 const CONFETTI_ICON = require('../../assets/images/confetti2.png');
