@@ -33,7 +33,7 @@ const AccountsListItem: FC<AccountsListItemProps> = ({
   const navigation = useNavigation();
 
   return (
-    <View style={[styles.itemWrapper, style]}>
+    <View style={[styles.itemWrapper]}>
       <TouchableOpacity
         style={styles.item}
         onPress={() => navigation.navigate(navigateTo, { subtitle: subtitle })}>
