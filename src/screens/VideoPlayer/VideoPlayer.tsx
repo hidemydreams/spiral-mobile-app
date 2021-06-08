@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { View } from 'react-native';
 import Video from 'react-native-video';
+import { styles } from './styles';
+import { RouteProp } from '@react-navigation/core';
 
-function VideoPlayer({ route }) {
+type RootStackParamList = {
+  'Video Player': { videoURL: string };
+};
+
+type VideoPlayerRouteProp = RouteProp<RootStackParamList, 'Video Player'>;
+
+type Props = {
+  route: VideoPlayerRouteProp;
+};
+
+function VideoPlayer({ route }: Props): ReactElement {
   const { videoURL } = route.params;
   return (
-    <View style={{ flex: 1, backgroundColor: 'black' }}>
-      <Video source={videoURL} style={{ flex: 1 }} controls />
+    <View style={styles.videoContainer}>
+      <Video source={videoURL} style={styles.video} controls />
     </View>
   );
 }

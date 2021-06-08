@@ -26,7 +26,10 @@ function Savings() {
     <ScrollView style={styles.container}>
       <View style={[styles.graphBg]}>
         <View>
-          <AvailableCash style={availableFundsStyles} />
+          <AvailableCash
+            titleStyle={availableFundsStyles.title}
+            subtitleStyle={availableFundsStyles.subtitle}
+          />
           <View style={styles.graphImageContainer}>
             <Image style={styles.graphImage} source={GRAPH_IMAGE} />
           </View>

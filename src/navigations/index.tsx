@@ -7,7 +7,7 @@ import screens from '../constants/screens';
 import { useAppSelector } from '../redux/hooks';
 import SignIn from '../screens/SignIn/SignIn';
 import VideoPlayer from '../screens/VideoPlayer/VideoPlayer';
-import ProfileStack from './ProfileStack/ProfileStack';
+import ProfileStack from './ProfileStack';
 import CheckingStack from './CheckingNavigator';
 import SavingsStack from './SavingsNavigator';
 

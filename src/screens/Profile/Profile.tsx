@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { View, Image, Platform } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import { DarkText, LightText } from '../../components/styledComponents';
@@ -11,7 +11,14 @@ import { parseProfileDate } from '../../utils/getDate';
 import ImagePicker from 'react-native-image-crop-picker';
 const USER_PROFILE_ICON = require('../../assets/images/blank_avatar.jpeg');
 
-function Profile() {
+const imagePickerOptions = {
+  width: 300,
+  height: 300,
+  multiple: false,
+  includeBase64: true,
+};
+
+const Profile: FC = () => {
   const dispatch = useAppDispatch();
   const { fullName, dateOfBirth, photo } = useAppSelector(
     state => state.profileReducer,
@@ -20,11 +27,10 @@ function Profile() {
   const [profileName, setProfileName] = useState(fullName);
   const [profileDate, setProfileDate] = useState(dateOfBirth);
   const [profileImage, setProfileImage] = useState(photo);
-  const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState('date');
+  const [date, setDate] = useState<Date>(new Date());
   const [show, setShow] = useState(true);
 
-  const onDateChange = (event, selectedDate) => {
+  const onChange = (event: Event, selectedDate?: Date | undefined): void => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     const parsedProfileDate = parseProfileDate(currentDate);
@@ -32,13 +38,8 @@ function Profile() {
     setProfileDate(parsedProfileDate);
   };
 
-  const openCameraPicker = () => {
-    ImagePicker.openCamera({
-      width: 300,
-      height: 300,
-      multiple: false,
-      includeBase64: true,
-    })
+  const openCameraPicker = (): void => {
+    ImagePicker.openCamera(imagePickerOptions)
       .then(image => {
         setProfileImage(image);
       })
@@ -47,19 +48,19 @@ function Profile() {
       });
   };
 
-  const openGalleryPicker = () => {
-    ImagePicker.openPicker({
-      width: 300,
-      height: 300,
-      multiple: false,
-      includeBase64: true,
-    })
+  const openGalleryPicker = (): void => {
+    ImagePicker.openPicker(imagePickerOptions)
       .then(image => {
         setProfileImage(image);
       })
       .catch(err => {
         console.log('error', err);
       });
+  };
+
+  const applyProfileChanges = (): void => {
+    setIsEditableMode(false);
+    dispatch(applyChanges(profileName, profileDate, profileImage));
   };
 
   return (
@@ -107,11 +108,11 @@ function Profile() {
           <DateTimePicker
             testID="dateTimePicker"
             value={date}
-            mode={mode}
+            mode="date"
             is24Hour={true}
             display="default"
-            onChange={onDateChange}
-            style={{ width: 200, marginHorizontal: 'auto' }}
+            onChange={onChange}
+            style={styles.dateTimePicker}
           />
         ) : (
           <DarkText style={styles.profileDate}>{profileDate}</DarkText>
@@ -121,10 +122,7 @@ function Profile() {
         {isEditableMode ? (
           <>
             <Button
-              onPress={() => {
-                setIsEditableMode(false);
-                dispatch(applyChanges(profileName, profileDate, profileImage));
-              }}
+              onPress={applyProfileChanges}
               buttonStyle={styles.button}
               title={
                 <LightText style={styles.buttonText}>Apply Changes</LightText>
@@ -148,6 +146,6 @@ function Profile() {
       </View>
     </View>
   );
-}
+};
 
 export default Profile;

@@ -7,7 +7,11 @@ import { useNavigation } from '@react-navigation/core';
 import screens from '../../../constants/screens';
 import styles from './styles';
 import { DarkText } from '../../styledComponents';
+<<<<<<< HEAD
 const USER_PROFILE_ICON = require('../../../assets/images/oval.png');
+=======
+const USER_PROFILE_ICON = require('../../../assets/images/blank_avatar.jpeg');
+>>>>>>> 8b815b6842a8ebc3f15de65213723061796fb746
 
 function HeaderLeft() {
   const [userMenuVisible, setUserMenuVisible] = useState(false);
@@ -15,12 +19,16 @@ function HeaderLeft() {
   const navigation = useNavigation();
   const { photo } = useAppSelector(state => state.profileReducer);
 
-  const hideUserMenu = () => {
+  const hideUserMenu = (): void => {
     setUserMenuVisible(false);
   };
-
-  const showUserMenu = () => {
+  const showUserMenu = (): void => {
     setUserMenuVisible(true);
+  };
+
+  const navigateToScreen = (): void => {
+    navigation.navigate(screens.PROFILE);
+    hideUserMenu();
   };
 
   return (
@@ -45,13 +53,7 @@ function HeaderLeft() {
             <ListItem.Title onPress={() => dispatch(signOut())}>
               <DarkText>Logout</DarkText>
             </ListItem.Title>
-            <ListItem.Title
-              onPress={() => {
-                navigation.navigate(screens.PROFILE);
-                hideUserMenu();
-              }}>
-              <DarkText>Profile</DarkText>
-            </ListItem.Title>
+            <ListItem.Title onPress={navigateToScreen}>Profile</ListItem.Title>
           </ListItem.Content>
         </ListItem>
       </Modal>

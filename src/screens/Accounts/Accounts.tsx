@@ -1,19 +1,15 @@
-import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { View, StatusBar, Image, FlatList, Platform } from 'react-native';
 import AccountsListItem from '../../components/AccountsListItem/AccountsListItem';
 import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { GreyText } from '../../components/styledComponents';
 import { styles } from './styles';
-import { useTheme } from 'react-native-elements';
 import { AccountsListItemData, IAccountsListItem } from '../../data/data';
 const SEND_ICON = require('../../assets/images/circleButtonSend.png');
 const PAY_ICON = require('../../assets/images/circleButtonPay.png');
 const TRANSFER_ICON = require('../../assets/images/circleButtonSend.png');
 
 function Accounts() {
-  const { theme } = useTheme();
-
   const borderStyle = {
     borderWidth: 1,
     borderColor: 'rgba(183, 188, 193, 0.3)',
@@ -35,21 +31,13 @@ function Accounts() {
     );
   };
 
-  const availableFundsStyles = {
-    subtitle: {
-      fontSize: 16,
-      marginTop: 5,
-      color: theme.colors.grey,
-    },
-    title: {
-      marginTop: 50,
-    },
-  };
-
   return (
     <View>
       <StatusBar />
-      <AvailableCash style={availableFundsStyles} />
+      <AvailableCash
+        titleStyle={styles.title}
+        subtitleStyle={styles.subtitle}
+      />
       <View style={styles.iconsRow}>
         <View style={styles.iconContainer}>
           <Image source={SEND_ICON} />
