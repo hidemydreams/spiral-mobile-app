@@ -1,13 +1,13 @@
 import React from 'react';
-import { SafeAreaView, View, TextInput, Platform } from 'react-native';
+import { SafeAreaView, View, TextInput } from 'react-native';
 import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { useTheme } from 'react-native-elements';
-import { Button } from 'react-native-elements';
+import { Button } from 'react-native-elements/dist/buttons/Button';
 import { DarkText, GreyText } from '../../components/styledComponents';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import CheckingItem from '../../components/CheckingItem/CheckingItem';
 import { styles } from './styles';
-import { CheckingData } from '../../data/data';
+import { CheckingData, ICheckingDataItem } from '../../data/data';
 
 function Checking() {
   const { theme } = useTheme();
@@ -24,7 +24,7 @@ function Checking() {
   };
 
   const renderCheckingItems = (items: string) => {
-    return CheckingData[items].map(item => {
+    return CheckingData[items].map((item: ICheckingDataItem) => {
       return (
         <CheckingItem
           title={item.title}
@@ -42,7 +42,10 @@ function Checking() {
     <SafeAreaView style={theme.layout.container}>
       <ScrollView>
         <View style={theme.layout.container}>
-          <AvailableCash style={availableFundsStyles} />
+          <AvailableCash
+            titleStyle={availableFundsStyles.title}
+            subtitleStyle={availableFundsStyles.subtitle}
+          />
           <View style={styles.filterRowContainer}>
             <TextInput
               style={styles.filterInput}

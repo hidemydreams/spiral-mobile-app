@@ -71,7 +71,7 @@ export interface IAccountsListItem {
   achievement?: string;
 }
 
-export const AccountsListItemData: IAccountsListItem = [
+export const AccountsListItemData: IAccountsListItem[] = [
   {
     id: 1,
     title: 'Checking',
@@ -106,6 +106,17 @@ export const AccountsListItemData: IAccountsListItem = [
     icon: true,
   },
 ];
+
+export interface ICheckingDataItem {
+  id: number;
+  title: string;
+  subtitle: string;
+  funds: {
+    banknotes: string;
+    cents: string;
+  };
+  isSpecial: boolean;
+}
 
 export const CheckingData = {
   july11: [
