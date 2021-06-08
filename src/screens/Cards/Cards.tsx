@@ -1,14 +1,15 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { SafeAreaView, Text, View } from 'react-native';
+import { styles } from './styles';
+import { useTheme } from 'react-native-elements';
 
 function Cards() {
+  const { theme } = useTheme();
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <View>
-          <Text>Coming soon</Text>
-        </View>
-      </ScrollView>
+    <SafeAreaView style={[theme.layout.container, styles.container]}>
+      <View>
+        <Text style={styles.text}>Coming soon...</Text>
+      </View>
     </SafeAreaView>
   );
 }

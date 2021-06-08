@@ -14,13 +14,6 @@ export const styles = StyleSheet.create({
   touchableOpacity: {
     width: '100%',
   },
-  cardAmount: {
-    fontSize: 34,
-  },
-  cardTotal: {
-    fontSize: 22,
-    marginBottom: 20,
-  },
   cardTitle: {
     fontSize: 24,
     marginTop: 20,

@@ -1,3 +1,5 @@
+import screens from '../constants/screens';
+
 export interface IGivingCardData {
   id: number;
   avatar: string;
@@ -52,5 +54,55 @@ export const GIVING_CARD_DATA = [
     timestamp: '4 hrs ago',
     description:
       'Danny, Your donation helped 5 amazing kids get much needed cancer surgery, thanks for being amazing',
+  },
+];
+
+export interface IAccountsListItem {
+  id: number;
+  title: string;
+  subtitle: string;
+  cash: {
+    banknotes: string;
+    cents: string;
+  };
+  icon?: boolean;
+  navigateTo?: string;
+  additionalInfo?: string;
+  achievement?: string;
+}
+
+export const AccountsListItemData: IAccountsListItem = [
+  {
+    id: 1,
+    title: 'Checking',
+    subtitle: 'Main Account (...0353)',
+    cash: {
+      banknotes: '1,500',
+      cents: '20',
+    },
+    navigateTo: screens.CHECKING,
+    additionalInfo: 'Some text for another page',
+  },
+  {
+    id: 2,
+    title: 'Savings',
+    subtitle: 'Buy a house (...4044)',
+    cash: {
+      banknotes: '5,000',
+      cents: '20',
+    },
+    navigateTo: screens.SAVING,
+    additionalInfo: 'Some text for another page',
+    achievement: 'Savings is up 3% from last month',
+  },
+  {
+    id: 3,
+    title: 'Goodness',
+    subtitle: 'Cash Rewards',
+    cash: {
+      banknotes: '500',
+      cents: '40',
+    },
+    icon: true,
   },
 ];

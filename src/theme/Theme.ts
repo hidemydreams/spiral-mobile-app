@@ -5,6 +5,7 @@ const theme = {
     background: 'rgb(247,248,252)',
     accentGreen: '#91CCB2',
     light: 'rgba(255, 255, 255)',
+    grey: 'rgb(183, 188, 193)',
   },
   typography: {
     fontFamily: 'Sf Pro Rounded',
@@ -20,6 +21,7 @@ const theme = {
       paddingBottom: 90,
       flex: 1,
       flexDirection: 'column',
+      backgroundColor: 'rgb(247,248,252)',
     },
     absolutePos: {
       position: 'absolute',

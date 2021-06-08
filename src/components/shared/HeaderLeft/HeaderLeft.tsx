@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
@@ -6,8 +6,13 @@ const CHEVRON_BACK_ICON = require('../../../assets/images/back.png');
 const BURGER_MENU_ICON = require('../../../assets/images/burgerMenuIcon.png');
 import { styles } from './styles';
 
-function HeaderLeft({ location }: { location?: String }) {
+interface IHeaderLeftProps {
+  location?: string;
+}
+
+const HeaderLeft: FC<IHeaderLeftProps> = ({ location }) => {
   const navigation = useNavigation();
+
   return (
     <View style={styles.headerLeft}>
       {!location ? (
@@ -21,6 +26,6 @@ function HeaderLeft({ location }: { location?: String }) {
       )}
     </View>
   );
-}
+};
 
 export default HeaderLeft;

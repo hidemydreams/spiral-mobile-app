@@ -14,11 +14,16 @@ function HeaderLeft() {
   const navigation = useNavigation();
   const { photo } = useAppSelector(state => state.profileReducer);
 
-  const hideUserMenu = () => {
+  const hideUserMenu = (): void => {
     setUserMenuVisible(false);
   };
-  const showUserMenu = () => {
+  const showUserMenu = (): void => {
     setUserMenuVisible(true);
+  };
+
+  const navigateToScreen = (): void => {
+    navigation.navigate(screens.PROFILE);
+    hideUserMenu();
   };
 
   return (
@@ -43,13 +48,7 @@ function HeaderLeft() {
             <ListItem.Title onPress={() => dispatch(signOut())}>
               Log out
             </ListItem.Title>
-            <ListItem.Title
-              onPress={() => {
-                navigation.navigate(screens.PROFILE);
-                hideUserMenu();
-              }}>
-              Profile
-            </ListItem.Title>
+            <ListItem.Title onPress={navigateToScreen}>Profile</ListItem.Title>
           </ListItem.Content>
         </ListItem>
       </Modal>

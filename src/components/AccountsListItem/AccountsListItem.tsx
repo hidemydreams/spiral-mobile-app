@@ -1,13 +1,25 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, FC } from 'react';
 import { Image, View } from 'react-native';
-import { DarkText, GreyText } from '../styledComponents';
+import { DarkText, GreyText, StyledTextAccent } from '../styledComponents';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from './styles';
+const HEART_ICON = require('../../assets/images/heart.png');
 
-function AccountsListItem({
+interface AccountsListItemProps {
+  title: string;
+  subtitle: string;
+  banknotes: string;
+  cents: string;
+  icon: boolean | undefined;
+  navigateTo: string | undefined;
+  additionalInfo: string | undefined;
+  achievement: string;
+}
+
+const AccountsListItem: FC<AccountsListItemProps> = ({
   title,
   subtitle,
   banknotes,
@@ -15,7 +27,8 @@ function AccountsListItem({
   icon,
   navigateTo,
   additionalInfo,
-}): ReactElement {
+  achievement,
+}): ReactElement => {
   const { theme } = useTheme();
   const navigation = useNavigation();
 
@@ -28,7 +41,8 @@ function AccountsListItem({
         }>
         <View>
           <DarkText style={styles.itemTitle}>
-            {title} <Image source={icon} />
+            {title}{' '}
+            {icon ? <Image style={styles.icon} source={HEART_ICON} /> : null}
           </DarkText>
           <GreyText style={styles.itemSubTitle}>{subtitle}</GreyText>
         </View>
@@ -44,8 +58,13 @@ function AccountsListItem({
           />
         </View>
       </TouchableOpacity>
+      {achievement ? (
+        <StyledTextAccent style={styles.achievement}>
+          {achievement}
+        </StyledTextAccent>
+      ) : null}
     </View>
   );
-}
+};
 
 export default AccountsListItem;

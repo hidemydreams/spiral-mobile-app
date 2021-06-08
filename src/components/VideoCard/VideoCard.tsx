@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, FC } from 'react';
 import { Image, View } from 'react-native';
 import Button from 'react-native-elements/dist/buttons/Button';
 import { DarkText, LightText } from '../styledComponents';
@@ -16,7 +16,7 @@ const VIDEO = require('../../assets/videos/video.mp4');
 const AVATAR_ICON = require('../../assets/images/avatar.png');
 const BASE_IMAGE = require('../../assets/images/rectangle2.png');
 
-interface Props {
+interface VideoCardProps {
   title: string;
   place: string;
   timestamp: string;
@@ -25,14 +25,14 @@ interface Props {
   currentIndex: number;
 }
 
-function VideoCard({
+const VideoCard: FC<VideoCardProps> = ({
   title,
   place,
   timestamp,
   description,
   currentVisibleIndex,
   currentIndex,
-}: Props): ReactElement {
+}): ReactElement => {
   const [isVolumeOn, setIsVolumeOn] = useState(true);
   const navigation = useNavigation();
 
@@ -58,10 +58,8 @@ function VideoCard({
           </View>
         </View>
       </View>
-      <View>
-        {currentIndex !== currentVisibleIndex ? (
-          <Image style={styles.cardBigImage} source={BASE_IMAGE} />
-        ) : (
+      <View style={styles.mediaContainer}>
+        {currentIndex === currentVisibleIndex && (
           <TouchableWithoutFeedback
             onPress={() =>
               navigation.navigate(screens.VIDEO_PLAYER, {
@@ -89,6 +87,7 @@ function VideoCard({
             </View>
           </TouchableWithoutFeedback>
         )}
+        <Image style={styles.cardBigImage} source={BASE_IMAGE} />
       </View>
       <DarkText style={styles.description}>{description}</DarkText>
       <Button
@@ -104,6 +103,6 @@ function VideoCard({
       />
     </View>
   );
-}
+};
 
 export default VideoCard;
