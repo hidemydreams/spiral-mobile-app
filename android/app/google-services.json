@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "362640777440",
+    "project_id": "app-spiral",
+    "storage_bucket": "app-spiral.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362640777440:android:00b4c2b401e1c13099f085",
+        "android_client_info": {
+          "package_name": "com.internship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362640777440-79k1be2avsc6f8n7ko2cqhumhmn8qea0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFITb-mUAtoLApHLXfk7avc5YHoyfYA-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362640777440-79k1be2avsc6f8n7ko2cqhumhmn8qea0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

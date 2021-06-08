@@ -19,6 +19,7 @@ const TRANSFER_ICON = require('../../assets/images/circleButtonSend.png');
 
 function Accounts() {
   const { theme } = useTheme();
+  console.log(styles.title);
 
   const borderStyle = {
     borderWidth: 1,
@@ -41,21 +42,13 @@ function Accounts() {
     );
   };
 
-  const availableFundsStyles = {
-    subtitle: {
-      fontSize: 16,
-      marginTop: 5,
-      color: theme.colors.grey,
-    },
-    title: {
-      marginTop: 50,
-    },
-  };
-
   return (
     <SafeAreaView style={[theme.layout.container, styles.container]}>
       <StatusBar />
-      <AvailableCash style={availableFundsStyles} />
+      <AvailableCash
+        titleStyle={styles.title}
+        subtitleStyle={styles.subtitle}
+      />
       <View style={styles.iconsRow}>
         <View style={styles.iconContainer}>
           <Image source={SEND_ICON} />

@@ -51,6 +51,5 @@ export const getYear = () => {
 
 export const parseProfileDate = date => {
   const dateArr = date.toString().split(' ').slice(0, 4);
-  console.log(dateArr);
   return `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
 };

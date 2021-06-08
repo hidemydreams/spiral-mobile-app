@@ -53,4 +53,19 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     color: 'rgb(215, 51, 116)',
   },
+  loginUnderline: {
+    width: 70,
+    height: 3,
+    backgroundColor: 'rgb(215, 51, 116)',
+    marginTop: 3,
+  },
+  loginTitle: {
+    fontWeight: '700',
+    marginTop: 50,
+    fontSize: 25,
+  },
+  header: {
+    marginTop: 20,
+    marginBottom: 40,
+  },
 });
