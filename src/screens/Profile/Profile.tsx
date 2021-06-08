@@ -27,7 +27,7 @@ const Profile: FC = () => {
   const [profileName, setProfileName] = useState(fullName);
   const [profileDate, setProfileDate] = useState(dateOfBirth);
   const [profileImage, setProfileImage] = useState(photo);
-  const [date, setDate] = useState<object>(new Date());
+  const [date, setDate] = useState<Date>(new Date());
   const [show, setShow] = useState(true);
 
   const onChange = (event: Event, selectedDate?: Date | undefined): void => {

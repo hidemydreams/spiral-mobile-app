@@ -58,7 +58,7 @@ export const GIVING_CARD_DATA = [
 ];
 
 export interface IAccountsListItem {
-  id: number;
+  id?: number;
   title: string;
   subtitle: string;
   cash: {
@@ -71,7 +71,7 @@ export interface IAccountsListItem {
   achievement?: string;
 }
 
-export const AccountsListItemData: IAccountsListItem = [
+export const AccountsListItemData: IAccountsListItem[] = [
   {
     id: 1,
     title: 'Checking',
@@ -91,7 +91,7 @@ export const AccountsListItemData: IAccountsListItem = [
       banknotes: '5,000',
       cents: '20',
     },
-    navigateTo: screens.SAVING,
+    navigateTo: screens.SAVINGS,
     additionalInfo: 'Some text for another page',
     achievement: 'Savings is up 3% from last month',
   },
@@ -106,3 +106,101 @@ export const AccountsListItemData: IAccountsListItem = [
     icon: true,
   },
 ];
+
+export interface ICheckingDataItem {
+  id: number;
+  title: string;
+  subtitle: string;
+  funds: {
+    banknotes: string;
+    cents: string;
+  };
+  isSpecial: boolean;
+}
+
+export const CheckingData = {
+  july11: [
+    {
+      id: 1,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 2,
+      title: 'Facebook Inc',
+      subtitle: 'Pay Day ! Yay !',
+      funds: {
+        banknotes: '1.200',
+        cents: '95',
+      },
+      isSpecial: true,
+    },
+    {
+      id: 3,
+      title: 'Lencrafters',
+      subtitle: 'Paramus NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 4,
+      title: 'AplPay 7-Eleven',
+      subtitle: 'Cresskill NJ | iPhone',
+      funds: {
+        banknotes: '17',
+        cents: '75',
+      },
+      isSpecial: false,
+    },
+  ],
+  july12: [
+    {
+      id: 1,
+      title: 'Transfer from Savings',
+      subtitle: 'Buy a house (...4044)',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 2,
+      title: 'Starbucks',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 3,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+    {
+      id: 4,
+      title: 'Target',
+      subtitle: 'Closter NJ | Debit Card',
+      funds: {
+        banknotes: '63',
+        cents: '95',
+      },
+      isSpecial: false,
+    },
+  ],
+};

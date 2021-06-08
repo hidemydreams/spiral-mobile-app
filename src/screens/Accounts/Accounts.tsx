@@ -21,6 +21,11 @@ function Accounts() {
   const { theme } = useTheme();
   console.log(styles.title);
 
+  const borderStyle = {
+    borderWidth: 1,
+    borderColor: 'rgba(183, 188, 193, 0.3)',
+  };
+
   const renderAccountsListItem = ({ item }: { item: IAccountsListItem }) => {
     return (
       <AccountsListItem
@@ -32,6 +37,7 @@ function Accounts() {
         navigateTo={item.navigateTo}
         additionalInfo={item.additionalInfo}
         achievement={item.achievement}
+        style={borderStyle}
       />
     );
   };

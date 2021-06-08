@@ -7,9 +7,9 @@ import screens from '../constants/screens';
 import { useAppSelector } from '../redux/hooks';
 import SignIn from '../screens/SignIn/SignIn';
 import VideoPlayer from '../screens/VideoPlayer/VideoPlayer';
-import ProfileStack from './ProfileStack/ProfileStack';
+import ProfileStack from './ProfileStack';
 import CheckingStack from './CheckingNavigator';
-import SavingStack from './SavingsNavigator';
+import SavingsStack from './SavingsNavigator';
 
 function AppNavigationContainer() {
   const Stack = createStackNavigator();
@@ -25,7 +25,7 @@ function AppNavigationContainer() {
               })}>
               <Stack.Screen name={screens.HOME} component={HomeTabs} />
               <Stack.Screen name={screens.CHECKING} component={CheckingStack} />
-              <Stack.Screen name={screens.SAVING} component={SavingStack} />
+              <Stack.Screen name={screens.SAVINGS} component={SavingsStack} />
               <Stack.Screen
                 name={screens.VIDEO_PLAYER}
                 component={VideoPlayer}

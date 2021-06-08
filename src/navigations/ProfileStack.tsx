@@ -1,11 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useTheme } from 'react-native-elements';
-import HeaderLeft from '../../components/shared/HeaderLeft/HeaderLeft';
-import HeaderRight from '../../components/shared/HeaderRight/HeaderRight';
-import HeaderTitle from '../../components/shared/HeaderTitle/HeaderTitle';
-import screens from '../../constants/screens';
-import Profile from '../../screens/Profile/Profile';
+import HeaderLeft from '../components/shared/HeaderLeft/HeaderLeft';
+import HeaderRight from '../components/shared/HeaderRight/HeaderRight';
+import HeaderTitle from '../components/shared/HeaderTitle/HeaderTitle';
+import screens from '../constants/screens';
+import Profile from '../screens/Profile/Profile';
 
 function ProfileStack({ route }) {
   const Stack = createStackNavigator();

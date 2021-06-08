@@ -16,7 +16,7 @@ interface AccountsListItemProps {
   icon: boolean | undefined;
   navigateTo: string | undefined;
   additionalInfo: string | undefined;
-  achievement: string;
+  achievement: string | undefined;
 }
 
 const AccountsListItem: FC<AccountsListItemProps> = ({
@@ -26,19 +26,16 @@ const AccountsListItem: FC<AccountsListItemProps> = ({
   cents,
   icon,
   navigateTo,
-  additionalInfo,
   achievement,
 }): ReactElement => {
   const { theme } = useTheme();
   const navigation = useNavigation();
 
   return (
-    <View style={styles.itemWrapper}>
+    <View style={[styles.itemWrapper]}>
       <TouchableOpacity
         style={styles.item}
-        onPress={() =>
-          navigation.navigate(navigateTo, { subtitle: additionalInfo })
-        }>
+        onPress={() => navigation.navigate(navigateTo, { subtitle: subtitle })}>
         <View>
           <DarkText style={styles.itemTitle}>
             {title}{' '}

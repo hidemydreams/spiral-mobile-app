@@ -6,7 +6,7 @@ enum screens {
   GIVING = 'Giving',
   PAYMENTS = 'Payments',
   SIGN_IN = 'Signin',
-  SAVING = 'Saving',
+  SAVINGS = 'Savings',
   VIDEO_PLAYER = 'Video Player',
   PROFILE = 'Profile',
 }

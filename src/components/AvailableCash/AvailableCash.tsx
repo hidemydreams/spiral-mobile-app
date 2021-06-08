@@ -4,8 +4,8 @@ import { DarkText } from '../styledComponents';
 import { styles } from './styles';
 
 type AvailableCashProps = {
-  titleStyle: { marginTop: number };
-  subtitleStyle: {
+  titleStyle?: { marginTop: number };
+  subtitleStyle?: {
     fontSize: number;
     marginTop: number;
     color: string;
