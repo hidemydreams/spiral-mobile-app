@@ -49,20 +49,12 @@ function HeaderLeft() {
             <ListItem.Title onPress={() => dispatch(signOut())}>
               <DarkText>Logout</DarkText>
             </ListItem.Title>
-<<<<<<< HEAD
-            <ListItem.Title
-              onPress={() => {
-                navigation.navigate(screens.PROFILE);
-                hideUserMenu();
-              }}>
-              <DarkText>Profile</DarkText>
-            </ListItem.Title>
-=======
             <ListItem.Title onPress={navigateToScreen}>Profile</ListItem.Title>
->>>>>>> 42bef82b7eae0808ff13cbcaf654f2a0954ac7ed
           </ListItem.Content>
         </ListItem>
       </Modal>
-    </}
+    </View>
+  );
+}
 
 export default HeaderLeft;

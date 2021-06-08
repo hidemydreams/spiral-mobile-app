@@ -9,12 +9,7 @@ function Savings() {
   return (
     <SafeAreaView>
       <ScrollView>
-        <View
-          style={{
-            backgroundColor: 'white',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+        <View style={styles.container}>
           <View style={theme.layout.container}>
             <AvailableCash />
             <Image source={require('../../assets/images/savingsGraphV2.png')} />
