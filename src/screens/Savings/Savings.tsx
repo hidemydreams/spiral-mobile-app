@@ -11,26 +11,15 @@ const GRAPH_IMAGE = require('../../assets/images/savingsGraphV2.png');
 function Savings() {
   const { theme } = useTheme();
 
-  const availableFundsStyles = {
-    subtitle: {
-      fontSize: 16,
-      marginTop: 5,
-      color: theme.colors.grey,
-    },
-    title: {
-      marginTop: 50,
-    },
-  };
-
   return (
     <ScrollView style={styles.container}>
       <View style={[styles.graphBg]}>
         <View>
           <AvailableCash
-            titleStyle={availableFundsStyles.title}
-            subtitleStyle={availableFundsStyles.subtitle}
+            titleStyle={styles.title}
+            subtitleStyle={styles.subtitle}
           />
-          <View style={styles.graphImageContainer}>
+          <View>
             <Image style={styles.graphImage} source={GRAPH_IMAGE} />
           </View>
         </View>

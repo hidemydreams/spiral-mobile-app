@@ -36,4 +36,12 @@ export const styles = StyleSheet.create({
   imageContainer: {
     backgroundColor: 'red',
   },
+  subtitle: {
+    fontSize: 16,
+    marginTop: 5,
+    color: theme.colors.grey,
+  },
+  title: {
+    marginTop: 50,
+  },
 });

@@ -7,11 +7,7 @@ import { useNavigation } from '@react-navigation/core';
 import screens from '../../../constants/screens';
 import styles from './styles';
 import { DarkText } from '../../styledComponents';
-<<<<<<< HEAD
-const USER_PROFILE_ICON = require('../../../assets/images/oval.png');
-=======
 const USER_PROFILE_ICON = require('../../../assets/images/blank_avatar.jpeg');
->>>>>>> 8b815b6842a8ebc3f15de65213723061796fb746
 
 function HeaderLeft() {
   const [userMenuVisible, setUserMenuVisible] = useState(false);
