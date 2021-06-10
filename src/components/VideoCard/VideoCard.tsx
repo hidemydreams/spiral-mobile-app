@@ -1,6 +1,6 @@
 import React, { ReactElement, useState, FC } from 'react';
 import { Image, View } from 'react-native';
-import Button from 'react-native-elements/dist/buttons/Button';
+import { Button } from 'react-native-elements';
 import { DarkText, LightText } from '../styledComponents';
 import { styles } from './styles';
 import Video from 'react-native-video';
