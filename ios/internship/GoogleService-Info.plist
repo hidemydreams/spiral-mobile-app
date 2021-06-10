@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>362640777440-2o31c4nsgr86iap6p5g6nrq8hp89eiud.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.362640777440-2o31c4nsgr86iap6p5g6nrq8hp89eiud</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCQAr-KlCUWA_ZoesXjgfz9u0KxC09SxEA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>362640777440</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>new.project.iechart.trainee</string>
+	<key>PROJECT_ID</key>
+	<string>app-spiral</string>
+	<key>STORAGE_BUCKET</key>
+	<string>app-spiral.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:362640777440:ios:aa982daba41e29e799f085</string>
+</dict>
+</plist>

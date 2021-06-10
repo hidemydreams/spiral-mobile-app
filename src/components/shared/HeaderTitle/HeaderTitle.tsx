@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { View, Image, Text } from 'react-native';
 const LOGO_ICON = require('../../../assets/images/logo.png');
 import { styles } from './styles';
 
-function HeaderTitle({
-  routeName,
-  subtitle,
-}: {
+interface IHeaderTitleProps {
   routeName?: string;
   subtitle?: string;
-}) {
+}
+
+const HeaderTitle: FC<IHeaderTitleProps> = ({ routeName, subtitle }) => {
   return (
     <View style={styles.headerTitle}>
       {routeName ? (
@@ -24,6 +23,6 @@ function HeaderTitle({
       ) : null}
     </View>
   );
-}
+};
 
 export default HeaderTitle;

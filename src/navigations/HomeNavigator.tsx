@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useTheme } from 'react-native-elements';
 import HeaderLeft from '../components/shared/HeaderLeft/HeaderLeft';
 import HeaderTitle from '../components/shared/HeaderTitle/HeaderTitle';
 import HeaderRight from '../components/shared/HeaderRight/HeaderRight';

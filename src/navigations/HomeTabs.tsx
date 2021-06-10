@@ -13,6 +13,7 @@ import CardsStack from './CardsNavigator';
 import GivingStack from './GivingNavigator';
 import HomeStackNavigator from './HomeNavigator';
 import PaymentsStack from './PaymentsNavigator';
+import { RouteProp } from '@react-navigation/core';
 const HOME_ICON = require('../assets/images/home.png');
 const ACCOUNTS_ICON = require('../assets/images/accounts.png');
 const GIVING_ICON = require('../assets/images/giving.png');
@@ -48,7 +49,9 @@ const tabScreens = [
   { screenName: screens.CARDS, component: CardsStack },
 ];
 
-const getTabBarIcon = route => {
+const getTabBarIcon = (
+  route: RouteProp<Record<string, object | undefined>, string>,
+) => {
   let iconName;
   switch (route.name) {
     case screens.HOME:
@@ -75,6 +78,18 @@ const getTabBarIcon = route => {
 function HomeTabs() {
   const { theme } = useTheme();
   const Tab = createBottomTabNavigator();
+
+  const renderTabScreens = () => {
+    return tabScreens.map(screen => {
+      return (
+        <Tab.Screen
+          key={screen.screenName}
+          name={screen.screenName}
+          component={screen.component}
+        />
+      );
+    });
+  };
 
   return (
     <Tab.Navigator
@@ -107,15 +122,7 @@ function HomeTabs() {
           )}
         </>
       )}>
-      {tabScreens.map(screen => {
-        return (
-          <Tab.Screen
-            key={screen.screenName}
-            name={screen.screenName}
-            component={screen.component}
-          />
-        );
-      })}
+      {renderTabScreens()}
     </Tab.Navigator>
   );
 }

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, FC } from 'react';
 import { Image, View } from 'react-native';
 import { DarkText, GreyText, StyledTextAccent } from '../styledComponents';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -8,17 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from './styles';
 const HEART_ICON = require('../../assets/images/heart.png');
 
-function AccountsListItem({
-  title,
-  subtitle,
-  banknotes,
-  cents,
-  icon,
-  navigateTo,
-  additionalInfo,
-  achievement,
-  style,
-}: {
+interface AccountsListItemProps {
   title: string;
   subtitle: string;
   banknotes: string;
@@ -26,13 +16,23 @@ function AccountsListItem({
   icon: boolean | undefined;
   navigateTo: string | undefined;
   additionalInfo: string | undefined;
-  achievement: string;
-}): ReactElement {
+  achievement: string | undefined;
+}
+
+const AccountsListItem: FC<AccountsListItemProps> = ({
+  title,
+  subtitle,
+  banknotes,
+  cents,
+  icon,
+  navigateTo,
+  achievement,
+}): ReactElement => {
   const { theme } = useTheme();
   const navigation = useNavigation();
 
   return (
-    <View style={[styles.itemWrapper, style]}>
+    <View style={[styles.itemWrapper]}>
       <TouchableOpacity
         style={styles.item}
         onPress={() => navigation.navigate(navigateTo, { subtitle: subtitle })}>
@@ -62,6 +62,6 @@ function AccountsListItem({
       ) : null}
     </View>
   );
-}
+};
 
 export default AccountsListItem;
