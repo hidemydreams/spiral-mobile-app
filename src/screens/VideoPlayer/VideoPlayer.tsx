@@ -18,7 +18,7 @@ function VideoPlayer({ route }: Props): ReactElement {
   const { videoURL } = route.params;
   return (
     <View style={styles.videoContainer}>
-      <Video source={videoURL} style={styles.video} controls />
+      <Video source={parseInt(videoURL)} style={styles.video} controls />
     </View>
   );
 }

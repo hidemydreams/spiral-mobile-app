@@ -19,7 +19,7 @@ export const GreyText = styled(DarkText)`
 `;
 
 export const StyledTextAccent = styled(DarkText)`
-  color: 'rgb(145,204,178)';
+  color: 'rgb(86,180,129)';
 `;
 
 export const StyledTextPrimary = styled(DarkText)`

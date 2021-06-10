@@ -1,12 +1,12 @@
 import React from 'react';
-import { SafeAreaView, View, TextInput } from 'react-native';
+import { View } from 'react-native';
 import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { useTheme } from 'react-native-elements';
-import { Button } from 'react-native-elements/dist/buttons/Button';
-import { DarkText, GreyText } from '../../components/styledComponents';
+import { DarkText } from '../../components/styledComponents';
 import { ScrollView } from 'react-native-gesture-handler';
 import CheckingItem from '../../components/CheckingItem/CheckingItem';
 import { styles } from './styles';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import { CheckingData, ICheckingDataItem } from '../../data/data';
 
 function Checking() {
@@ -39,23 +39,14 @@ function Checking() {
   };
 
   return (
-    <SafeAreaView style={theme.layout.container}>
-      <ScrollView>
-        <View style={theme.layout.container}>
+    <>
+      <ScrollView style={theme.layout.container}>
+        <View>
           <AvailableCash
             titleStyle={availableFundsStyles.title}
             subtitleStyle={availableFundsStyles.subtitle}
           />
-          <View style={styles.filterRowContainer}>
-            <TextInput
-              style={styles.filterInput}
-              placeholder="Search Transactions"
-            />
-            <Button
-              title={<GreyText style={styles.buttonText}>Filter By</GreyText>}
-              buttonStyle={styles.filterButton}
-            />
-          </View>
+          <SearchBar />
           <View style={styles.transactionBlock}>
             <DarkText style={styles.transactionDate}>July 11</DarkText>
             <View style={styles.transactions}>
@@ -70,7 +61,7 @@ function Checking() {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </>
   );
 }
 

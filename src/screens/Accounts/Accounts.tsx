@@ -1,26 +1,15 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  StatusBar,
-  Image,
-  FlatList,
-  Platform,
-} from 'react-native';
+import { View, StatusBar, Image, FlatList, Platform } from 'react-native';
 import AccountsListItem from '../../components/AccountsListItem/AccountsListItem';
 import AvailableCash from '../../components/AvailableCash/AvailableCash';
 import { GreyText } from '../../components/styledComponents';
 import { styles } from './styles';
-import { useTheme } from 'react-native-elements';
 import { AccountsListItemData, IAccountsListItem } from '../../data/data';
 const SEND_ICON = require('../../assets/images/circleButtonSend.png');
 const PAY_ICON = require('../../assets/images/circleButtonPay.png');
 const TRANSFER_ICON = require('../../assets/images/circleButtonSend.png');
 
 function Accounts() {
-  const { theme } = useTheme();
-  console.log(styles.title);
-
   const borderStyle = {
     borderWidth: 1,
     borderColor: 'rgba(183, 188, 193, 0.3)',
@@ -43,7 +32,7 @@ function Accounts() {
   };
 
   return (
-    <SafeAreaView style={[theme.layout.container, styles.container]}>
+    <View>
       <StatusBar />
       <AvailableCash
         titleStyle={styles.title}
@@ -72,7 +61,7 @@ function Accounts() {
         renderItem={renderAccountsListItem}
         keyExtractor={item => item.id}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 

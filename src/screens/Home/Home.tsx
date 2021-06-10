@@ -1,10 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { StatusBar, View, FlatList, ViewToken } from 'react-native';
+import { StatusBar, FlatList, ViewToken } from 'react-native';
 import VideoCard from '../../components/VideoCard/VideoCard';
 import AccountsOverview from '../../components/AccountsOverview/AccountsOverview';
 import { GIVING_CARD_DATA, IGivingCardData } from '../../data/data';
 import Greeting from '../../components/shared/Greeting/Greeting';
-import { styles } from './styles';
 import { useTheme } from 'react-native-elements';
 
 interface IVideoCardProps {
@@ -60,7 +59,7 @@ function Home() {
   ]);
 
   return (
-    <View style={styles.homeContainer}>
+    <>
       <FlatList
         style={theme.layout.container}
         data={GIVING_CARD_DATA}
@@ -76,7 +75,7 @@ function Home() {
         viewabilityConfig={viewabilityConfigCallbackPairs.current}
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
       />
-    </View>
+    </>
   );
 }
 
