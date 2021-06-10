@@ -18,7 +18,7 @@ export const getDayTime = () => {
   }
 };
 
-export const getMonth = arg => {
+export const getMonth = (arg: number) => {
   const monthNames = [
     'January',
     'February',
@@ -34,8 +34,6 @@ export const getMonth = arg => {
     'December',
   ];
 
-  const d = new Date();
-
   return monthNames[arg];
 };
 
@@ -49,7 +47,7 @@ export const getYear = () => {
   return d.getFullYear();
 };
 
-export const parseProfileDate = date => {
+export const parseProfileDate = (date: Date) => {
   const dateArr = date.toString().split(' ').slice(0, 4);
   return `${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
 };
