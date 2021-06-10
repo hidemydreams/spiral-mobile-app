@@ -32,7 +32,7 @@ function Accounts() {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <StatusBar />
       <AvailableCash
         titleStyle={styles.title}

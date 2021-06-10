@@ -14,16 +14,19 @@ import theme from '../../theme/Theme';
 import { Provider } from 'react-redux';
 import { persistedStore, store } from '../../redux/store';
 import { PersistGate } from 'redux-persist/lib/integration/react';
+import SplashScreen from '../SplashScreen/SplashScreen';
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistedStore}>
-        <ThemeProvider theme={theme}>
-          <AppNavigationContainer />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    <SplashScreen>
+      <Provider store={store}>
+        <PersistGate persistor={persistedStore}>
+          <ThemeProvider theme={theme}>
+            <AppNavigationContainer />
+          </ThemeProvider>
+        </PersistGate>
+      </Provider>
+    </SplashScreen>
   );
 };
 

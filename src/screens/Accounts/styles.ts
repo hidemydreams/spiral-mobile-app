@@ -3,7 +3,8 @@ import theme from '../../theme/Theme';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingVertical: 40,
+    backgroundColor: theme.colors.background,
+    flex: 1,
   },
   iconsRow: {
     flexDirection: 'row',
