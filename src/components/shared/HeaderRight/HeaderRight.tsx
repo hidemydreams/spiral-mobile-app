@@ -1,13 +1,12 @@
-import React, { ReducerState, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Modal, TouchableWithoutFeedback } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
 import { signOut } from '../../../redux/actions/loginActions';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { InitialState, useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core';
 import screens from '../../../constants/screens';
 import styles from './styles';
 import { DarkText } from '../../styledComponents';
-import { StateFromReducersMapObject } from 'redux';
 import { RootState } from '../../../redux/store';
 const USER_PROFILE_ICON = require('../../../assets/images/blank_avatar.jpeg');
 
@@ -51,7 +50,9 @@ function HeaderLeft() {
             <ListItem.Title onPress={() => dispatch(signOut())}>
               <DarkText>Logout</DarkText>
             </ListItem.Title>
-            <ListItem.Title onPress={navigateToScreen}>Profile</ListItem.Title>
+            <ListItem.Title onPress={navigateToScreen}>
+              <DarkText>Profile</DarkText>
+            </ListItem.Title>
           </ListItem.Content>
         </ListItem>
       </Modal>

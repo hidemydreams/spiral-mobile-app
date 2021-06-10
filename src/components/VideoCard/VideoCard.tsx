@@ -26,6 +26,18 @@ interface VideoCardProps {
   currentIndex: number;
 }
 
+interface IVolumevisibilityState {
+  position: string;
+  left: number;
+  top: number;
+  zIndex: number;
+  backgroundColor: string;
+  borderRadius: number;
+  width: number;
+  padding: number;
+  display: string;
+}
+
 const VideoCard: FC<VideoCardProps> = ({
   title,
   place,
@@ -35,8 +47,9 @@ const VideoCard: FC<VideoCardProps> = ({
   currentIndex,
 }): ReactElement => {
   const [isVolumeOn, setIsVolumeOn] = useState(true);
+  const [volumeIconVisibility, setVolumeIconVisibility] =
+    useState<IVolumevisibilityState>(styles.volumeIconOff);
   const navigation = useNavigation();
-
   const setVolume = () => {
     setIsVolumeOn(!isVolumeOn);
   };
@@ -45,7 +58,6 @@ const VideoCard: FC<VideoCardProps> = ({
     color: 'white',
     size: 30,
   };
-
   return (
     <View style={styles.card}>
       <View style={styles.cardTitleContainer}>
@@ -75,8 +87,11 @@ const VideoCard: FC<VideoCardProps> = ({
                 muted={isVolumeOn}
                 resizeMode="cover"
                 paused={currentIndex !== currentVisibleIndex}
+                onReadyForDisplay={() => {
+                  setVolumeIconVisibility(styles.volumeIcon);
+                }}
               />
-              <View style={styles.volumeIcon}>
+              <View style={volumeIconVisibility}>
                 <TouchableOpacity onPress={setVolume}>
                   {isVolumeOn ? (
                     <MaterialIcons name="volume-off" {...volumeIconSettings} />

@@ -79,5 +79,17 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     width: 38,
     padding: 5,
+    display: 'flex',
+  },
+  volumeIconOff: {
+    position: 'relative',
+    left: 300,
+    top: 20,
+    zIndex: 3,
+    backgroundColor: 'rgba(255,255,255, 0.3)',
+    borderRadius: 4,
+    width: 38,
+    padding: 5,
+    display: 'none',
   },
 });
