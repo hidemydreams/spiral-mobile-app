@@ -9,6 +9,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  imageWidth: { width: 1000 },
+  imageWidth: { width: 1000, position: 'relative', left: -7, top: -5 },
   whiteBg: { backgroundColor: 'white' },
 });

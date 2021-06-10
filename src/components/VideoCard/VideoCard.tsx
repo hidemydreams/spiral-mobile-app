@@ -22,7 +22,7 @@ interface VideoCardProps {
   place: string;
   timestamp: string;
   description: string;
-  currentVisibleIndex: number | string;
+  currentVisibleIndex: number | null | undefined;
   currentIndex: number;
 }
 

@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { StatusBar, FlatList, ViewToken } from 'react-native';
+import { StatusBar, FlatList, ViewToken, View } from 'react-native';
 import VideoCard from '../../components/VideoCard/VideoCard';
 import AccountsOverview from '../../components/AccountsOverview/AccountsOverview';
 import { GIVING_CARD_DATA, IGivingCardData } from '../../data/data';
@@ -13,13 +13,13 @@ interface IVideoCardProps {
 }
 
 interface IVisibleIndexState {
-  currentVisibleIndex: string | number;
+  currentVisibleIndex: null | number;
 }
 
 function Home() {
   const { theme } = useTheme();
   const [currentVisibleIndex, setCurrentVisibleIndex] =
-    useState<IVisibleIndexState['currentVisibleIndex']>('');
+    useState<IVisibleIndexState['currentVisibleIndex']>();
 
   const renderVideoCards: React.FC<IVideoCardProps> = ({
     item,
@@ -45,7 +45,7 @@ function Home() {
     if (viewableItems && viewableItems.length > 0) {
       setCurrentVisibleIndex(viewableItems[0].index);
     } else if (viewableItems.length === 0) {
-      setCurrentVisibleIndex('pause');
+      setCurrentVisibleIndex(10);
     }
   };
 
@@ -71,6 +71,7 @@ function Home() {
             <AccountsOverview />
           </>
         }
+        ListFooterComponent={<View style={{ marginBottom: 100 }} />}
         renderItem={renderVideoCards}
         keyExtractor={item => item.id}
         viewabilityConfig={viewabilityConfigCallbackPairs.current}
