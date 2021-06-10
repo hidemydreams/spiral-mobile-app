@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactChild, useEffect, useState, FC } from 'react';
 import theme from '../../theme/Theme';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { Animated, StyleSheet, View } from 'react-native';
@@ -10,7 +10,11 @@ const initialState = {
   animationDone: false,
 };
 
-const SplashScreen = ({ children }) => {
+interface ISplashScreenProps {
+  children: ReactChild;
+}
+
+const SplashScreen: FC<ISplashScreenProps> = ({ children }) => {
   const [animation, setAnimation] = useState(initialState);
 
   const colorLayer = animation.animationDone ? null : (

@@ -5,6 +5,7 @@ import AccountsOverview from '../../components/AccountsOverview/AccountsOverview
 import { GIVING_CARD_DATA, IGivingCardData } from '../../data/data';
 import Greeting from '../../components/shared/Greeting/Greeting';
 import { useTheme } from 'react-native-elements';
+import { styles } from './styles';
 
 interface IVideoCardProps {
   item: IGivingCardData;
@@ -61,7 +62,7 @@ function Home() {
   return (
     <>
       <FlatList
-        style={theme.layout.container}
+        style={[theme.layout.container]}
         data={GIVING_CARD_DATA}
         ListHeaderComponent={
           <>
