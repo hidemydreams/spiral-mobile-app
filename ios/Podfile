@@ -12,9 +12,7 @@ target 'internship' do
     :hermes_enabled => false
   )
 
-  pod 'react-native-blur', :path => '../node_modules/@react-native-community/blur'
 
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
   target 'internshipTests' do
     inherit! :complete
