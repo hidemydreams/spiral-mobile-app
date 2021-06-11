@@ -5,7 +5,7 @@ import { styles } from './styles';
 import { RouteProp } from '@react-navigation/core';
 
 type RootStackParamList = {
-  'Video Player': { videoURL: string };
+  'Video Player': { videoURL: number };
 };
 
 type VideoPlayerRouteProp = RouteProp<RootStackParamList, 'Video Player'>;
@@ -18,7 +18,7 @@ function VideoPlayer({ route }: Props): ReactElement {
   const { videoURL } = route.params;
   return (
     <View style={styles.videoContainer}>
-      <Video source={parseInt(videoURL)} style={styles.video} controls />
+      <Video source={videoURL} style={styles.video} controls />
     </View>
   );
 }

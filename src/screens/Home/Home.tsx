@@ -71,7 +71,7 @@ function Home() {
             <AccountsOverview />
           </>
         }
-        ListFooterComponent={<View style={{ marginBottom: 100 }} />}
+        ListFooterComponent={<View style={styles.container} />}
         renderItem={renderVideoCards}
         keyExtractor={item => item.id}
         viewabilityConfig={viewabilityConfigCallbackPairs.current}

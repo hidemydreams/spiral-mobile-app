@@ -7,4 +7,5 @@ export type RootStackParamList = {
   Checking: { name: string; subtitle: string };
   Savings: { name: string; subtitle: string };
   getTabBar: { name: string };
+  Profile: { name: string };
 };

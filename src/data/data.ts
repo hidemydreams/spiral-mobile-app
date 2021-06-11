@@ -66,7 +66,7 @@ export interface IAccountsListItem {
     cents: string;
   };
   icon?: boolean;
-  navigateTo?: string;
+  navigateTo: string;
   additionalInfo?: string;
   achievement?: string;
 }
@@ -104,6 +104,7 @@ export const AccountsListItemData: IAccountsListItem[] = [
       cents: '40',
     },
     icon: true,
+    navigateTo: 'Checking',
   },
 ];
 

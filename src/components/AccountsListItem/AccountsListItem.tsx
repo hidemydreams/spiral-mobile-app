@@ -3,7 +3,7 @@ import { Image, View } from 'react-native';
 import { DarkText, GreyText, StyledTextAccent } from '../styledComponents';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { useTheme } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/core';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { styles } from './styles';
 const HEART_ICON = require('../../assets/images/heart.png');
@@ -14,9 +14,13 @@ interface AccountsListItemProps {
   banknotes: string;
   cents: string;
   icon: boolean | undefined;
-  navigateTo: string | undefined;
+  navigateTo: string;
   additionalInfo: string | undefined;
   achievement: string | undefined;
+  style?: {
+    borderWidth: number;
+    borderColor: string;
+  };
 }
 
 const AccountsListItem: FC<AccountsListItemProps> = ({
@@ -27,15 +31,18 @@ const AccountsListItem: FC<AccountsListItemProps> = ({
   icon,
   navigateTo,
   achievement,
+  style,
 }): ReactElement => {
   const { theme } = useTheme();
   const navigation = useNavigation();
 
   return (
-    <View style={[styles.itemWrapper]}>
+    <View style={[styles.itemWrapper, style]}>
       <TouchableOpacity
         style={styles.item}
-        onPress={() => navigation.navigate(navigateTo, { subtitle: subtitle })}>
+        onPress={() => {
+          navigation.navigate(navigateTo, { subtitle: subtitle });
+        }}>
         <View>
           <DarkText style={styles.itemTitle}>
             {title}{' '}

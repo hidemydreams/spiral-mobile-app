@@ -9,6 +9,7 @@ import { applyChanges } from '../../redux/actions/profileActions';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { parseProfileDate } from '../../utils/getDate';
 import ImagePicker from 'react-native-image-crop-picker';
+import { RootState } from '../../redux/store';
 const USER_PROFILE_ICON = require('../../assets/images/blank_avatar.jpeg');
 
 const imagePickerOptions = {
@@ -21,7 +22,7 @@ const imagePickerOptions = {
 const Profile: FC = () => {
   const dispatch = useAppDispatch();
   const { fullName, dateOfBirth, photo } = useAppSelector(
-    state => state.profileReducer,
+    (state: RootState) => state.profileReducer,
   );
   const [isEditableMode, setIsEditableMode] = useState(false);
   const [profileName, setProfileName] = useState(fullName);

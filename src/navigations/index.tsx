@@ -10,10 +10,13 @@ import VideoPlayer from '../screens/VideoPlayer/VideoPlayer';
 import ProfileStack from './ProfileStack';
 import CheckingStack from './CheckingNavigator';
 import SavingsStack from './SavingsNavigator';
+import { RootState } from '../redux/store';
 
 function AppNavigationContainer() {
   const Stack = createStackNavigator();
-  const JWT_TOKEN = useAppSelector(state => state.loginReducer?.JWT_TOKEN);
+  const JWT_TOKEN = useAppSelector(
+    (state: RootState) => state.loginReducer?.JWT_TOKEN,
+  );
   return (
     <>
       {JWT_TOKEN ? (

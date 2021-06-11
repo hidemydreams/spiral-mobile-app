@@ -16,12 +16,15 @@ import { DarkText } from '../../components/styledComponents';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { styles } from './styles';
+import { RootState } from '../../redux/store';
 
 function SignIn() {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
-  const { loading, authError } = useAppSelector(state => state.loginReducer);
+  const { loading, authError } = useAppSelector(
+    (state: RootState) => state.loginReducer,
+  );
   const { theme } = useTheme();
 
   return (
