@@ -16,7 +16,7 @@ interface AccountsListItemProps {
   icon: boolean | undefined;
   navigateTo: string;
   additionalInfo: string | undefined;
-  achievement: string | undefined;
+  achievement?: string | undefined;
   style?: {
     borderWidth: number;
     borderColor: string;

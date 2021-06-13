@@ -18,7 +18,6 @@ function AccountsOverview(): ReactElement {
         icon={item.icon}
         navigateTo={item.navigateTo}
         additionalInfo={item.additionalInfo}
-        achievement={item.achievement}
       />
     );
   };

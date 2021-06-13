@@ -1,7 +1,7 @@
 import React, { ReactElement, useState, FC } from 'react';
 import { Image, View } from 'react-native';
 import { Button } from 'react-native-elements';
-import { DarkText, LightText } from '../styledComponents';
+import { DarkText, LightText, GreyText } from '../styledComponents';
 import { styles } from './styles';
 import Video from 'react-native-video';
 import {
@@ -65,9 +65,9 @@ const VideoCard: FC<VideoCardProps> = ({
         <View>
           <DarkText style={styles.cardTitle}>{title}</DarkText>
           <View style={styles.cardSubtitleContainer}>
-            <DarkText style={styles.cardSubtitle}>{place} </DarkText>
+            <GreyText style={styles.cardSubtitle}>{place} </GreyText>
             <View style={styles.dot} />
-            <DarkText style={styles.cardSubtitle}> {timestamp}</DarkText>
+            <GreyText style={styles.cardSubtitle}> {timestamp}</GreyText>
           </View>
         </View>
       </View>
