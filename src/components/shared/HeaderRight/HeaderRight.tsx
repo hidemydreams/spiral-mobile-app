@@ -47,11 +47,11 @@ function HeaderLeft() {
         </TouchableWithoutFeedback>
         <ListItem style={styles.userMenuContent}>
           <ListItem.Content>
-            <ListItem.Title onPress={() => dispatch(signOut())}>
-              <DarkText>Logout</DarkText>
-            </ListItem.Title>
             <ListItem.Title onPress={navigateToScreen}>
               <DarkText>Profile</DarkText>
+            </ListItem.Title>
+            <ListItem.Title onPress={() => dispatch(signOut())}>
+              <DarkText>Logout</DarkText>
             </ListItem.Title>
           </ListItem.Content>
         </ListItem>
