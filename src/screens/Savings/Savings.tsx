@@ -32,7 +32,7 @@ function Savings() {
           </View>
           <View style={styles.pointsRow}>
             <DarkText style={styles.pointsText}>Total interest gained</DarkText>
-            <StyledTextAccent>+ $50.00</StyledTextAccent>
+            <StyledTextAccent>+ $600.00</StyledTextAccent>
           </View>
         </View>
         <SearchBar />

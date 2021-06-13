@@ -3,19 +3,19 @@ import theme from '../../theme/Theme';
 
 export const styles = StyleSheet.create({
   filterButton: {
-    marginHorizontal: 10,
     borderRadius: 50,
     borderColor: theme.colors.grey,
     backgroundColor: 'transparent',
     borderWidth: 1,
+    height: 35,
   },
   filterInput: {
-    width: 250,
-    height: 40,
+    width: 280,
+    height: 35,
     borderWidth: 1,
     borderColor: theme.colors.grey,
     borderRadius: 20,
-    paddingLeft: 10,
+    paddingLeft: 20,
     backgroundColor: 'white',
   },
   filterRowContainer: {

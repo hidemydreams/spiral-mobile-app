@@ -31,6 +31,9 @@ const Profile: FC = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [show, setShow] = useState(true);
 
+  console.log(profileImage);
+  console.log(photo, 'photo');
+
   const onChange = (event: Event, selectedDate?: Date | undefined): void => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
@@ -67,7 +70,7 @@ const Profile: FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.profileInfo}>
-        {photo ? (
+        {profileImage ? (
           <Image
             style={styles.avatar}
             source={{
